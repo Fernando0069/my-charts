@@ -1,0 +1,22 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: cyberchef
+  labels:
+    app: cyberchef
+    app.kubernetes.io/part-of: ref-solutions
+    layer: tools
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations: null
+    from:
+      kind: DockerImage
+      name: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/cyberchef:latest
+    generation: 3
+    importPolicy:
+      importMode: Legacy
+    name: latest
+    referencePolicy:
+      type: Source

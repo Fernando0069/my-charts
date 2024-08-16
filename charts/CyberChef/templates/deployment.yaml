@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    uri-official: https://github.com/gchq/CyberChef.git
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"cyberchef:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"cyberchef\")].image","pause":""}]'
+  labels:
+    app: cyberchef
+    app.kubernetes.io/component: cyberchef
+    app.kubernetes.io/instance: cyberchef
+    app.kubernetes.io/name: cyberchef
+    app.kubernetes.io/part-of: ref-solutions
+    layer: tools
+  name: cyberchef
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 0
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: cyberchef
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: cyberchef
+        deployment: cyberchef
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/cyberchef:latest
+        imagePullPolicy: Always
+        name: cyberchef
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        - containerPort: 8443
+          name: https
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

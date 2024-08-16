@@ -1,0 +1,42 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: cyberchef
+  labels:
+    app: cyberchef
+    app.kubernetes.io/part-of: ref-solutions
+    layer: tools
+spec:
+  failedBuildsHistoryLimit: 5
+  successfulBuildsHistoryLimit: 5
+  nodeSelector: null
+  postCommit: {}
+  runPolicy: Serial
+  resources:
+    limits:
+      cpu: "2"
+      memory: 4Gi
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/Fernando0069/charts.git'
+      ref: main
+    contextDir: /CyberChef
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  output:
+    to:
+      kind: ImageStreamTag
+      name: cyberchef:latest
+  triggers:
+  - generic:
+      secretReference:
+        name: cyberchef-generic-webhook
+    type: Generic
+  - github:
+      secretReference:
+        name: cyberchef-github-webhook
+    type: GitHub
+  - type: ConfigChange

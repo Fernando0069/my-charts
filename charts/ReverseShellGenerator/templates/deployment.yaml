@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"reverseshellgenerator:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"container\")].image","pause":""}]'
+    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
+  name: reverseshellgenerator
+  namespace: fernando0069-dev
+  labels:
+    app: reverseshellgenerator
+    app.kubernetes.io/component: reverseshellgenerator
+    app.kubernetes.io/instance: reverseshellgenerator
+    app.kubernetes.io/name: reverseshellgenerator
+    app.kubernetes.io/part-of: ref-solutions
+    layer: tools
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 0
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: reverseshellgenerator
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: reverseshellgenerator
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
+        imagePullPolicy: IfNotPresent
+        name: container
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        - containerPort: 8443
+          name: https
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

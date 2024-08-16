@@ -1,0 +1,21 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: cyberchef
+    app.kubernetes.io/part-of: ref-solutions
+    layer: tools
+  name: cyberchef
+spec:
+  port:
+    targetPort: http
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: cyberchef
+    weight: 100
+  wildcardPolicy: None

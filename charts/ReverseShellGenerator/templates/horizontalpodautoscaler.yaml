@@ -1,0 +1,30 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: reverseshellgenerator
+  namespace: fernando0069-dev
+  labels:
+    app: reverseshellgenerator
+    app.kubernetes.io/component: reverseshellgenerator
+    app.kubernetes.io/part-of: ref-solutions
+    layer: tools
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: reverseshellgenerator
+    apiVersion: apps/v1
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          averageUtilization: 70
+          type: Utilization
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 70
