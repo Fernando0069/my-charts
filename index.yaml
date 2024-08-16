@@ -3,56 +3,56 @@ entries:
   CyberChef:
   - apiVersion: v2
     appVersion: 10.19.0
-    created: "2024-08-16T12:54:14.564753038+02:00"
+    created: "2024-08-16T13:24:48.768765327+02:00"
     description: A Helm chart for Kubernetes
     digest: eaaab2db528e353e371111ca8966e54d32642e9d3c372237895e8effbfb6664e
     name: CyberChef
     type: application
     urls:
-    - CyberChef-0.1.0.tgz
+    - https://github.com/Fernando0069/my-charts/packages/CyberChef-0.1.0.tgz
     version: 0.1.0
   ReverseShellGenerator:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-08-16T12:54:14.565209892+02:00"
+    created: "2024-08-16T13:24:48.76923451+02:00"
     description: A Helm chart for Kubernetes
     digest: f52a3450c487ef33817ef93a26096272f9d4a4576a0be85565c818726a7123c8
     name: ReverseShellGenerator
     type: application
     urls:
-    - ReverseShellGenerator-0.1.0.tgz
+    - https://github.com/Fernando0069/my-charts/packages/ReverseShellGenerator-0.1.0.tgz
     version: 0.1.0
   Web:
   - apiVersion: v2
     appVersion: 0.10.0
-    created: "2024-08-16T12:54:14.565753719+02:00"
+    created: "2024-08-16T13:24:48.769849835+02:00"
     description: A Helm chart for Kubernetes
     digest: 75fa3efba3c107def2d6a5f50b015f274e84caad2b8add485099420b08c72693
     name: Web
     type: application
     urls:
-    - Web-0.1.0.tgz
+    - https://github.com/Fernando0069/my-charts/packages/Web-0.1.0.tgz
     version: 0.1.0
   app1:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-08-16T12:54:14.566230849+02:00"
+    created: "2024-08-16T13:24:48.770301007+02:00"
     description: A Helm chart for Kubernetes
     digest: 0d0a5b7c42cece7c996846f4216581347bbc785e96b3cd5d58751e8522a1854e
     name: app1
     type: application
     urls:
-    - app1-0.1.0.tgz
+    - https://github.com/Fernando0069/my-charts/packages/app1-0.1.0.tgz
     version: 0.1.0
   app2:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-08-16T12:54:14.56666536+02:00"
+    created: "2024-08-16T13:24:48.770778796+02:00"
     description: A Helm chart for Kubernetes
     digest: c3ee0ff1f918be93c8a4b41090c73d5d7710dc3b2febc9cd3c5e345b3efd9fbd
     name: app2
     type: application
     urls:
-    - app2-0.1.0.tgz
+    - https://github.com/Fernando0069/my-charts/packages/app2-0.1.0.tgz
     version: 0.1.0
-generated: "2024-08-16T12:54:14.564009425+02:00"
+generated: "2024-08-16T13:24:48.768088859+02:00"
