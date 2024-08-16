@@ -42,7 +42,7 @@ entries:
     name: app1
     type: application
     urls:
-    - https://github.com/Fernando0069/my-charts/packages/app1-0.1.0.tgz
+    - ./packages/app1-0.1.0.tgz
     version: 0.1.0
   app2:
   - apiVersion: v2
