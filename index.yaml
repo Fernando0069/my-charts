@@ -42,7 +42,7 @@ entries:
     name: app1
     type: application
     urls:
-    - ./packages/app1-0.1.0.tgz
+    - app1-0.1.0.tgz
     version: 0.1.0
   app2:
   - apiVersion: v2
