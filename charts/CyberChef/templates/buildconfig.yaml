@@ -5,7 +5,11 @@ metadata:
   labels:
     app: cyberchef
     app.kubernetes.io/part-of: ref-solutions
-    layer: tools
+    layer: tools   
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: cyberchef
+    app.kubernetes.io/version: '0.1.0'
+    helm.sh/chart: cyberchef-1.16.0    
 spec:
   failedBuildsHistoryLimit: 5
   successfulBuildsHistoryLimit: 5
