@@ -9,7 +9,7 @@ entries:
     name: CyberChef
     type: application
     urls:
-    - https://github.com/Fernando0069/my-charts/packages/CyberChef-0.1.0.tgz
+    - CyberChef-0.1.0.tgz
     version: 0.1.0
   ReverseShellGenerator:
   - apiVersion: v2
@@ -20,7 +20,7 @@ entries:
     name: ReverseShellGenerator
     type: application
     urls:
-    - https://github.com/Fernando0069/my-charts/downloads/ReverseShellGenerator-0.1.0.tgz
+    - ReverseShellGenerator-0.1.0.tgz
     version: 0.1.0
   Web:
   - apiVersion: v2
@@ -31,7 +31,7 @@ entries:
     name: Web
     type: application
     urls:
-    - https://github.com/Fernando0069/my-charts/downloads/Web-0.1.0.tgz
+    - Web-0.1.0.tgz
     version: 0.1.0
   app1:
   - apiVersion: v2
@@ -53,6 +53,6 @@ entries:
     name: app2
     type: application
     urls:
-    - https://github.com/Fernando0069/my-charts/downloads/app2-0.1.0.tgz
+    - app2-0.1.0.tgz
     version: 0.1.0
 generated: "2024-08-16T13:24:48.768088859+02:00"
