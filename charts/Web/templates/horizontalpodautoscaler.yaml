@@ -1,0 +1,30 @@
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    app.kubernetes.io/part-of: ref-solutions
+    layer: tools
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: {{ .Values.name }}
+    apiVersion: apps/v1
+  minReplicas: {{ .Values.replica.min }}
+  maxReplicas: {{ .Values.replica.max }}
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.metrics.utilization.cpu }}
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.metrics.utilization.mem }}
