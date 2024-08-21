@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-test-connection
+  labels:
+    app: web-test-connection
+    app.kubernetes.io/component: web-test-connection
+    app.kubernetes.io/instance: web-test-connection
+    app.kubernetes.io/name: web-test-connection
+    app.kubernetes.io/part-of: ref-solutions
+    layer: web-test-connection
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/version: {{ .Values.version }}
+    helm.sh/chart: {{ .Values.name }}-{{ .Values.appversion }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['web:80']
+  restartPolicy: Never
+
+
+
+
+
+  labels:
+    app: web
+    app.kubernetes.io/component: web
+    app.kubernetes.io/instance: web
+    app.kubernetes.io/name: web
+    app.kubernetes.io/part-of: ref-solutions
+    layer: web
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/version: {{ .Values.version }}
+    helm.sh/chart: {{ .Values.name }}-{{ .Values.appversion }}
