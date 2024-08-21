@@ -10,3 +10,7 @@ resources:
   requests:
     cpu: "100m"
     memory: 128Mi
+metrics:
+  utilization:
+    cpu: 70
+    mem: 70
