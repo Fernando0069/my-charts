@@ -14,8 +14,8 @@ metadata:
     app.kubernetes.io/version: {{ .Values.version }}
     helm.sh/chart: {{ .Values.name }}-{{ .Values.appversion }}
 spec:
+  replicas: {{ .Values.replica.min }}
   progressDeadlineSeconds: 600
-  replicas: 0
   revisionHistoryLimit: 10
   selector:
     matchLabels:
