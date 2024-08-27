@@ -14,12 +14,12 @@ helm install web apps/Web
 
 ### Install CyberChef Application:
 ```
-helm install cyberchef apps/cyberchef
+helm install cyberchef apps/CyberChef
 ```
 
 ### Install ReverseShellGenerator Application:
 ```
-helm install reverseshellgenerator apps/reverseshellgenerator
+helm install reverseshellgenerator apps/ReverseShellGenerator
 ```
 
 ### Install Application 1:
