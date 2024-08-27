@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
   labels:
     app: web
-    app.kubernetes.io/component: web
-    app.kubernetes.io/instance: web
-    app.kubernetes.io/name: web
+    app.kubernetes.io/component: {{ .Values.name }}
+    app.kubernetes.io/instance: {{ .Values.name }}
+    app.kubernetes.io/name: {{ .Values.name }}
     app.kubernetes.io/part-of: ref-solutions
     layer: web
     app.kubernetes.io/managed-by: Helm
@@ -19,7 +19,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: web
+      app: {{ .Values.name }}
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -29,13 +29,13 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: web
-        deployment: web
+        app: {{ .Values.name }}
+        deployment: {{ .Values.name }}
     spec:
       containers:
-      - image: registry.access.redhat.com/ubi9/httpd-24:latest
+      - name: {{ .Values.name }}
+        image: registry.access.redhat.com/ubi9/httpd-24:latest
         imagePullPolicy: Always
-        name: web
         ports:
         - name: http
           containerPort: 8080
