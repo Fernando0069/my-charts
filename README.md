@@ -9,25 +9,25 @@ helm repo add apps https://fernando0069.github.io/my-charts/
 
 ### Install Web Application:
 ```
-helm install apps/web
+helm install web apps/Web
 ```
 
 ### Install CyberChef Application:
 ```
-helm install apps/cyberchef
+helm install cyberchef apps/cyberchef
 ```
 
 ### Install ReverseShellGenerator Application:
 ```
-helm install apps/reverseshellgenerator
+helm install reverseshellgenerator apps/reverseshellgenerator
 ```
 
 ### Install Application 1:
 ```
-helm install apps/app1
+helm install app1 apps/app1
 ```
 
 ### Install Application 2:
 ```
-helm install apps/app2
+helm install app2 apps/app2
 ```
