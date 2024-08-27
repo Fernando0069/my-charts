@@ -20,4 +20,8 @@ spec:
       image: busybox
       command: ['wget']
       args: ['web:80']
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['web:443']
   restartPolicy: Never
