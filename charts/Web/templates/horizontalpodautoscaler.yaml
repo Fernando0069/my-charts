@@ -13,18 +13,18 @@ spec:
     kind: Deployment
     name: {{ .Values.name }}
     apiVersion: apps/v1
-  minReplicas: {{ .Values.replica.min }}
-  maxReplicas: {{ .Values.replica.max }}
+  minReplicas: 1
+  maxReplicas: 2
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: {{ .Values.metrics.utilization.cpu }}
+          averageUtilization: 70
     - type: Resource
       resource:
         name: memory
         target:
           type: Utilization
-          averageUtilization: {{ .Values.metrics.utilization.mem }}
+          averageUtilization: 70
