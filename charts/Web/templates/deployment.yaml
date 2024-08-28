@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     info/helm/chart-version: {{ .Chart.Name }}-{{ .Chart.Version }}
     info/helm/app-version: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
-    info/layer: {{ .Chart.Name }}    
+    info/layer: {{ .Values.info.layer }}    
 spec:
   replicas: {{ .Values.replica.min }}
   progressDeadlineSeconds: 600
