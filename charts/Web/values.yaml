@@ -4,12 +4,14 @@ replica:
   max: 2
 resources:
   limits:
-    cpu: "1"
+    cpu: 1
     memory: 2Gi
   requests:
-    cpu: "100m"
+    cpu: 100m
     memory: 128Mi
 metrics:
   utilization:
     cpu: 70
     mem: 70
+info:
+  layer: front
