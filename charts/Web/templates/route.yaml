@@ -1,13 +1,13 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: web
+  name: {{ .Chart.Name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: web
-    app.kubernetes.io/component: web
+    app: {{ .Chart.Name }}
+    app.kubernetes.io/component: {{ .Chart.Name }}
     app.kubernetes.io/part-of: ref-solutions
-    layer: web
+    layer: {{ .Chart.Name }}
 spec:
   port:
     targetPort: http
@@ -15,6 +15,6 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: web
+    name: {{ .Chart.Name }}
     weight: 100
   wildcardPolicy: None
