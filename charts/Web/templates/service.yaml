@@ -11,6 +11,12 @@ metadata:
     info/helm/chart-version: {{ .Chart.Name }}-{{ .Chart.Version }}
     info/helm/app-version: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
     info/layer: {{ .Values.info.layer }}
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name:  {{ .Chart.Name }}
+      controller: true
+      blockOwnerDeletion: true
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
