@@ -14,12 +14,12 @@ metadata:
     app.kubernetes.io/version: {{ .Chart.Version }}
     helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
 spec:
-  replicas: {{ .Values.name }}
+  replicas: {{ .Values.replica.min }}
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: {{ .Values.replica.min }}
+      app: {{ .Values.name }}
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -27,7 +27,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: {{ .Values.name }}
         deployment: {{ .Values.name }}
