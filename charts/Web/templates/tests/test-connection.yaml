@@ -10,8 +10,9 @@ metadata:
     app.kubernetes.io/part-of: ref-solutions
     layer: web-test-connection
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/version: {{ .Values.version }}
-    helm.sh/chart: {{ .Values.name }}-{{ .Values.appversion }}
+    app.kubernetes.io/version: {{ .Chart.Version }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    helm.sh/app: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
   annotations:
     "helm.sh/hook": test
 spec:
