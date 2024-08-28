@@ -11,15 +11,15 @@ metadata:
     app.kubernetes.io/part-of: ref-solutions
     layer: web
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/version: {{ .Values.version }}
-    helm.sh/chart: {{ .Values.name }}-{{ .Values.appversion }}
+    app.kubernetes.io/version: {{ .Chart.version }}
+    helm.sh/chart: {{ .Values.name }}-{{ .Chart.appversion }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.name }}
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      app: {{ .Values.replica.min }}
   strategy:
     rollingUpdate:
       maxSurge: 25%
