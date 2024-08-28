@@ -1,12 +1,11 @@
 namespace: fernando0069-dev
-name: web
 replica:
   min: 1
   max: 2
 resources:
   limits:
-    cpu: "2"
-    memory: 4Gi
+    cpu: "1"
+    memory: 2Gi
   requests:
     cpu: "100m"
     memory: 128Mi
