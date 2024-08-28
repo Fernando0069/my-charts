@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: {{ .Chart.Name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: web
-    app.kubernetes.io/component: web
+    app: {{ .Chart.Name }}
+    app.kubernetes.io/component: {{ .Chart.Name }}
     app.kubernetes.io/part-of: ref-solutions
-    layer: web
+    layer: {{ .Chart.Name }}
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -23,6 +23,6 @@ spec:
     protocol: TCP
     targetPort: 8443
   selector:
-    app: web
+    app: {{ .Chart.Name }}
   sessionAffinity: None
   type: ClusterIP
