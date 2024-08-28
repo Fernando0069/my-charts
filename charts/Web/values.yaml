@@ -1,7 +1,13 @@
+info:
+  layer: front
+metrics:
+  utilization:
+    cpu: 70
+    mem: 70
 namespace: fernando0069-dev
 replica:
-  min: 1
   max: 2
+  min: 1
 resources:
   limits:
     cpu: 1
@@ -9,9 +15,3 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-metrics:
-  utilization:
-    cpu: 70
-    mem: 70
-info:
-  layer: front
