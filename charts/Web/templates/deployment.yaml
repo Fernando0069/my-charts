@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}
+  name: {{ .Chart.Name }}
   namespace: {{ .Values.namespace }}
   labels:
     app: web
@@ -11,8 +11,8 @@ metadata:
     app.kubernetes.io/part-of: ref-solutions
     layer: web
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/version: {{ .Chart.version }}
-    helm.sh/chart: {{ .Values.name }}-{{ .Chart.appversion }}
+    app.kubernetes.io/version: {{ .Chart.Version }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Appversion }}
 spec:
   replicas: {{ .Values.name }}
   progressDeadlineSeconds: 600
