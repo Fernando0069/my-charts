@@ -12,13 +12,6 @@ metadata:
     helm.app-version: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
     info.layer: {{ .Values.info.layer }}
 spec:
-  selector:
-    matchLabels:
-      deployment: {{ .Chart.Name }}
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
   internalTrafficPolicy: Cluster
   ipFamilies:
   - IPv4
