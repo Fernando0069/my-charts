@@ -25,7 +25,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}
+        deployment: {{ .Chart.Name }}
     spec:
       containers:
       - name: {{ .Chart.Name }}
