@@ -20,8 +20,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: {{ .Values.name }}
-  strategy:
+      app: {{ .Chart.Name }}
     rollingUpdate:
       maxSurge: 25%
       maxUnavailable: 25%
@@ -29,11 +28,11 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
-        deployment: {{ .Values.name }}
+        app: {{ .Chart.Name }}
+        deployment: {{ .Chart.Name }}
     spec:
       containers:
-      - name: {{ .Values.name }}
+      - name: {{ .Chart.Name }}
         image: registry.access.redhat.com/ubi9/httpd-24:latest
         imagePullPolicy: Always
         ports:
