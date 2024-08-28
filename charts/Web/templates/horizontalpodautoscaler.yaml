@@ -1,17 +1,17 @@
 kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2
 metadata:
-  name: {{ .Values.name }}
+  name: {{ .Chart.Name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.name }}
-    app.kubernetes.io/component: {{ .Values.name }}
+    app: {{ .Chart.Name }}
+    app.kubernetes.io/component: {{ .Chart.Name }}
     app.kubernetes.io/part-of: ref-solutions
-    layer: {{ .Values.name }}
+    layer: {{ .Chart.Name }}
 spec:
   scaleTargetRef:
     kind: Deployment
-    name: {{ .Values.name }}
+    name: {{ .Chart.Name }}
     apiVersion: apps/v1
   minReplicas: 1
   maxReplicas: 2
