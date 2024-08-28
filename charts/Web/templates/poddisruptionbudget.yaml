@@ -15,4 +15,4 @@ spec:
   minAvailable: {{ .Values.replica.min }}
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      deployment: {{ .Chart.Name }}
