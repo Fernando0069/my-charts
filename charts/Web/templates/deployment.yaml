@@ -17,7 +17,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      deployment: {{ .Chart.Name }}
     rollingUpdate:
       maxSurge: 25%
       maxUnavailable: 25%
