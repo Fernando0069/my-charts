@@ -4,15 +4,16 @@ metadata:
   name: {{ .Chart.Name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: web
+    app: {{ .Chart.Name }}
     app.kubernetes.io/component: {{ .Values.name }}
     app.kubernetes.io/instance: {{ .Values.name }}
     app.kubernetes.io/name: {{ .Values.name }}
     app.kubernetes.io/part-of: ref-solutions
-    layer: web
+    layer: {{ .Chart.Name }}
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/version: {{ .Chart.Version }}
-    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    helm.sh/app: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
 spec:
   replicas: {{ .Values.replica.min }}
   progressDeadlineSeconds: 600
