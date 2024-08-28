@@ -1,17 +1,17 @@
 kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2
 metadata:
-  name: web
-  namespace: fernando0069-dev
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: web
-    app.kubernetes.io/component: web
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
     app.kubernetes.io/part-of: ref-solutions
-    layer: web
+    layer: {{ .Values.name }}
 spec:
   scaleTargetRef:
     kind: Deployment
-    name: web
+    name: {{ .Values.name }}
     apiVersion: apps/v1
   minReplicas: 1
   maxReplicas: 2
