@@ -4,10 +4,13 @@ metadata:
   name: {{ .Chart.Name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Chart.Name }}
-    app.kubernetes.io/component: {{ .Chart.Name }}
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Chart.Name }}
     app.kubernetes.io/part-of: ref-solutions
-    layer: {{ .Chart.Name }}
+    app.kubernetes.io/managed-by: Helm
+    info/helm/chart-version: {{ .Chart.Name }}-{{ .Chart.Version }}
+    info/helm/app-version: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
+    info/layer: {{ .Chart.Name }}
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -23,6 +26,6 @@ spec:
     protocol: TCP
     targetPort: 8443
   selector:
-    app: {{ .Chart.Name }}
+    deployment: {{ .Chart.Name }}
   sessionAffinity: None
   type: ClusterIP
