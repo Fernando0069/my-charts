@@ -21,3 +21,10 @@ spec:
     name: {{ .Chart.Name }}
     weight: 100
   wildcardPolicy: None
+  selector:
+    matchLabels:
+      deployment: {{ .Chart.Name }}
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
