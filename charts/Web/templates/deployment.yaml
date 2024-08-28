@@ -12,7 +12,7 @@ metadata:
     layer: web
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/version: {{ .Chart.Version }}
-    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Appversion }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
 spec:
   replicas: {{ .Values.name }}
   progressDeadlineSeconds: 600
