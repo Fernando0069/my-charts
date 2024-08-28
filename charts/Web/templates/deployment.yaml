@@ -5,9 +5,9 @@ metadata:
   namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Chart.Name }}
-    app.kubernetes.io/component: {{ .Values.name }}
-    app.kubernetes.io/instance: {{ .Values.name }}
-    app.kubernetes.io/name: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Chart.Name }}
+    app.kubernetes.io/name: {{ .Chart.Name }}
     app.kubernetes.io/part-of: ref-solutions
     layer: {{ .Chart.Name }}
     app.kubernetes.io/managed-by: Helm
