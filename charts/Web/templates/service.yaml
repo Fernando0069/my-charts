@@ -25,12 +25,5 @@ spec:
     port: 8443
     protocol: TCP
     targetPort: 8443
-  selector:
-    matchLabels:
-      deployment: {{ .Chart.Name }}
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
   sessionAffinity: None
   type: ClusterIP
