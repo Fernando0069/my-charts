@@ -3,16 +3,13 @@ kind: Pod
 metadata:
   name: web-test-connection
   labels:
-    app: web-test-connection
-    app.kubernetes.io/component: web-test-connection
-    app.kubernetes.io/instance: web-test-connection
     app.kubernetes.io/name: web-test-connection
+    app.kubernetes.io/instance: {{ .Chart.Name }}
     app.kubernetes.io/part-of: ref-solutions
-    layer: web-test-connection
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/version: {{ .Chart.Version }}
-    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    helm.sh/app: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
+    helm.chart-version: {{ .Chart.Name }}-{{ .Chart.Version }}
+    helm.app-version: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
+    info.layer: {{ .Values.info.layer }}
   annotations:
     "helm.sh/hook": test
 spec:
