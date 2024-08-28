@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     info/helm/chart-version: {{ .Chart.Name }}-{{ .Chart.Version }}
     info/helm/app-version: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
-    info/layer: {{ .Values.layer }}
+    info/layer: {{ .Values.info.layer }}
   ownerReferences:
     - apiVersion: argoproj.io/v1alpha1
       kind: Deployment
