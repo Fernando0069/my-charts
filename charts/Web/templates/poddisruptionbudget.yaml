@@ -1,15 +1,15 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ .Values.name }}
+  name: {{ .Chart.Name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.name }}
-    app.kubernetes.io/component: {{ .Values.name }}
+    app: {{ .Chart.Name }}
+    app.kubernetes.io/component: {{ .Chart.Name }}
     app.kubernetes.io/part-of: ref-solutions
-    layer: {{ .Values.name }}
+    layer: {{ .Chart.Name }}
 spec:
   minAvailable: {{ .Values.replica.min }}
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      app: {{ .Chart.Name }}
