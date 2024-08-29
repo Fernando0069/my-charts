@@ -1,0 +1,7 @@
+1. Esta aplicación despliega una página web.
+   - Despliega un ConfigMap.
+   - Despliega un Deployment.
+   - Despliega un HorizontalPodAutoscaler.
+   - Despliega un PodDisruptionBudget.
+   - Despliega un Service.
+   - Despliega un Route.
