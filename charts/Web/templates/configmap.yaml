@@ -21,8 +21,26 @@ data:
             AllowOverride All
             Require all granted
         </Directory>
+
+        # Activa el motor de reescritura
         RewriteEngine On
-        RewriteRule ^/cyberchef$ http://cyberchef:8080/ [P]
+
+        # Redirige todas las rutas bajo /cyberchef hacia el servicio backend
+        RewriteRule ^/cyberchef(.*)$ http://cyberchef:8080$1 [P]
+
+        # Configuración de ProxyPass y ProxyPassReverse para cyberchef
+        ProxyPass /cyberchef/ http://cyberchef:8080/
+        ProxyPassReverse /cyberchef/ http://cyberchef:8080/
+
+        # Filtro y reescritura de URLs para /cyberchef
+        <Location /cyberchef/>
+            ProxyPassReverse /
+            RequestHeader unset Accept-Encoding
+        </Location>
+
+        # Logs (opcional, para depuración)
+        ErrorLog /var/log/httpd/cyberchef-error.log
+        CustomLog /var/log/httpd/cyberchef-access.log combined
     </VirtualHost>
   01-ssl.conf: |
     DATE FILE
