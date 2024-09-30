@@ -35,16 +35,16 @@ spec:
               cpu: 10m
               memory: 128Mi
           volumeMounts:
-            - name: pvc-db-gc
+            - name: volume-db-gc
               mountPath: /var/lib/postgresql/data
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
       restartPolicy: Always
       volumes:
-        - name: volume-postgres-gc
+        - name: volume-db-gc
           persistentVolumeClaim:
-            claimName: volume-postgres-gc
+            claimName: pvc-db-gc
   strategy:
     type: RollingUpdate
     rollingUpdate:
