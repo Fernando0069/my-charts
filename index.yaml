@@ -3,7 +3,7 @@ entries:
   CyberChef:
   - apiVersion: v2
     appVersion: 10.19.0
-    created: "2024-09-30T09:30:52.533732368Z"
+    created: "2024-09-30T09:44:20.530429867Z"
     description: A Helm chart for Kubernetes
     digest: 8a92822a89749ded58835532b9113884a7c13db38641d390479a8536100737a0
     name: CyberChef
@@ -11,21 +11,21 @@ entries:
     urls:
     - apps/CyberChef-0.1.0.tgz
     version: 0.1.0
-  DT-100 - Guardia Civil:
+  DT-100-Guardia_Civil:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-09-30T09:30:52.534160415Z"
+    created: "2024-09-30T09:44:20.531266391Z"
     description: A Helm chart for Kubernetes
-    digest: 66bde2ed65f8f791ef802a27dfe8a632e25ac8bbdffd471a94f7f271b6d6615b
-    name: DT-100 - Guardia Civil
+    digest: 092ded8f7d92957449c768d838e5f5786154eb3dd54a8ba467f8120de562ebe3
+    name: DT-100-Guardia_Civil
     type: application
     urls:
-    - apps/DT-100%20-%20Guardia%20Civil-0.1.0.tgz
+    - apps/DT-100-Guardia_Civil-0.1.0.tgz
     version: 0.1.0
   ReverseShellGenerator:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-09-30T09:30:52.534560886Z"
+    created: "2024-09-30T09:44:20.531693316Z"
     description: A Helm chart for Kubernetes
     digest: a8ead20f0302fb1651e2cfa9f2984eaa21fb6614db28d0a3eb918e6bc487b2f4
     name: ReverseShellGenerator
@@ -36,7 +36,7 @@ entries:
   app1:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-09-30T09:30:52.535850686Z"
+    created: "2024-09-30T09:44:20.532951817Z"
     description: A Helm chart for Kubernetes
     digest: 4877522acbc06ec56b7282b163562021857f5cd98cc839b284dd5f1cb0c724c5
     name: app1
@@ -46,7 +46,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-09-30T09:30:52.535427667Z"
+    created: "2024-09-30T09:44:20.532525173Z"
     description: A Helm chart for Kubernetes
     digest: 469f3cd7992e7cda67fd099445ebf531da8484e02fa39d8cc23a787046623d64
     name: app1
@@ -56,7 +56,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-09-30T09:30:52.535048341Z"
+    created: "2024-09-30T09:44:20.532144833Z"
     description: A Helm chart for Kubernetes
     digest: f557a6fb9cf246839dc78a97ceeca97c07d30a3a49d9ca5980722a171cf98af4
     name: app1
@@ -67,7 +67,7 @@ entries:
   app2:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-09-30T09:30:52.536237317Z"
+    created: "2024-09-30T09:44:20.533358034Z"
     description: A Helm chart for Kubernetes
     digest: 3dfd18e359547c4e6c119783325e6d7ff86a4bdc79617350f91474568448d0f3
     name: app2
@@ -78,7 +78,7 @@ entries:
   web:
   - apiVersion: v2
     appVersion: 0.1.3
-    created: "2024-09-30T09:30:52.536649523Z"
+    created: "2024-09-30T09:44:20.533768854Z"
     description: A Helm chart for Kubernetes
     digest: b73f7a1ba6d5fddb6b1cc61faa85b91265005654dc3eed8c7bd3672452fdcb9b
     name: web
@@ -86,4 +86,4 @@ entries:
     urls:
     - apps/web-0.1.2.tgz
     version: 0.1.2
-generated: "2024-09-30T09:30:52.533170738Z"
+generated: "2024-09-30T09:44:20.529247628Z"
