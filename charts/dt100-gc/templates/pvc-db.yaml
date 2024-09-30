@@ -13,5 +13,5 @@ spec:
   resources:
     requests:
       storage: 1 Gi
-  storageClassName: ontap-san
+  storageClassName: gp2
   volumeMode: Filesystem
