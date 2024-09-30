@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bbdd-postgress-gc
+  name: db-gc
   namespace: fernando0069-dev
   labels:
-    app: dt100-db-gc
+    app: db-gc
     app.kubernetes.io/component: dt100-gc
     app.kubernetes.io/part-of: ref-solutions
 spec:
@@ -13,4 +13,4 @@ spec:
       port: 5432
       targetPort: 5432
   selector:
-    app: "dt100-db-gc"
+    app: "db-gc"
