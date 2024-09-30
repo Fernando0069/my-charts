@@ -11,7 +11,7 @@ spec:
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   ports:
-    - name: 5432
+    - name: postgres
       port: 5432
       targetPort: 5432
   selector:
