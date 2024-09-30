@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bbdd-postgress-gc
+  namesapce: fernado0069-dev
+  labels:
+    app: "dt100-gc"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "dt100-gc"
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: "dt100-gc"
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_PASSWORD
+              value: 84lGNjz4
+          image: snoopy.ocp.ses.mir.es/krypto-dt100/postgres:latest
+          name: postgres-guardia
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: volume-postgres-gc
+      hostname: postgres-guardia
+      restartPolicy: Always
+      volumes:
+        - name: volume-postgres-gc
+          persistentVolumeClaim:
+            claimName: volume-postgres-gc
