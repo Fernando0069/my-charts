@@ -1,13 +1,17 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: volume-postgres-gc
+  name: pvc-db-gc
   namesapce: fernando0069-dev
   labels:
-    app: dt100-gc  
+    app: db-gc
+    app.kubernetes.io/component: dt100-gc
+    app.kubernetes.io/part-of: ref-solutions
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1 Gi
+  storageClassName: ontap-san
+  volumeMode: Filesystem
