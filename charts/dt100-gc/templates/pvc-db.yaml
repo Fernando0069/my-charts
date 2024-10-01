@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-db-gc
+  name: pvc-db
   namesapce: fernando0069-dev
   labels:
     app: db-gc
     app.kubernetes.io/component: dt100-gc
+    component: dt100-{{ Values.enviroment }}
     app.kubernetes.io/part-of: ref-solutions
 spec:
   accessModes:
