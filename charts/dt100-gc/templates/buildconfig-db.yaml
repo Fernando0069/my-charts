@@ -1,10 +1,10 @@
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: postgresql-16
+  name: db-gc
   namespace: fernando0069-dev
   labels:
-    app: postgresql-16
+    app: db-gc
     app.kubernetes.io/component: postgresql-16
     app.kubernetes.io/instance: postgresql-16
 spec:
