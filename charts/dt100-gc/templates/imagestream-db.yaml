@@ -1,0 +1,19 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: postgresql-16
+  namespace: fernando0069-dev
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: latest
+      annotations: null
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/rhel9/postgresql-16
+      generation: 1
+      importPolicy:
+        importMode: Legacy
+      referencePolicy:
+        type: Source
