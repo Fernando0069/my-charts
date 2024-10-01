@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: db-gc
+  name: db
   namespace: fernando0069-dev
   labels:
     app: db-gc
@@ -18,28 +18,28 @@ spec:
         app: db-gc
     spec:
       containers:
-        - name: db-gc
+        - name: db
           image: 'registry.access.redhat.com/rhel9/postgresql-16:latest'
           env:
             - name: POSTGRESQL_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: dt100-gc
+                  name: dt100
                   key: db
             - name: POSTGRESQL_USER
               valueFrom:
                 secretKeyRef:
-                  name: dt100-gc
+                  name: dt100
                   key: db_user
             - name: POSTGRESQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: dt100-gc
+                  name: dt100
                   key: db_password
             - name: POSTGRESQL_ADMIN_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: dt100-gc
+                  name: dt100
                   key: db_admin_password
           ports:
             - name: postgres
