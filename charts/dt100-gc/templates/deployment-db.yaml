@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: db-gc
-          image: snoopy.ocp.ses.mir.es/krypto-dt100/postgres:latest
+          image: 'registry.access.redhat.com/rhel9/postgresql-16:latest'
           env:
             - name: POSTGRESQL_DATABASE
               valueFrom:
@@ -31,21 +31,26 @@ spec:
                 secretKeyRef:
                   name: dt100-gc
                   key: db_user
-            - name: POSTGRES_PASSWORD
+            - name: POSTGRESQL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: dt100-gc
                   key: db_password
+            - name: POSTGRESQL_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dt100-gc
+                  key: db_admin_password
           ports:
             - name: postgres
               containerPort: 5432
               protocol: TCP
           resources:
             limits:
-              cpu: 50m
+              cpu: 100m
               memory: 1Gi
             requests:
-              cpu: 10m
+              cpu: 30m
               memory: 128Mi
           volumeMounts:
             - name: volume-db-gc
