@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+  namespace: fernando0069-dev
+  labels:
+    app: db-gc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-gc
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: db-gc
+    spec:
+      containers:
+        - name: db
+          image: {{ Values.image.db }}
+          env:
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: dt100
+                  key: db
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: dt100
+                  key: db_user
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dt100
+                  key: db_password
+            - name: POSTGRESQL_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dt100
+                  key: db_admin_password
+          ports:
+            - name: postgres
+              containerPort: 5432
+              protocol: TCP
+          resources:
+            limits:
+              cpu: {{ Values.resources.limits.cpu-db }}
+              memory: {{ Values.resources.limits.memory-db }}
+            requests:
+              cpu: 30m
+              memory: 128Mi
+          volumeMounts:
+            - name: volume-db-gc
+              mountPath: /var/lib/postgresql/data
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      volumes:
+        - name: volume-db-gc
+          persistentVolumeClaim:
+            claimName: pvc-db
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
