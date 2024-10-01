@@ -12,6 +12,6 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1 Gi
+      storage: 1Gi
   storageClassName: gp2
   volumeMode: Filesystem
