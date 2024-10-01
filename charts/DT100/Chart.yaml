@@ -1,0 +1,10 @@
+name: DT-100
+description: A Helm chart for Kubernetes
+type: application
+
+# Version of Helm 
+apiVersion: v2
+# Version of the application 
+appVersion: 1.0.0
+# Packaging version
+version: 0.1.0
