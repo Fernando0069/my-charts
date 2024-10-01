@@ -48,8 +48,8 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: {{ .Values.resources.limits.cpu-db }}
-              memory: {{ .Values.resources.limits.memory-db }}
+              cpu: {{ .Values.resources.limits.db.cpu }}
+              memory: {{ .Values.resources.limits.db.memory }}
             requests:
               cpu: 30m
               memory: 128Mi

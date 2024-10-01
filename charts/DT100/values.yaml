@@ -10,12 +10,16 @@ image:
   pullPolicy: Always
 resources:
    limits:
-     cpu-db: 100m
-     memory-db: 1Gi
-     cpu-web: 50m
-     memory-web: 512Mi
+     db:
+       cpu: 100m
+       memory: 1Gi
+     web:
+       cpu: 50m
+       memory: 512Mi
    requests:
-     cpu-db: 30m
-     memory-db: 128Mi
-     cpu-web: 15m
-     memory-web: 128Mi
+     db:
+       cpu: 30m
+       memory: 128Mi
+     web:
+       cpu: 15m
+       memory: 128Mi
