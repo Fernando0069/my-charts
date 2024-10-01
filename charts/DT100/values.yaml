@@ -9,17 +9,17 @@ image:
   web: nginx
   pullPolicy: Always
 resources:
-   limits:
-     db:
-       cpu: 100m
-       memory: 1Gi
-     web:
-       cpu: 50m
-       memory: 512Mi
-   requests:
-     db:
-       cpu: 30m
-       memory: 128Mi
-     web:
-       cpu: 15m
-       memory: 128Mi
+  limits:
+    db:
+      cpu: 100m
+      memory: 1Gi
+    web:
+      cpu: 50m
+      memory: 512Mi
+  requests:
+    db:
+      cpu: 30m
+      memory: 128Mi
+    web:
+      cpu: 15m
+      memory: 128Mi
