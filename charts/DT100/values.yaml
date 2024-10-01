@@ -1,0 +1,21 @@
+# Default values for buildachart.
+# This is a YAML-formatted file.
+
+namespace: fernando0069-dev
+enviroment: gc
+replicaCount: 1
+image:
+  db: registry.access.redhat.com/rhel9/postgresql-16:latest
+  web: nginx
+  pullPolicy: Always
+resources:
+   limits:
+     cpu-db: 100m
+     memory-db: 1Gi
+     cpu-web: 50m
+     memory-web: 512Mi
+   requests:
+     cpu-db: 30m
+     memory-db: 128Mi
+     cpu-web: 15m
+     memory-web: 128Mi
