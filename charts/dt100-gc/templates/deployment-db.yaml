@@ -21,8 +21,21 @@ spec:
         - name: db-gc
           image: snoopy.ocp.ses.mir.es/krypto-dt100/postgres:latest
           env:
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: dt100-gc
+                  key: db
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: dt100-gc
+                  key: db_user
             - name: POSTGRES_PASSWORD
-              value: 84lGNjz4
+              valueFrom:
+                secretKeyRef:
+                  name: dt100-gc
+                  key: db_password
           ports:
             - name: postgres
               containerPort: 5432
