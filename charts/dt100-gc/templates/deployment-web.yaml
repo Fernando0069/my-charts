@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-gc
+  namespace: fernando0069-dev
+  labels:
+    app: web-gc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-gc
+  template:
+    metadata:
+      labels:
+        app: web-gc
+    spec:
+      containers:
+        - name: web-guardia
+          image: snoopy.ocp.ses.mir.es/krypto-dt100/dt100:latest
+          env:
+            - name: DbConnection
+              value: Host=postgres-guardia;Database=DT100;User ID=postgres;Password="84lGNjz4"
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 50m
+              memory: 1Gi
+            requests:
+              cpu: 10m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always  
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
