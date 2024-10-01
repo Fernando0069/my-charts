@@ -5,6 +5,7 @@ metadata:
   namespace: fernando0069-dev
   labels:
     app: db-gc
+    app.kubernetes.io/component: dt100-gc
 spec:
   replicas: 1
   selector:

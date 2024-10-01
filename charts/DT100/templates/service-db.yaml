@@ -6,7 +6,6 @@ metadata:
   labels:
     app: db-gc
     app.kubernetes.io/component: dt100-gc
-    app.kubernetes.io/part-of: ref-solutions
 spec:
   type: ClusterIP
   ipFamilyPolicy: SingleStack

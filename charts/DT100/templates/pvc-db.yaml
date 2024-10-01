@@ -7,7 +7,6 @@ metadata:
     app: db-gc
     app.kubernetes.io/component: dt100-gc
     component: dt100-{{ .Values.enviroment }}
-    app.kubernetes.io/part-of: ref-solutions
 spec:
   accessModes:
     - ReadWriteOnce
