@@ -62,7 +62,7 @@ spec:
       volumes:
         - name: volume-db-gc
           persistentVolumeClaim:
-            claimName: pvc-db-gc
+            claimName: pvc-db
   strategy:
     type: RollingUpdate
     rollingUpdate:
