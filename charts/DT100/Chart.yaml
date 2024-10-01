@@ -1,4 +1,4 @@
-name: DT-100
+name: DT100
 description: A Helm chart for Kubernetes
 type: application
 
