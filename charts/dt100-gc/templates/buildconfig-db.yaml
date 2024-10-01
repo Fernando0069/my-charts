@@ -1,0 +1,42 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: postgresql-16
+  namespace: fernando0069-dev
+  labels:
+    app: postgresql-16
+    app.kubernetes.io/component: postgresql-16
+    app.kubernetes.io/instance: postgresql-16
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'postgresql-16:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: fernando0069-dev
+        name: 'postgresql-16:latest'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/sclorg/postgresql-container.git'
+    contextDir: examples/extending-image
+  triggers:
+    - type: GitHub
+      github:
+        secret: CpyvpU3ZRo9IHsxfm3OG
+    - type: Generic
+      generic:
+        secret: 6xLmMHc10iVLy9Pu4163
+    - type: ConfigChange
+    - type: ImageChange
+      imageChange: {}
+  runPolicy: Serial
