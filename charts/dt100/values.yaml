@@ -6,8 +6,7 @@ enviroment: gc
 replicaCount: 1
 image:
   db: registry.access.redhat.com/rhel9/postgresql-16:latest
-  web: nginx
-  pullPolicy: Always
+  web: fernando0069/dt100:latest
 resources:
   limits:
     db:

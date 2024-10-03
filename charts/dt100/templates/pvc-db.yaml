@@ -4,9 +4,8 @@ metadata:
   name: pvc-db
   namesapce: fernando0069-dev
   labels:
-    app: db-gc
-    app.kubernetes.io/component: dt100-gc
-    component: dt100-{{ .Values.enviroment }}
+    app: db-{{ .Values.enviroment }}
+    app.kubernetes.io/component: dt100-{{ .Values.enviroment }}
 spec:
   accessModes:
     - ReadWriteOnce

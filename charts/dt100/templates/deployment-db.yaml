@@ -4,20 +4,19 @@ metadata:
   name: db
   namespace: fernando0069-dev
   labels:
-    app: db-gc
-    app.kubernetes.io/component: dt100-gc
+    app: db-{{ .Values.enviroment }}
+    app.kubernetes.io/component: dt100-{{ .Values.enviroment }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: db-gc
-  strategy:
-    type: Recreate
+      app: db-{{ .Values.enviroment }}
   template:
     metadata:
       labels:
-        app: db-gc
+        app: db-{{ .Values.enviroment }}
     spec:
+      hostname: db-{{ .Values.enviroment }}
       containers:
         - name: db
           image: {{ .Values.image.db }}
@@ -54,14 +53,14 @@ spec:
               cpu: 30m
               memory: 128Mi
           volumeMounts:
-            - name: volume-db-gc
+            - name: volume-db
               mountPath: /var/lib/postgresql/data
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
       restartPolicy: Always
       volumes:
-        - name: volume-db-gc
+        - name: volume-db
           persistentVolumeClaim:
             claimName: pvc-db
   strategy:
