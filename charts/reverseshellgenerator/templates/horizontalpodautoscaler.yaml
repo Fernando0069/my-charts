@@ -2,11 +2,10 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: reverseshellgenerator
-  namespace: fernando0069-dev
+  namespace: {{ .Value.namespace }}
   labels:
     app: reverseshellgenerator
-    app.kubernetes.io/component: reverseshellgenerator
-    app.kubernetes.io/part-of: ref-solutions
+    app.kubernetes.io/component: {{ .Value.name }}
     layer: tools
 spec:
   scaleTargetRef:

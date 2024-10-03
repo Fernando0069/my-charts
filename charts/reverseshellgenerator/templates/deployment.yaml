@@ -1,18 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: reverseshellgenerator
+  namespace: {{ .Value.namespace }}
+  labels:
+    app: reverseshellgenerator
+    app.kubernetes.io/component: {{ .Value.name }}
+    layer: tools
   annotations:
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"reverseshellgenerator:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"container\")].image","pause":""}]'
     uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
-  name: reverseshellgenerator
-  namespace: fernando0069-dev
-  labels:
-    app: reverseshellgenerator
-    app.kubernetes.io/component: reverseshellgenerator
-    app.kubernetes.io/instance: reverseshellgenerator
-    app.kubernetes.io/name: reverseshellgenerator
-    app.kubernetes.io/part-of: ref-solutions
-    layer: tools
 spec:
   progressDeadlineSeconds: 600
   replicas: 0

@@ -1,13 +1,11 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  annotations:
-    openshift.io/host.generated: "true"
   name: reverseshellgenerator
-  namespace: fernando0069-dev
+  namespace: {{ .Value.namespace }}
   labels:
     app: reverseshellgenerator
-    app.kubernetes.io/part-of: ref-solutions
+    app.kubernetes.io/component: {{ .Value.name }}
     layer: tools
 spec:
   port:

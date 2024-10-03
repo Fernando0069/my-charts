@@ -1,13 +1,14 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  annotations:
-    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
+  name: reverseshellgenerator
+  namespace: {{ .Value.namespace }}
   labels:
     app: reverseshellgenerator
-    app.kubernetes.io/part-of: ref-solutions
+    app.kubernetes.io/component: {{ .Value.name }}
     layer: tools
-  name: reverseshellgenerator
+  annotations:
+    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
 spec:
   failedBuildsHistoryLimit: 5
   successfulBuildsHistoryLimit: 5
@@ -27,7 +28,7 @@ spec:
     git:
       uri: 'https://github.com/Fernando0069/charts.git'
       ref: main
-    contextDir: /ReverseShellGenerator
+    contextDir: /reverseshellgenerator
   strategy:
     dockerStrategy:
       dockerfilePath: Dockerfile
