@@ -1,7 +1,8 @@
-1. Esta aplicación despliega una página web.
-   - Despliega un ConfigMap.
-   - Despliega un Deployment.
-   - Despliega un HorizontalPodAutoscaler.
-   - Despliega un PodDisruptionBudget.
-   - Despliega un Service.
-   - Despliega un Route.
+INFO: La aplicacioón "web" despliega unservidor web con una página web en formato html.
+INFO: Se despliega los siguientes objetos:
+        - ConfigMap.
+        - Deployment.
+        - HorizontalPodAutoscaler.
+        - PodDisruptionBudget.
+        - Service.
+        - Route. 
