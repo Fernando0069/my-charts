@@ -1,6 +1,6 @@
 # do180-php-helloworld charts
 
-
+```
 Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos hacerlo de dos maneras:
 
 1.- Mediante la CLI de Openshift (oc):
@@ -11,3 +11,4 @@ Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos ha
 
   helm repo add apps https://fernando0069.github.io/my-charts/
   helm install do180-php-helloworld apps/do180-php-helloworld
+```
