@@ -48,8 +48,7 @@ spec:
           items:
           - key: index.php
             path: index.php
-          name: web
-        
+          name: index-php        
   strategy:
     type: RollingUpdate
     rollingUpdate:
