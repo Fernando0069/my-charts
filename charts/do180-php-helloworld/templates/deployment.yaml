@@ -21,10 +21,10 @@ spec:
         - name: php-helloworld
           image: 'registry.access.redhat.com/rhel9/php-82'
           ports:
-            - name http
+            - name: http
               containerPort: 8080
               protocol: TCP
-            - name https
+            - name: https
               containerPort: 8443
               protocol: TCP
           resources: {}
@@ -48,7 +48,7 @@ spec:
           items:
           - key: index.php
             path: index.php
-          name: index-php        
+          name: index-php
   strategy:
     type: RollingUpdate
     rollingUpdate:
