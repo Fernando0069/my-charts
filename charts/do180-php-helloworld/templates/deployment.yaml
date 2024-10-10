@@ -1,49 +1,59 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
-  name: reverseshellgenerator
-  namespace: {{ .Value.namespace }}
+  name: php-helloworld
+  namespace: fernando0069-dev
   labels:
-    app: reverseshellgenerator
-    app.kubernetes.io/component: {{ .Value.name }}
-    layer: tools
-  annotations:
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"reverseshellgenerator:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"container\")].image","pause":""}]'
-    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
+    app: php-helloworld
+    app.kubernetes.io/component: php-helloworld
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 0
-  revisionHistoryLimit: 10
+  replicas: 1
   selector:
     matchLabels:
-      app: reverseshellgenerator
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+      deployment: php-helloworld
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: reverseshellgenerator
+        deployment: php-helloworld
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
-        imagePullPolicy: IfNotPresent
-        name: container
-        ports:
-        - containerPort: 8080
-          name: http
-          protocol: TCP
-        - containerPort: 8443
-          name: https
-          protocol: TCP
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
+        - name: php-helloworld
+          image: 'image-registry.openshift-image-registry.svc:5000/fernando0069-dev/php-helloworld@sha256:44de748e3be4ba59719d6d0d2a39582f5937783469738cc5f6d6e289fca37930'
+          ports:
+            - name http
+              containerPort: 8080
+              protocol: TCP
+            - name https
+              containerPort: 8443
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+          - mountPath: /var/www/html/index.php
+            name: index-php
+            readOnly: true
+            subPath: index.php
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+      volumes:
+      - name: index-php
+        configMap:
+          defaultMode: 420
+          items:
+          - key: index.php
+            path: index.php
+          name: web
+        
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

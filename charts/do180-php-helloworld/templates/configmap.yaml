@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: index-php
+  namespace: fernando0069-dev
+data:
+  index.php: |
+    <?php
+    print "Hello, World! php version is " . PHP_VERSION . "\n";
+    ?>

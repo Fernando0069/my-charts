@@ -1,14 +1,13 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: reverseshellgenerator
+  name: php-helloworld
   namespace: {{ .Value.namespace }}
   labels:
-    app: reverseshellgenerator
-    app.kubernetes.io/component: {{ .Value.name }}
-    layer: tools
+    app: php-helloworld
+    app.kubernetes.io/component: php-helloworld
 spec:
   minAvailable: 1
   selector:
     matchLabels:
-      app: reverseshellgenerator
+      app: php-helloworld

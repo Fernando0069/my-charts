@@ -1,27 +1,26 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: reverseshellgenerator
+  name: php-helloworld
   namespace: {{ .Value.namespace }}
   labels:
-    app: reverseshellgenerator
-    app.kubernetes.io/component: {{ .Value.name }}
-    layer: tools
+    app: php-helloworld
+    app.kubernetes.io/component: do180
 spec:
-  internalTrafficPolicy: Cluster
   ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
+    - IPv4
   ports:
-  - name: http
-    port: 8080
-    protocol: TCP
-    targetPort: 8080
-  - name: https
-    port: 8443
-    protocol: TCP
-    targetPort: 8443
-  selector:
-    app: reverseshellgenerator
-  sessionAffinity: None
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: https
+      protocol: TCP
+      port: 8443
+      targetPort: 8443
+  internalTrafficPolicy: Cluster
   type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    deployment: php-helloworld

@@ -1,19 +1,19 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: reverseshellgenerator
+  name: php-helloworld
   namespace: {{ .Value.namespace }}
   labels:
-    app: reverseshellgenerator
-    app.kubernetes.io/component: {{ .Value.name }}
+    app: php-helloworld
+    app.kubernetes.io/component: do180
     layer: tools
 spec:
+  to:
+    kind: Service
+    name: php-helloworld
+    weight: 100
   port:
     targetPort: http
   tls:
     termination: edge
-  to:
-    kind: Service
-    name: reverseshellgenerator
-    weight: 100
   wildcardPolicy: None
