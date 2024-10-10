@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: php-helloworld
-          image: 'image-registry.openshift-image-registry.svc:5000/fernando0069-dev/php-helloworld@sha256:44de748e3be4ba59719d6d0d2a39582f5937783469738cc5f6d6e289fca37930'
+          image: 'registry.access.redhat.com/rhel9/php-82'
           ports:
             - name http
               containerPort: 8080
