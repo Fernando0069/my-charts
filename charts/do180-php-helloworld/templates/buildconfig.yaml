@@ -1,0 +1,45 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: reverseshellgenerator
+  namespace: {{ .Value.namespace }}
+  labels:
+    app: reverseshellgenerator
+    app.kubernetes.io/component: {{ .Value.name }}
+    layer: tools
+  annotations:
+    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
+spec:
+  failedBuildsHistoryLimit: 5
+  successfulBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: reverseshellgenerator:latest
+  postCommit: {}
+  resources:
+    limits:
+      cpu: "2"
+      memory: 4Gi
+  runPolicy: Serial
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/Fernando0069/charts.git'
+      ref: main
+    contextDir: /reverseshellgenerator
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  triggers:
+  - generic:
+      secretReference:
+        name: reverseshellgenerator-generic-webhook
+    type: Generic
+  - github:
+      secretReference:
+        name: reverseshellgenerator-github-webhook
+    type: GitHub
+  - type: ConfigChange

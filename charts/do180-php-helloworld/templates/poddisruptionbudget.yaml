@@ -1,0 +1,14 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: reverseshellgenerator
+  namespace: {{ .Value.namespace }}
+  labels:
+    app: reverseshellgenerator
+    app.kubernetes.io/component: {{ .Value.name }}
+    layer: tools
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: reverseshellgenerator
