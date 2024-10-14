@@ -1,10 +1,11 @@
+namespace: fernando0069-dev
+name: web
 info:
   layer: front
 metrics:
   utilization:
     cpu: 70
     mem: 70
-namespace: fernando0069-dev
 replica:
   max: 2
   min: 1

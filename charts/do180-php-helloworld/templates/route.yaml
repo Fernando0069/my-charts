@@ -1,12 +1,13 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: php-helloworld
-  namespace: {{ .Value.namespace }}
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: php-helloworld
-    app.kubernetes.io/component: do180
-    layer: tools
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.enviroment }}
+    training: {{ .Values.training }}
 spec:
   to:
     kind: Service

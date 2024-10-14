@@ -2,8 +2,10 @@
 # This is a YAML-formatted file.
 
 namespace: fernando0069-dev
-name: reverseshellgenerator
-enviroment: gc
+name: php-helloworld
+enviroment: training
+training: DO180
+
 replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
 resources:

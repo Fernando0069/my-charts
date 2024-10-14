@@ -1,24 +1,26 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: php-helloworld
-  namespace: fernando0069-dev
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: php-helloworld
-    app.kubernetes.io/component: php-helloworld
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.enviroment }}
+    training: {{ .Values.training }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      deployment: php-helloworld
+      deployment: {{ .Values.name }}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        deployment: php-helloworld
+        deployment: {{ .Values.name }}
     spec:
       containers:
-        - name: php-helloworld
+        - name: {{ .Values.name }}
           image: 'registry.access.redhat.com/rhel9/php-82'
           ports:
             - name: http

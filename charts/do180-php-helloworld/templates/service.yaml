@@ -1,11 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: php-helloworld
-  namespace: {{ .Value.namespace }}
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: php-helloworld
-    app.kubernetes.io/component: do180
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.enviroment }}
+    training: {{ .Values.training }}
 spec:
   ipFamilies:
     - IPv4
@@ -23,4 +25,4 @@ spec:
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
-    deployment: php-helloworld
+    deployment: {{ .Values.name }}
