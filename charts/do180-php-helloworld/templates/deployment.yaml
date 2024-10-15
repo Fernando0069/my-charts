@@ -34,8 +34,8 @@ spec:
           terminationMessagePolicy: File
           imagePullPolicy: IfNotPresent
           volumeMounts:
-          - mountPath: /var/www/html/index.php
-            name: index-php
+          - name: index-php
+            mountPath: /var/www/html/index.php
             readOnly: true
             subPath: index.php
       dnsPolicy: ClusterFirst
@@ -50,7 +50,7 @@ spec:
           items:
           - key: index.php
             path: index.php
-          name: index-php
+          name: {{ .Values.name }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
