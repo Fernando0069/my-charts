@@ -46,11 +46,11 @@ spec:
       volumes:
       - name: index-php
         configMap:
-          defaultMode: 420
-          items:
-          - key: index.php
-            path: index.php
           name: {{ .Values.name }}
+          items:
+            - key: index.php
+              path: index.php
+          defaultMode: 420
   strategy:
     type: RollingUpdate
     rollingUpdate:
