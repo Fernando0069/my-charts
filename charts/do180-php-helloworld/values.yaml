@@ -7,19 +7,14 @@ enviroment: training
 training: DO180
 replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/php-helloworld:latest
+ports:
+  http: 8080
+  https: 8443
 
 resources:
   limits:
-    db:
-      cpu: 100m
-      memory: 1Gi
-    web:
-      cpu: 50m
-      memory: 512Mi
+    cpu: 20m
+    memory: 128Mi
   requests:
-    db:
-      cpu: 30m
-      memory: 128Mi
-    web:
-      cpu: 15m
-      memory: 128Mi
+    cpu: 10m
+    memory: 64Mi

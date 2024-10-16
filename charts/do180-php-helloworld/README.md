@@ -4,6 +4,7 @@ Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos ha
 
 1.- Mediante la CLI de Openshift (oc):
 ```
+Sin el uso de image o imagestream:
   oc new-app --name=php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
   oc expose service/php-helloworld
   curl -vvv https://php-fer-fer-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
@@ -12,7 +13,7 @@ Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos ha
     ...
 
 
-Si queremos definir la versión del compilador con imagestream:
+Usando imagestream con la versión del compilador:
   oc new-app -S php
   oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
   oc expose service/php-helloworld
