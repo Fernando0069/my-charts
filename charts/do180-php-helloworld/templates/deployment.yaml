@@ -42,7 +42,7 @@ spec:
               memory: {{ .Values.resources.requests.memory }}
           volumeMounts:
           - name: phpinfo-php
-            mountPath: /var/www/html/phpinfo.php
+            mountPath: /opt/app-root/src/phpinfo.php
             readOnly: true
             subPath: phpinfo.php
       dnsPolicy: ClusterFirst
