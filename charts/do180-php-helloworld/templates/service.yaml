@@ -25,5 +25,4 @@ spec:
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
-    app: {{ .Values.name }}
     deployment: {{ .Values.name }}

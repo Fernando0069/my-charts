@@ -27,5 +27,5 @@ Usando imagestream con la versión del compilador:
 2.- Mediante Helm:
 ```
   helm repo add apps https://fernando0069.github.io/my-charts/
-  helm install do180-php-helloworld apps/do180-php-helloworld
+  helm install do180-php-helloworld apps/DO180-PHP-HelloWorld
 ```
