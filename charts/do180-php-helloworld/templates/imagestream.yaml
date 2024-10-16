@@ -1,5 +1,5 @@
-kind: ConfigMap
-apiVersion: v1
+kind: ImageStream
+apiVersion: image.openshift.io/v1
 metadata:
   name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
@@ -8,10 +8,6 @@ metadata:
     app.kubernetes.io/component: {{ .Values.name }}
     enviroment: {{ .Values.enviroment }}
     training: {{ .Values.training }}
-data:
-  index.php: |
-    <?php
-    print "Hello, World! php version is " . PHP_VERSION . "\n";
-    print "\n";
-    print "Today is going to be a great day.";
-    ?>
+spec:
+  lookupPolicy:
+    local: false

@@ -11,7 +11,7 @@ metadata:
 spec:
   to:
     kind: Service
-    name: php-helloworld
+    name: {{ .Values.name }}
     weight: 100
   port:
     targetPort: http

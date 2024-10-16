@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.name }}
-          image: 'registry.access.redhat.com/rhel9/php-82'
+          image: {{ .Values.image }}
           ports:
             - name: http
               containerPort: 8080

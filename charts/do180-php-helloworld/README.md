@@ -1,22 +1,27 @@
-# do180-php-helloworld charts
+# DO180-php-helloworld charts
 
 Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos hacerlo de dos maneras:
 
 1.- Mediante la CLI de Openshift (oc):
 ```
-  # oc new-app php:https://github.dev/Fernando0069/my-charts.git#main --context-dir=charts/do180-php-helloworld/index.html -l training=do180
-  # oc new-app php-82:latest~https://github.dev/Fernando0069/my-charts.git#main --context-dir=charts/do180-php-helloworld/files/index.php -l training=do180
+  oc new-app --name=php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
+  oc expose service/php-helloworld
+  curl -vvv https://php-fer-fer-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+    ...
+    Hello, World! php version is 8.0.13
+    ...
 
-  vi index-php
-    <?php
-    print "Hello, World! php version is " . PHP_VERSION . "\n";
-    print "\n";
-    print "Today is going to be a great day.";
-    ?>
-  oc create configmap index-php --from-file=./index.php
-  oc new-app --name php-helloworld php:8.2 -l training=do180
-  oc set volume deployment/php-helloworld --add --name=index-php --mount-path=/var/www/html/index.php --configmap-name=index-php
+
+Si queremos definir la versión del compilador con imagestream:
+  oc new-app -S php
+  oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
+  oc expose service/php-helloworld
+  curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+    ...
+    Hello, World! php version is 8.1.27
+    ...
 ```
+
 
 2.- Mediante Helm:
 ```
