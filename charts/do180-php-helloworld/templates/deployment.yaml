@@ -40,11 +40,24 @@ spec:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
               memory: {{ .Values.resources.requests.memory }}
+          volumeMounts:
+          - name: phpinfo-php
+            mountPath: /var/www/html/phpinfo.php
+            readOnly: true
+            subPath: phpinfo.php
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+      volumes:
+      - name: phpinfo-php
+        configMap:
+          name: {{ .Values.name }}
+          items:
+            - key: phpinfo.php
+              path: phpinfo.php
+          defaultMode: 420
   strategy:
     type: RollingUpdate
     rollingUpdate:
