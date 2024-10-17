@@ -9,11 +9,10 @@ replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/nodejs-helloworld:latest
 ports:
   http: 8080
-  https: 8443
 resources:
   limits:
-    cpu: 20m
-    memory: 128Mi
-  requests:
     cpu: 10m
     memory: 64Mi
+  requests:
+    cpu: 5m
+    memory: 32Mi

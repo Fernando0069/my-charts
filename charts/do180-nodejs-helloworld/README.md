@@ -19,7 +19,7 @@ Usando imagestream con la versión del compilador:
 
 
 Punto 2:
-  Desplegampos con tecnología Helm y se añade un ConfigMap con un fichero llamado "phpinfo.php" el cual montamos como el fichero "index.php", en "/opt/app-root/src" y no es añadido en la imagen.
+  Desplegampos con tecnología Helm y se añade un ConfigMap con los fichero "app.js" y "package.json" los cual se montan en "/opt/app-root/src" y no son añadidos en la imagen.
 ```
   helm repo add apps https://fernando0069.github.io/my-charts/
   helm install do180-nodejs-helloworld apps/DO180-NodeJs-HelloWorld

@@ -1,24 +1,13 @@
-apiVersion: image.openshift.io/v1
-kind: ImageStream
+kind: ImageStream 
+apiVersion: image.openshift.io/v1 
 metadata:
-  name: reverseshellgenerator
-  namespace: {{ .Value.namespace }}
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: reverseshellgenerator
-    app.kubernetes.io/component: {{ .Value.name }}
-    layer: tools
-  annotations:
-    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.enviroment }}
+    training: {{ .Values.training }}
 spec:
   lookupPolicy:
     local: false
-  tags:
-  - name: latest
-    from:
-      kind: DockerImage
-      name: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
-    generation: 6
-    importPolicy:
-      importMode: Legacy
-    referencePolicy:
-      type: Source

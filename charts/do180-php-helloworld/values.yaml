@@ -12,8 +12,8 @@ ports:
   https: 8443
 resources:
   limits:
-    cpu: 20m
-    memory: 128Mi
-  requests:
     cpu: 10m
     memory: 64Mi
+  requests:
+    cpu: 5m
+    memory: 32Mi

@@ -13,7 +13,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      namespace: fernando0069-dev
+      namespace: {{ .Values.namespace }}
       name: 'php-helloworld:latest'
   resources: {}
   successfulBuildsHistoryLimit: 5
@@ -32,7 +32,6 @@ spec:
       uri: 'https://github.com/Fernando0069/my-charts.git'
       ref: main
     contextDir: charts/do180-php-helloworld/files
-  runPolicy: Serial
   triggers:
     - type: GitHub
       github:

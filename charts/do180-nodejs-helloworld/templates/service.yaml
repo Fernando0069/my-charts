@@ -1,27 +1,24 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: reverseshellgenerator
-  namespace: {{ .Value.namespace }}
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: reverseshellgenerator
-    app.kubernetes.io/component: {{ .Value.name }}
-    layer: tools
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.enviroment }}
+    training: {{ .Values.training }}
 spec:
-  internalTrafficPolicy: Cluster
   ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
+    - IPv4
   ports:
-  - name: http
-    port: 8080
-    protocol: TCP
-    targetPort: 8080
-  - name: https
-    port: 8443
-    protocol: TCP
-    targetPort: 8443
-  selector:
-    app: reverseshellgenerator
-  sessionAffinity: None
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  internalTrafficPolicy: Cluster
   type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    deployment: nodejs-helloworld

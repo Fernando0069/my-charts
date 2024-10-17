@@ -1,45 +1,45 @@
-apiVersion: build.openshift.io/v1
 kind: BuildConfig
+apiVersion: build.openshift.io/v1
 metadata:
-  name: reverseshellgenerator
-  namespace: {{ .Value.namespace }}
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: reverseshellgenerator
-    app.kubernetes.io/component: {{ .Value.name }}
-    layer: tools
-  annotations:
-    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.enviroment }}
+    training: {{ .Values.training }}
 spec:
-  failedBuildsHistoryLimit: 5
-  successfulBuildsHistoryLimit: 5
   nodeSelector: null
   output:
     to:
       kind: ImageStreamTag
-      name: reverseshellgenerator:latest
+      namespace: {{ .Values.namespace }}
+      name: 'nodejs-helloworld:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'nodejs:20-ubi9'
   postCommit: {}
-  resources:
-    limits:
-      cpu: "2"
-      memory: 4Gi
-  runPolicy: Serial
   source:
     type: Git
     git:
-      uri: 'https://github.com/Fernando0069/charts.git'
+      uri: 'https://github.com/Fernando0069/my-charts.git'
       ref: main
-    contextDir: /reverseshellgenerator
-  strategy:
-    dockerStrategy:
-      dockerfilePath: Dockerfile
-    type: Docker
+    contextDir: charts/do180-nodejs-helloworld/files
   triggers:
-  - generic:
-      secretReference:
-        name: reverseshellgenerator-generic-webhook
-    type: Generic
-  - github:
-      secretReference:
-        name: reverseshellgenerator-github-webhook
-    type: GitHub
-  - type: ConfigChange
+    - type: GitHub
+      github:
+        secret: jX94w5Tp6qeOyRfwkjrC
+    - type: Generic
+      generic:
+        secret: HddC9vY9Z05Qu9R9Xmxf
+    - type: ConfigChange
+    - type: ImageChange
+      imageChange: {}
+  runPolicy: Serial
