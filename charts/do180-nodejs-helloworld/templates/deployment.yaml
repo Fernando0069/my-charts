@@ -65,35 +65,11 @@ spec:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
               memory: {{ .Values.resources.requests.memory }}
-          volumeMounts:
-          - name: app-js
-            mountPath: /opt/app-root/src/app.js
-            readOnly: true
-            subPath: app.js
-          - name: package-json
-            mountPath: /opt/app-root/src/package.json
-            readOnly: true
-            subPath: package.json
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
       securityContext: {}
       schedulerName: default-scheduler
-      volumes:
-      - name: app-js
-        configMap:
-          name: {{ .Values.name }}
-          items:
-            - key: app.js
-              path: app.js
-          defaultMode: 420
-      - name: package-json
-        configMap:
-          name: {{ .Values.name }}
-          items:
-            - key: package.json
-              path: package.json
-          defaultMode: 420
   strategy:
     type: RollingUpdate
     rollingUpdate:

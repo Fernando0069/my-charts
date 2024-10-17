@@ -2,7 +2,6 @@ INFO: El chart "DO180-NodeJS-HelloWorld" despliega una aplicación en PHP.
 INFO: Despliegalos siguiente objetos:
         - Imagestream.
         - BuildConfig.
-        - ConfigMap.
         - Deployment.
         - PodDisruptionBudget.
         - Service.
