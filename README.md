@@ -33,6 +33,20 @@ helm install reverseshellgenerator apps/ReverseShellGenerator
 helm install dt100 apps/DT-100
 ```
 
+
+## DO180 Applications
+### Install DO180-PHP-HelloWorld Application:
+```
+helm install do180-php-helloworld apps/DO180-PHP-HelloWorld
+```
+
+### Install DO180-NodeJS-HelloWorld Application:
+```
+helm install do180-nodejs-helloworld apps/DO180-NodeJS-HelloWorld
+```
+
+
+# Sample Applications
 ### Install Application 1:
 ```
 helm install app1 apps/app1
@@ -42,5 +56,3 @@ helm install app1 apps/app1
 ```
 helm install app2 apps/app2
 ```
-
-
