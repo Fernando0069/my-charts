@@ -11,7 +11,7 @@ ports:
   http: 8080
 resources:
   limits:
-    cpu: 10m
+    cpu: 20m
     memory: 64Mi
   requests:
     cpu: 5m
