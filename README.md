@@ -1,7 +1,7 @@
 # my-charts
 my-charts
 
-## Installing Repository
+## Repository
 ### Add the Repository "apps" to Helm:
 ```
 helm repo add apps https://fernando0069.github.io/my-charts/
@@ -12,7 +12,7 @@ helm repo add apps https://fernando0069.github.io/my-charts/
 helm repo remove apps
 ```
 
-## Installing Charts from this Repository
+## Tools
 ### Install Web Application:
 ```
 helm install web apps/Web
@@ -28,11 +28,6 @@ helm install cyberchef apps/CyberChef
 helm install reverseshellgenerator apps/ReverseShellGenerator
 ```
 
-### Install DT-100 Application:
-```
-helm install dt100 apps/DT-100
-```
-
 
 ## DO180 Applications
 ### Install DO180-PHP-HelloWorld Application:
@@ -40,10 +35,18 @@ helm install dt100 apps/DT-100
 helm install do180-php-helloworld apps/DO180-PHP-HelloWorld
 ```
 
+
+## Working
 ### Install DO180-NodeJS-HelloWorld Application:
 ```
 helm install do180-nodejs-helloworld apps/DO180-NodeJS-HelloWorld
 ```
+
+### Install DT-100 Application:
+```
+helm install dt100 apps/DT-100
+```
+
 
 
 # Sample Applications
