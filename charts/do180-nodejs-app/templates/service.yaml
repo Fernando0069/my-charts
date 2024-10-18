@@ -21,4 +21,4 @@ spec:
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
-    deployment: nodejs-helloworld
+    deployment: nodejs-app
