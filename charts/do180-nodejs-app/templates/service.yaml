@@ -12,7 +12,7 @@ spec:
   ipFamilies:
     - IPv4
   ports:
-    - name: http
+    - name: {{ .Values.ports.name }}
       protocol: TCP
       port: 8080
       targetPort: 8080

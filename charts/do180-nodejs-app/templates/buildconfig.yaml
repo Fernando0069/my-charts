@@ -14,7 +14,7 @@ spec:
     to:
       kind: ImageStreamTag
       namespace: {{ .Values.namespace }}
-      name: 'nodejs-helloworld:latest'
+      name: 'nodejs-app:latest'
   resources: {}
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
@@ -24,14 +24,14 @@ spec:
       from:
         kind: ImageStreamTag
         namespace: openshift
-        name: 'nodejs:20-ubi9'
+        name: 'nodejs:20-ubi9-minimal'
   postCommit: {}
   source:
     type: Git
     git:
       uri: 'https://github.com/Fernando0069/my-charts.git'
       ref: main
-    contextDir: charts/do180-nodejs-helloworld/files
+    contextDir: charts/do180-nodejs-app/files
   triggers:
     - type: GitHub
       github:

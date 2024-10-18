@@ -8,13 +8,17 @@ Punto 1:
 Sin el uso de image o imagestream:
   oc new-app --name=nodejs-app https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-nodejs-app/files -l app=nodejs-app
   oc expose service/nodejs-app
+    oc create route edge nodejs-app --service=nodejs-app    # crea ruta seguradel tipo edge
   curl -vvv https://nodejs-app-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc delete all -l app=nodejs-app
 
 Usando imagestream con la versión del compilador:
   oc new-app -S nodejs
-  oc new-app --image-stream=openshift/nodejs:20-ubi9-minimal --name nodejs-app https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-nodejs-app/files -l app=nodejs-app
+  oc new-app --image-stream=openshift/nodejs:18-ubi9-minimal --name nodejs-app https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-nodejs-app/files -l app=nodejs-app
   oc expose service/nodejs-app
+    oc create route edge nodejs-app --service=nodejs-app    # crea ruta seguradel tipo edge
   curl -vvv https://nodejs-app-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc delete all -l app=nodejs-app
 ```
 
 
