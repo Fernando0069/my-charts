@@ -1,6 +1,6 @@
 # DO180-NodeJs-HelloWorld charts
 
-Para crear la aplicación "nodejs-helloworld" del curso DO180 de Red Hat podemos hacerlo de tres maneras diferentes pero siempre manteniendo los mismos ficheros.
+Para crear la aplicación "nodejs-helloworld" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre manteniendo los mismos ficheros.
 
 Punto 1:
   Creamos de manera automática una imágen la cual lleva todo el código (app.js y package.json), mediante la CLI de Openshift (oc):

@@ -1,0 +1,13 @@
+kind: ImageStream 
+apiVersion: image.openshift.io/v1 
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.enviroment }}
+    training: {{ .Values.training }}
+spec:
+  lookupPolicy:
+    local: false
