@@ -7,6 +7,9 @@
   "license": "ASL",
   "dependencies": {
     "express": "4.20",
-    "html-errors": "latest"
+    "http-errors": "latest"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
