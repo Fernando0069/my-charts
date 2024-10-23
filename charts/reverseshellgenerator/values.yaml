@@ -4,6 +4,7 @@
 namespace: fernando0069-dev
 name: reverseshellgenerator
 enviroment: gc
+layer: tools
 replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
 resources:
