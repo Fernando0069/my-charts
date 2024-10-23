@@ -1,9 +1,10 @@
 # my-charts
 my-charts
 
-Se ha creado un repositorio con todas las aplicaciones preparadas para instalar y se usadas
+Se ha creado un repositorio con todas las aplicaciones preparadas para instalar y ser usadas
 
 # Repository
+
 ## Add the Repository "apps" to Helm:
 ```
 helm repo add apps https://fernando0069.github.io/my-charts/
@@ -58,26 +59,6 @@ helm install do180-php-temperature apps/DO180-PHP-Temperature
 
 
 
-## DO280 Applications
-### Install DO280-XXX-XXX Application:
-```
-helm install do280-XXX-XXX apps/DO280-XXX-XXX
-```
-
-## DO285 Applications
-### Install DO285-XXX-XXX Application:
-```
-helm install do285-XXX-XXX apps/DO285-XXX-XXX
-```
-
-## Extra Applications
-### Install XXX-XXX Application:
-```
-helm install XXX-XXX apps/DO180-XXX-XXX
-```
-
-
-
 ## Working
 ### Install DO180-ToDo-HTML5 Application:
 ```
@@ -95,6 +76,26 @@ helm install do180-todo-nodejs-api apps/DO180-ToDo-NodeJS-API
 ### Install DT-100 Application:
 ```
 helm install dt100 apps/DT-100
+```
+
+
+
+## DO280 Applications
+### Install DO280-XXX-XXX Application:
+```
+helm install do280-XXX-XXX apps/DO280-XXX-XXX
+```
+
+## DO285 Applications
+### Install DO285-XXX-XXX Application:
+```
+helm install do285-XXX-XXX apps/DO285-XXX-XXX
+```
+
+## Extra Applications
+### Install XXX-XXX Application:
+```
+helm install XXX-XXX apps/DO180-XXX-XXX
 ```
 
 
