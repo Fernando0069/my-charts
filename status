@@ -1,5 +1,5 @@
 
-Status:
+Status de las aplicaciones:
         Tools:
                 KO - Web
                 KO - CyberChef 
@@ -10,7 +10,7 @@ Status:
                         DO180-PHP-HelloWorld
                         DO180-NodeJS-HelloWorld
                         DO180-NodeJS-App
-                        PE - DO180-PHP-Temperature
+                        DO180-PHP-Temperature
                         PE - DO180-ToDo-HTML5
                         PE - DO180-ToDo-NodeJS
                         PE - DO180-ToDo-NodeJS-API
@@ -25,8 +25,6 @@ Errores:
                 Falla el BuildConfig.
         # ReverseShellGenerator
                 Falla el BuildConfig.
-        # DO180-PHP-Temperature
-                Pendiente
         # DO180-ToDo-HTML5
                 Pendiente
         # DO180-ToDo-NodeJS
