@@ -9,18 +9,12 @@ Sin el uso de image o imagestream:
   oc new-app --name=php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
   oc expose service/php-helloworld
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-    ...
-    Hello, World! php version is 8.0.13
-    ...
 
 Usando imagestream con la versión del compilador:
   oc new-app -S php
   oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
   oc expose service/php-helloworld
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-    ...
-    Hello, World! php version is 8.1.27
-    ...
 ```
 
 
@@ -30,7 +24,4 @@ Punto 2:
   helm repo add apps https://fernando0069.github.io/my-charts/
   helm install do180-php-helloworld apps/DO180-PHP-HelloWorld
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-    ...
-  curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/phpinfo.php
-    ...
 ```
