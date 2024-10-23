@@ -7,7 +7,7 @@ metadata:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
     enviroment: {{ .Values.enviroment }}
-    layer: tools
+    layer: {{ .Values.layer }}
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
