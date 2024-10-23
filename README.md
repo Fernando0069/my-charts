@@ -14,6 +14,8 @@ helm repo add apps https://fernando0069.github.io/my-charts/
 helm repo remove apps
 ```
 
+
+
 # Tools
 ## Install Web Application:
 ```
@@ -31,17 +33,29 @@ helm install reverseshellgenerator apps/ReverseShellGenerator
 ```
 
 
+
 # Training
 ## DO180 Applications
+### Install DO180-NodeJS-HelloWorld Application:
+```
+helm install do180-nodejs-helloworld apps/DO180-NodeJS-HelloWorld
+```
+
+### Install DO180-NodeJS-App Application:
+```
+helm install do180-nodejs-app apps/DO180-NodeJS-App
+```
+
 ### Install DO180-PHP-HelloWorld Application:
 ```
 helm install do180-php-helloworld apps/DO180-PHP-HelloWorld
 ```
 
-### Install DO180-NodeJS-HelloWorld Application:
+### Install DO180-PHP-Temperature Application:
 ```
-helm install do180-nodejs-helloworld apps/DO180-NodeJS-HelloWorld
+helm install do180-php-temperature apps/DO180-PHP-Temperature
 ```
+
 
 
 ## DO280 Applications
@@ -56,7 +70,6 @@ helm install do280-XXX-XXX apps/DO280-XXX-XXX
 helm install do285-XXX-XXX apps/DO285-XXX-XXX
 ```
 
-
 ## Extra Applications
 ### Install XXX-XXX Application:
 ```
@@ -65,20 +78,7 @@ helm install XXX-XXX apps/DO180-XXX-XXX
 
 
 
-
-
-
-
-
 ## Working
-### Install DO180-NodeJS-App Application:
-```
-helm install do180-nodejs-app apps/DO180-NodeJS-App
-```
-### Install DO180-PHP-Temperature Application:
-```
-helm install do180-php-temperature apps/DO180-PHP-Temperature
-```
 ### Install DO180-ToDo-HTML5 Application:
 ```
 helm install do180-todo-html5 apps/DO180-ToDo-HTML5
@@ -104,7 +104,6 @@ helm install dt100 apps/DT-100
 ```
 helm install app1 apps/app1
 ```
-
 ### Install Application 2:
 ```
 helm install app2 apps/app2

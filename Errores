@@ -2,24 +2,34 @@
 Status:
         Tools:
                 KO - Web
-                CyberChef 
-                ReverseShellGenerator
+                KO - CyberChef 
+                KO - ReverseShellGenerator
 
         Training:
-                DO180-PHP-HelloWorld
-                DO180-NodeJS-HelloWorld
-                DO180-NodeJS-App
-
+                DO180:
+                        DO180-PHP-HelloWorld
+                        DO180-NodeJS-HelloWorld
+                        DO180-NodeJS-App
+                        PE - DO180-PHP-Temperature
+                        PE - DO180-ToDo-HTML5
+                        PE - DO180-ToDo-NodeJS
+                        PE - DO180-ToDo-NodeJS-API
+                DO280:
+                        XXX
+                DO285:
+                        XXX
 Errores:
-        # WEB
+        # Web
                 Despliegue OK pero la web no se vé.
         # CyberChef
                 Falla el BuildConfig.
         # ReverseShellGenerator
-                Revisar, se despliega bien pero no se ve la web.
-        # DO180-PHP-HelloWorld
-                Revisar, se despliega bien pero no se ve la web.
-        # DO180-NodeJS-HelloWorld
-                Revisar, se despliega bien pero no se ve la web.
-        # DO180-NodeJS-App
-                Revisar, se despliega bien pero no se ve la web.
+                Falla el BuildConfig.
+        # DO180-PHP-Temperature
+                Pendiente
+        # DO180-ToDo-HTML5
+                Pendiente
+        # DO180-ToDo-NodeJS
+                Pendiente
+        # DO180-ToDo-NodeJS-API
+                Pendiente
