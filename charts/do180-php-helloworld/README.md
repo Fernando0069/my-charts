@@ -19,7 +19,7 @@ Usando imagestream con la versión del compilador:
 
 
 Punto 2:
-  Desplegampos con tecnología Helm y se añade un ConfigMap con un fichero llamado "phpinfo.php" el cual montamos como el fichero "index.php", en "/opt/app-root/src" y no es añadido en la imagen.
+  Desplegampos con tecnología Helm y se añade un ConfigMap con un fichero llamado "phpinfo.php" el cual montamos como el fichero "phpinfo.php", en "/opt/app-root/src", el fichero index.php es añadido a la imagen durante la construcción.
 ```
   helm repo add apps https://fernando0069.github.io/my-charts/
   helm install do180-php-helloworld apps/DO180-PHP-HelloWorld
