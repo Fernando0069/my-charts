@@ -18,4 +18,4 @@ resources:
     cpu: 5m
     memory: 32Mi
 startupProbe:
-  initialDelaySeconds: 15
+  initialDelaySeconds: 40

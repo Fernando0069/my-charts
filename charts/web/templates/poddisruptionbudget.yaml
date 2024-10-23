@@ -1,16 +1,13 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app.kubernetes.io/name: {{ .Chart.Name }}
-    app.kubernetes.io/instance: {{ .Chart.Name }}
-    app.kubernetes.io/part-of: ref-solutions
-    app.kubernetes.io/managed-by: Helm
-    helm.chart-version: {{ .Chart.Name }}-{{ .Chart.Version }}
-    helm.app-version: {{ .Chart.Name }}-{{ .Chart.AppVersion }}
-    info.layer: {{ .Values.info.layer }}
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.enviroment }}
+    layer: {{ .Values.layer }}
 spec:
   minAvailable: {{ .Values.replica.min }}
   selector:

@@ -1,0 +1,33 @@
+# WEB
+
+bash-5.1 ~ $ helm install web apps/Web
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/user/.kube/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/user/.kube/config
+W1018 12:03:56.216367     523 warnings.go:70] unknown field "spec.selector.rollingUpdate"
+W1018 12:03:56.216395     523 warnings.go:70] unknown field "spec.selector.type"
+W1018 12:03:56.229510     523 warnings.go:70] unknown field "spec.selector.rollingUpdate"
+W1018 12:03:56.229523     523 warnings.go:70] unknown field "spec.selector.type"
+W1018 12:03:56.231624     523 warnings.go:70] unknown field "spec.selector"
+W1018 12:03:56.240021     523 warnings.go:70] unknown field "spec.selector"
+Error: INSTALLATION FAILED: 5 errors occurred:
+        * ConfigMap "Web" is invalid: metadata.name: Invalid value: "Web": a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
+        * Service "Web" is invalid: metadata.name: Invalid value: "Web": a DNS-1035 label must consist of lower case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character (e.g. 'my-name',  or 'abc-123', regex used for validation is '[a-z]([-a-z0-9]*[a-z0-9])?')
+        * Deployment.apps "Web" is invalid: [metadata.name: Invalid value: "Web": a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*'), spec.template.spec.containers[0].name: Invalid value: "Web": a lowercase RFC 1123 label must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character (e.g. 'my-name',  or '123-abc', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?')]
+        * HorizontalPodAutoscaler.autoscaling "Web" is invalid: metadata.name: Invalid value: "Web": a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
+        * Route.route.openshift.io "Web" is invalid: [metadata.name: Invalid value: "Web": a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*'), spec.host: Invalid value: "Web-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com": host must conform to DNS 952 subdomain conventions, spec.host: Invalid value: "Web-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com": a lowercase RFC 1123 label must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character (e.g. 'my-name',  or '123-abc', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?')]
+
+
+bash-5.1 ~ $
+
+
+# reverseshellgenerator
+bash-5.1 ~ $ helm install reverseshellgenerator apps/ReverseShellGenerator
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/user/.kube/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/user/.kube/config
+Error: INSTALLATION FAILED: template: ReverseShellGenerator/templates/service.yaml:5:22: executing "ReverseShellGenerator/templates/service.yaml" at <.Value.namespace>: nil pointer evaluating interface {}.namespace
+bash-5.1 ~ $ 
+
+
+# DO180-NodeJS-App
+
+Aumentar a 30 o 40 el startupProbe

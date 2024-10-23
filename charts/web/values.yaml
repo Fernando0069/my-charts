@@ -1,7 +1,7 @@
 namespace: fernando0069-dev
 name: web
-info:
-  layer: front
+layer: front
+enviroment: pro
 metrics:
   utilization:
     cpu: 70
