@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectral File Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Analyze Your OpenAPI File</h2>
+        <form id="uploadForm">
+            <input type="file" id="fileInput" accept=".yaml,.json" required />
+            <button type="submit">Upload and Analyze</button>
+        </form>
+        <p id="message" class="message hidden">Analyzing your file...</p>
+        <div id="report" class="report hidden"></div>
+        <button id="downloadBtn" class="hidden">Download Report</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
