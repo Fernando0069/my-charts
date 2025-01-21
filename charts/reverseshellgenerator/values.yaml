@@ -3,22 +3,14 @@
 
 namespace: fernando0069-dev
 name: reverseshellgenerator
-enviroment: gc
-layer: tools
+labels:
+  enviroment: gc
+  layer: tools
+annotations:
+  uriofficial: https://github.com/0dayCTF/reverse-shell-generator.git
 replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
-resources:
-  limits:
-    db:
-      cpu: 100m
-      memory: 1Gi
-    web:
-      cpu: 50m
-      memory: 512Mi
-  requests:
-    db:
-      cpu: 30m
-      memory: 128Mi
-    web:
-      cpu: 15m
-      memory: 128Mi
+git:
+  uri: 'https://github.com/Fernando0069/my-charts.git'
+  ref: main
+  contextDir: /charts/reverseshellgenerator

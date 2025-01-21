@@ -10,15 +10,6 @@ annotations:
   uriofficial: https://stoplight.io/open-source/spectral
 replicaCount: 1
 image: docker.io/fernando0069/web-spectral:latest
-resources:
-  limits:
-    web:
-      cpu: 50m
-      memory: 512Mi
-  requests:
-    web:
-      cpu: 15m
-      memory: 128Mi
 ports:
   name: http
   containerPort: 8080

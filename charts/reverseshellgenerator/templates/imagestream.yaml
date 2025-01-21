@@ -6,10 +6,10 @@ metadata:
   labels:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
-    enviroment: {{ .Values.enviroment }}
-    layer: {{ .Values.layer }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
   annotations:
-    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   lookupPolicy:
     local: false

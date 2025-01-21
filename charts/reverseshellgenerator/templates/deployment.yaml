@@ -6,14 +6,13 @@ metadata:
   labels:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
-    enviroment: {{ .Values.enviroment }}
-    layer: {{ .Values.layer }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
   annotations:
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"reverseshellgenerator:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"container\")].image","pause":""}]'
-    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   progressDeadlineSeconds: 600
-  replicas: 0
+  replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: 10
   selector:
     matchLabels:
@@ -30,15 +29,15 @@ spec:
         app: {{ .Values.name }}
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
+      - image: {{ .Values.image }}
         imagePullPolicy: IfNotPresent
         name: container
         ports:
-        - containerPort: 8080
-          name: http
+        - name: http
+          containerPort: 8080
           protocol: TCP
-        - containerPort: 8443
-          name: https
+        - name: https
+          containerPort: 8443
           protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log

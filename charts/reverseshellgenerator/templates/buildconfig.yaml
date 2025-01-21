@@ -6,10 +6,10 @@ metadata:
   labels:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
-    enviroment: {{ .Values.enviroment }}
-    layer: {{ .Values.layer }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
   annotations:
-    uri-official: https://github.com/0dayCTF/reverse-shell-generator.git
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   failedBuildsHistoryLimit: 5
   successfulBuildsHistoryLimit: 5
@@ -17,7 +17,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: reverseshellgenerator:latest
+      name: {{ .Values.name }}:latest
   postCommit: {}
   resources:
     limits:
@@ -27,9 +27,9 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/Fernando0069/charts.git'
-      ref: main
-    contextDir: /reverseshellgenerator
+      uri: {{ .Values.git.uri }}
+      ref: {{ .Values.git.ref }}
+    contextDir: {{ .Values.git.contextDir }}
   strategy:
     dockerStrategy:
       dockerfilePath: Dockerfile
@@ -37,10 +37,10 @@ spec:
   triggers:
   - generic:
       secretReference:
-        name: reverseshellgenerator-generic-webhook
+        name: {{ .Values.name }}-generic-webhook
     type: Generic
   - github:
       secretReference:
-        name: reverseshellgenerator-github-webhook
+        name: {{ .Values.name }}-github-webhook
     type: GitHub
   - type: ConfigChange

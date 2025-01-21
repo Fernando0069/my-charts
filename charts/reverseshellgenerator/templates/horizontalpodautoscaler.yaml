@@ -6,14 +6,14 @@ metadata:
   labels:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
-    enviroment: {{ .Values.enviroment }}
-    layer: {{ .Values.layer }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
 spec:
   scaleTargetRef:
     kind: Deployment
     name: {{ .Values.name }}
     apiVersion: apps/v1
-  minReplicas: 1
+  minReplicas: {{ .Values.replicaCount }}
   maxReplicas: 2
   metrics:
     - type: Resource

@@ -1,6 +1,6 @@
 # ReverseShellGenerator charts
 
-Se crea la imágen desde el fichero Dockerfile con los ficheros de /files y se guarda en "docker.io/fernando0069/web-spectral:latest".
+A través del "BuildConfig" creamos una "Image" y una "ImageStream", las cuales serán usadas en el "Deployment"
 
 Para crear la aplicación ReverseShellGenerator debemos ejecutar los siguiente comandos:
 ```
