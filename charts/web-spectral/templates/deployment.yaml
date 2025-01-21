@@ -29,7 +29,7 @@ spec:
         app: {{ .Values.name }}
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/web-spectral:latest
+      - image:  {{ .Values.image }}
         imagePullPolicy: IfNotPresent
         name: container
         ports:

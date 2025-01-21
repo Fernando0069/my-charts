@@ -6,7 +6,7 @@ name: web-spectral
 enviroment: gc
 layer: tools
 replicaCount: 1
-image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/web-spectral:latest
+image: docker.io/fernando0069/web-spectral:latest
 resources:
   limits:
     web:
