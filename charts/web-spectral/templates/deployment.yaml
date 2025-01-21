@@ -9,7 +9,7 @@ metadata:
     enviroment: {{ .Values.enviroment }}
     layer: {{ .Values.layer }}
   annotations:
-    uri-official: {{ .Values.annotations.uri-official }}
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   progressDeadlineSeconds: 600
   replicas: {{ .Values.replicaCount }}

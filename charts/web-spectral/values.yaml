@@ -7,7 +7,7 @@ labels:
   enviroment: gc
   layer: tools
 annotations:
-  uri-official: https://stoplight.io/open-source/spectral
+  uriofficial: https://stoplight.io/open-source/spectral
 replicaCount: 1
 image: docker.io/fernando0069/web-spectral:latest
 resources:
