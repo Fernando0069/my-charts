@@ -4,7 +4,7 @@
 Tools:
         KO - 1.0.0 - Web
         KO - 1.0.0 - CyberChef 
-        KO - 1.0.0 - ReverseShellGenerator - W
+        KO - 1.0.0 - ReverseShellGenerator - W - Casi terminado, falta reconstruir (git clone, helm package, helm repo index ) y volver a probar tanto por http como por https 
         OK - 1.0.0 - Web-Spectral
 
 Training:
@@ -26,8 +26,6 @@ Training:
         # Web
                 Despliegue OK pero la web no se vé.
         # CyberChef
-                Falla el BuildConfig.
-        # ReverseShellGenerator
                 Falla el BuildConfig.
         # DO180-ToDo-HTML5
                 Pendiente
