@@ -13,7 +13,6 @@
 #   - Añdir fichero de logs independiente --> tee
 #   - Añdir al logs del sistema la ejecución pero no en DEBUG
 #   - Verificar si el usuario que lo ejecuta sea root (0).
-#   - Valorar si para el RC3 sería necesario añadir jq para la verificación de fichero json
 
 
 echo "[ DEBUG ]: Inicio del script" >&2
@@ -78,19 +77,12 @@ fi
 if command -v spectral &>/dev/null; then
     RULES_FILE="/opt/app-root/.spectral-rules.json"
     if [[ -s "${RULES_FILE}" ]]; then
-
         echo "[ DEBUG ]: Ejecutando Spectral sobre el archivo ${FILE}" >&2
-        #RESULT=$(spectral lint "${FILE}" 2>&1)
-        #RESULT=$(spectral lint --ruleset ${RULES_FILE} --format text ${FILE})
-        RESULT=$(spectral lint --ruleset ${RULES_FILE} --format json ${FILE})
-        #        spectral lint --ruleset /opt/app-root/.spectral-rules.json --format json /opt/app-root/uploads/foo1.json_20250116-1617)
+        RESULT=$(spectral lint --ruleset ${RULES_FILE} --format stylish ${FILE})
         echo "Content-Type: text/plain"
         echo ""
         echo "Analysis Report:"
-        echo ""
         echo "${RESULT}"
-        echo ""
-        echo "Processed successfully"
     else
         echo "[ DEBUG ]: El archivo de reglas de Spectral no esta disponible." >&2
         echo "Content-Type: text/plain"
@@ -108,4 +100,3 @@ fi
 find ${UPLOAD_DIR} -type f -mtime +2 -delete
 
 echo "[ DEBUG ]: Fin del script" >&2
-
