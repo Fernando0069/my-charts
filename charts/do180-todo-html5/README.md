@@ -1,6 +1,6 @@
 # DO180-ToDo-HTML5 charts
 
-Para crear la aplicación "todo-html5" del curso DO180 de Red Hat podemos hacerlo de tres maneras diferentes pero siempre manteniendo los mismos ficheros.
+Para crear la aplicación "ToDo-HTML5" del curso DO180 de Red Hat podemos hacerlo de tres maneras diferentes pero siempre manteniendo los mismos ficheros.
 
 Punto 1
   Creamos de manera automática una imágen (deteccion de lenguaje de programación) la cual lleva todos los ficheros mediante la CLI de Openshift (oc):

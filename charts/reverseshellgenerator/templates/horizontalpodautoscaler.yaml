@@ -11,7 +11,7 @@ metadata:
 spec:
   scaleTargetRef:
     kind: Deployment
-    name: reverseshellgenerator
+    name: {{ .Values.name }}
     apiVersion: apps/v1
   minReplicas: 1
   maxReplicas: 2

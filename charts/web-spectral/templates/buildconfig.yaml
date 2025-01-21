@@ -1,0 +1,36 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.enviroment }}
+    layer: {{ .Values.layer }}
+  annotations:
+    uri-official: https://stoplight.io/open-source/spectral
+spec:
+  failedBuildsHistoryLimit: 5
+  successfulBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: web-spectral:latest
+  postCommit: {}
+  resources:
+    limits:
+      cpu: "2"
+      memory: 4Gi
+  runPolicy: Serial
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/Fernando0069/charts.git'
+      ref: main
+    contextDir: /web-spectral
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker

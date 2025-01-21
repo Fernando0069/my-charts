@@ -1,0 +1,18 @@
+# Default values for buildachart.
+# This is a YAML-formatted file.
+
+namespace: fernando0069-dev
+name: web-spectral
+enviroment: gc
+layer: tools
+replicaCount: 1
+image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/web-spectral:latest
+resources:
+  limits:
+    web:
+      cpu: 50m
+      memory: 512Mi
+  requests:
+    web:
+      cpu: 15m
+      memory: 128Mi
