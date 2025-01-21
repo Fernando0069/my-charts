@@ -9,7 +9,7 @@ metadata:
     enviroment: {{ .Values.enviroment }}
     layer: {{ .Values.layer }}
 spec:
-  minAvailable: 1
+  minAvailable: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.name }}

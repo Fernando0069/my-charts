@@ -3,8 +3,11 @@
 
 namespace: fernando0069-dev
 name: web-spectral
-enviroment: gc
-layer: tools
+labels:
+  enviroment: gc
+  layer: tools
+annotations:
+  uri-official: https://stoplight.io/open-source/spectral
 replicaCount: 1
 image: docker.io/fernando0069/web-spectral:latest
 resources:
@@ -16,3 +19,8 @@ resources:
     web:
       cpu: 15m
       memory: 128Mi
+ports:
+  name: http
+  containerPort: 8080
+  protocol: TCP
+  servicePort: 8080
