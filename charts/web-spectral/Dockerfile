@@ -17,7 +17,7 @@ RUN dnf update -y && dnf clean all
 USER default
 
 # Crear el directorio para la subida de ficheros
-RUN mkdir -p /opt/app-root/uploads
+RUN mkdir -p /opt/app-root/uploads && chmod 0775 /opt/app-root/uploads
 
 # Copiar la configuración personalizada de Apache
 COPY ./web/httpd.conf /etc/httpd/conf/httpd.conf
