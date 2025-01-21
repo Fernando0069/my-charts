@@ -1,28 +1,33 @@
 #!/bin/bash
 
-# Este script maneja las subidas de archivos y procesa el archivo con Spectral
+# analyse.bash - 21/01/2025
+# Este script maneja las subidas de archivos y procesa el archivo con Spectral.
 # RC:
-#   1 - El fichero '${DEFAULT_FILE}' no existe o está vacío.
-#   2 - El fichero '${DEFAULT_FILE}' no tiene formato JSON.
-#   3 - El fichero '${FILE}' no existe o está vacío.
-#   4 - El fichero '${DEFAULT_FILE}' no tiene formato JSON.
-#   5 - El archivo ${FILE} supera el tamaño máximo permitido de 1 MB.
-#   6 - Spectral no está instalado o no está disponible en el sistema.
-#   7 - El archivo de reglas de Spectral no esta disponible.
-# Mejoras:
-#   - Añdir fichero de logs independiente --> tee
-#   - Añdir al logs del sistema la ejecución pero no en DEBUG
-#   - Verificar si el usuario que lo ejecuta sea root (0).
+#   1 - El script debe ser ejecutado con usuario privilegiado.
+#   2 - El El fichero '${DEFAULT_FILE}' no existe o está vacío.
+#   3 - El fichero '${DEFAULT_FILE}' no tiene formato JSON.
+#   4 - El fichero '${FILE}' no existe o está vacío.
+#   5 - El fichero '${DEFAULT_FILE}' no tiene formato JSON.
+#   6 - El archivo ${FILE} supera el tamaño máximo permitido de 1 MB.
+#   7 - Spectral no está instalado o no está disponible en el sistema.
+#   8 - El archivo de reglas de Spectral no esta disponible.
 
 
-echo "[ DEBUG ]: Inicio del script" >&2
+echo "[ INFO ]: Cominezo del script de analisis." >&2
 
 # Directorio de subida
 UPLOAD_DIR="/opt/app-root/uploads"
 
+# Comprobar si el script está siendo ejecutado por el usuario root
+if [[ ${UID} -lt 1000 ]]; then
+    RC=1
+    echo "[ ERROR ]: Este script debe ser ejecutado con el usuario root - ${RC}." >&2
+    exit ${RC}
+fi
+
 # Crear directorio si no existe
 if [[ ! -d ${UPLOAD_DIR} ]]; then
-    echo "[ DEBUG ]: Creando directorio de subida en ${UPLOAD_DIR}" >&2
+    echo "[ INFO ]: Creando directorio de subida en ${UPLOAD_DIR}" >&2
     mkdir -p "${UPLOAD_DIR}"
 fi
 
@@ -31,18 +36,29 @@ DEFAULT_NAME="noname"
 DEFAULT_FILE=${UPLOAD_DIR}/${DEFAULT_NAME}_${DATE}
 
 # Leer archivo desde stdin
-echo "[ DEBUG ]: Leyendo archivo desde stdin y guardando en ${DEFAULT_FILE}" >&2
+echo "[ INFO ]: Leyendo archivo desde stdin y guardando en ${DEFAULT_FILE}" >&2
 cat > "${DEFAULT_FILE}"
 
 if [[ ! -s "${DEFAULT_FILE}" ]]; then
-    echo "[ ERROR ]: El fichero ${DEFAULT_FILE} no existe o está vacío." && RC=1 && exit ${RC}
+    RC=2
+    echo "Content-Type: text/plain"
+    echo ""
+    echo "[ ERROR ]: El archivo ${DEFAULT_FILE} no existe o está vacío."
+    echo ""
+    echo "[ ERROR ]: El archivo ${DEFAULT_FILE} no existe o está vacío - ${RC}." >&2
+    exit ${RC}
 fi
 
 # Validar si el archivo tiene cabecera JSON
 if ! grep -q "Content-Type: application/json" "${DEFAULT_FILE}"; then
+    RC=3
     echo "Content-Type: text/plain"
     echo ""
-    echo "[ ERROR ]: El archivo subido no está en formato JSON. Por favor, suba un archivo JSON válido." && RC=2 && exit ${RC}
+    echo "[ ERROR ]: El archivo subido no está en formato JSON."
+    echo "[ ERROR ]: Por favor, suba un archivo JSON válido."
+    echo ""
+    echo "[ ERROR ]: El archivo subido no está en formato JSON - ${RC}." >&2
+    exit ${RC}
 fi
 
 # Obtener el nombre del archivo subido
@@ -54,14 +70,24 @@ awk 'BEGIN {in_json=0} /Content-Type: application\/json/ {in_json=1; next} /----
 
 # Validar si el archivo no está vacío
 if [[ ! -s "${FILE}" ]]; then
+    RC=4
     echo "Content-Type: text/plain"
     echo ""
-    echo "[ ERROR ]: El archivo procesado ${FILE} no existe o está vacío." && RC=3 && exit ${RC}
+    echo "[ ERROR ]: El archivo procesado ${FILE} no existe o está vacío."
+    echo ""
+    echo "[ ERROR ]: El archivo procesado ${FILE} no existe o está vacío - ${RC}." >&2
+    exit ${RC}
 fi
 
 # Validar si el archivo procesado sigue siendo JSON
 if ! jq . ${FILE} > /dev/null 2>&1; then
-    echo "[ ERROR ]: El archivo subido no está en formato JSON. Por favor, suba un archivo JSON válido." && RC=4 && exit ${RC}
+    RC=5
+    echo "Content-Type: text/plain"
+    echo ""
+    echo "[ ERROR ]: El archivo subido no está en formato JSON."
+    echo ""
+    echo "[ ERROR ]: El archivo subido no está en formato JSON - ${RC}." >&2
+    exit ${RC}
 fi
 
 # Eliminar el archivo temporal DEFAULT_FILE
@@ -70,33 +96,43 @@ rm -f "${DEFAULT_FILE}"
 # Verificar el tamaño del archivo (1 MB)
 FILE_SIZE=$(stat --format="%s" "${FILE}")
 if [[ ${FILE_SIZE} -gt 1048576 ]]; then
-    echo "[ ERROR ]: El archivo ${FILE} supera el tamaño máximo permitido de 1 MB." && RC=5 && exit ${RC}
+    RC=6
+    echo "[ ERROR ]: El archivo ${FILE} supera el tamaño máximo permitido de 1 MB - ${RC}." >&2
+    exit ${RC}
 fi
 
-# Analizamos el archivo ("foo1.json-20250114-174015") con Spectral si está disponible
+# Analizamos el archivo subido con Spectral
 if command -v spectral &>/dev/null; then
     RULES_FILE="/opt/app-root/.spectral-rules.json"
     if [[ -s "${RULES_FILE}" ]]; then
-        echo "[ DEBUG ]: Ejecutando Spectral sobre el archivo ${FILE}" >&2
+        echo "[ INFO ]: Ejecutando Spectral sobre el archivo ${FILE}." >&2
         RESULT=$(spectral lint --ruleset ${RULES_FILE} --format stylish ${FILE})
         echo "Content-Type: text/plain"
         echo ""
         echo "Analysis Report:"
+        echo ""
         echo "${RESULT}"
+        echo "[ INFO ]: Analisis del archivo ${FILE}:" >&2
+        echo "[ INFO ]: ${RESULT}" >&2
     else
-        echo "[ DEBUG ]: El archivo de reglas de Spectral no esta disponible." >&2
+        RC=8
         echo "Content-Type: text/plain"
-        echo
-        echo "[ ERROR ]: El archivo de reglas de Spectral no esta disponible." && RC=7 && exit ${RC}
+        echo ""
+        echo "[ ERROR ]: El archivo de reglas de Spectral no esta disponible."
+        echo ""
+        echo "[ ERROR ]: El archivo de reglas de Spectral no esta disponible - ${RC}." >&2
+        exit ${RC}
     fi
 else
-    echo "[ DEBUG ]: Spectral no está instalado o no está disponible en el sistema." >&2
+    RC=7
     echo "Content-Type: text/plain"
-    echo
-    echo "[ ERROR ]: Spectral no está instalado o no está disponible en el sistema." && RC=6 && exit ${RC}
+    echo ""
+    echo "[ ERROR ]: Spectral no está instalado o no está disponible en el sistema."
+    echo ""
+    echo "[ ERROR ]: Spectral no está instalado o no está disponible en el sistema - ${RC}." >&2
+    exit ${RC}
 fi
 
 # Limpiamos el entorno de ficheros con más de 2 días.
 find ${UPLOAD_DIR} -type f -mtime +2 -delete
-
-echo "[ DEBUG ]: Fin del script" >&2
+echo "[ INFO ]: Finalizacion del script de analisis." >&2
