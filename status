@@ -2,14 +2,14 @@
 # Apps Status
 ```
 Tools:
-        KO - 1.0.0 - Web
-        OK - 1.0.0 - CyberChef
-        OK - 1.0.0 - ReverseShellGenerator
-        OK - 1.0.0 - Web-Spectral
+        KO - 1.0.0   - Web
+        OK - 10.19.4 - CyberChef
+        OK - 1.0.0   - ReverseShellGenerator
+        OK - 1.0.0   - Web-Spectral
 
 Training:
         DO180:
-                KO - 1.0.0 - DO180-PHP-HelloWorld
+                OK - 1.0.0 - DO180-PHP-HelloWorld
                 KO - 1.0.0 - DO180-NodeJS-HelloWorld
                 KO - 1.0.0 - DO180-NodeJS-App
                 KO - 1.0.0 - DO180-PHP-Temperature
@@ -44,15 +44,6 @@ Organizar todo de aqui para abajo no deberia haber nada
 helm install web apps/Web
 ```
 
-
-
-# Training
-## DO180 Applications
-### Install DO180-NodeJS-HelloWorld Application:
-```
-helm install do180-nodejs-helloworld apps/DO180-NodeJS-HelloWorld
-```
-
 ### Install DO180-NodeJS-App Application:
 ```
 helm install do180-nodejs-app apps/DO180-NodeJS-App
@@ -83,12 +74,6 @@ helm install do180-todo-nodejs apps/DO180-ToDo-NodeJS
 ```
 helm install do180-todo-nodejs-api apps/DO180-ToDo-NodeJS-API
 ```
-
-### Install DT-100 Application:
-```
-helm install dt100 apps/DT-100
-```
-
 
 
 ## DO280 Applications
