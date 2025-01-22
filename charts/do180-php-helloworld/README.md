@@ -3,6 +3,7 @@
 Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos hacerlo de tres maneras diferentes pero siempre con los mismos archivos.
 
 Punto 1 (helm):
+
 Desplegampos con tecnología Helm y se añade un ConfigMap con un fichero llamado "phpinfo.php" el cual montamos como el fichero "phpinfo.php", en "/opt/app-root/src", el fichero index.php es añadido a la imagen durante la construcción.
 Para crear la aplicación DO180-PHP-HelloWorld debemos ejecutar los siguiente comandos:
 ```
@@ -17,6 +18,7 @@ Para eliminar la aplicación DO180-PHP-HelloWorld debemos ejecutar los siguiente
 ```
 
 Punto 2 (cli):
+
 Creamos de manera automática una imágen la cual lleva todo el código (index.php), mediante la CLI de Openshift (oc):
 ```
 Sin usar image o imagestream:
