@@ -4,11 +4,13 @@ Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos ha
 
 Punto 1 (helm):
 
-Desplegampos con tecnología Helm y se añade un ConfigMap con un fichero llamado "phpinfo.php" el cual montamos como el fichero "phpinfo.php", en "/opt/app-root/src", el fichero index.php es añadido a la imagen durante la construcción.
+Se crea la imagen con un fichero llamado "index.html" (BuildConfig) y con tecnología Helm desplegamos con varias cosas más como un ConfigMap con un fichero llamado "phpinfo.php" el cual montamos como el fichero "phpinfo.php", en "/opt/app-root/src", el fichero index.php también esta en el ConfigMap pero no se usa ya que fué añadido a la imagen durante la construcción.
 Para crear la aplicación DO180-PHP-HelloWorld debemos ejecutar los siguiente comandos:
 ```
-  1.- helm repo add apps https://fernando0069.github.io/my-charts/               # Creación del repositorio donde vamos a descargar la aplicación
-  2.- helm install php-helloworld apps/DO180-PHP-HelloWorld                      # Instalar la aplicación "DO180-PHP-HelloWorld" con el nombre "php-helloworld".
+  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                          # Creación del repositorio donde vamos a descargar la aplicación
+  2.- helm install php-helloworld apps/DO180-PHP-HelloWorld                                                 # Instalar la aplicación "DO180-PHP-HelloWorld" con el nombre "php-helloworld".
+  3.- curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/          # URL 
+  4.- curl -vvv https://php-helloworld-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php      # URL --> phpinfo.php
 ```
 
 Para eliminar la aplicación DO180-PHP-HelloWorld debemos ejecutar los siguiente comandos:
@@ -25,10 +27,12 @@ Sin usar image o imagestream:
   oc new-app --name=php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
   oc expose service/php-helloworld
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  curl -vvv https://php-helloworld-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php
 
 Usando imagestream con la versión del compilador:
   oc new-app -S php
   oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
   oc expose service/php-helloworld
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  curl -vvv https://php-helloworld-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php
 ```
