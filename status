@@ -3,8 +3,8 @@
 ```
 Tools:
         KO - 1.0.0 - Web
-        KO - 1.0.0 - CyberChef 
-        KO - 1.0.0 - ReverseShellGenerator - W - Casi terminado, falta reconstruir (git clone, helm package, helm repo index ) y volver a probar tanto por http como por https 
+        KO - 1.0.0 - CyberChef - W
+        OK - 1.0.0 - ReverseShellGenerator
         OK - 1.0.0 - Web-Spectral
 
 Training:
@@ -44,11 +44,6 @@ Organizar todo de aqui para abajo no deberia haber nada
 ## Install Web Application:
 ```
 helm install web apps/Web
-```
-
-## Install CyberChef Application:
-```
-helm install cyberchef apps/CyberChef
 ```
 
 

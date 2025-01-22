@@ -1,19 +1,21 @@
 kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2
 metadata:
-  name: cyberchef
-  namespace: fernando0069-dev
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: cyberchef
-    app.kubernetes.io/component: cyberchef
-    app.kubernetes.io/part-of: ref-solutions
-    layer: tools
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+  annotations:
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   scaleTargetRef:
     kind: Deployment
-    name: cyberchef
+    name: {{ .Values.name }}
     apiVersion: apps/v1
-  minReplicas: 1
+  minReplicas: {{ .Values.replicaCount }}
   maxReplicas: 2
   metrics:
     - type: Resource

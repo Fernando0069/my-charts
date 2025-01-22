@@ -1,6 +1,6 @@
 # ReverseShellGenerator charts
 
-A través del "BuildConfig" creamos una "Image" y una "ImageStream", las cuales serán usadas en el "Deployment"
+A través del "BuildConfig" creamos una "Image" y una "ImageStream", las cuales serán usadas en el "Deployment".
 
 Para crear la aplicación ReverseShellGenerator debemos ejecutar los siguiente comandos:
 ```
@@ -16,24 +16,13 @@ Para eliminar la aplicación ReverseShellGenerator debemos ejecutar los siguient
 
 Los objetos que se crean son los siguientes:
 ```
-  1.- Crear el Dockerfile en git.
-  2.- Crear el ImageStream.
-  3.- Crear los secrets (2) para los webhook.
-  4.- Crear el BuildConfig.
-  5.- Crear el Deployment.
-  6.- Crear el HorizontalPodAutoscalers (hpa).
-  7.- Crear el PodDisruptionBudget (pdb).
-  8.- Crear el Service.
-  9.- Crear el Route.
-Extra:
-  vpa
-```
-
-
-
-
-Hay que revisar los ficheros:
-```
-  1.- Revisar el values.yaml.
-  2.- Revisar el Chart.yaml.
+  0.- Disponer del archivo Dockerfile en git.
+  1.- Crear el ImageStream.
+  2.- Crear los secrets (2) para los webhook.
+  3.- Crear el BuildConfig.
+  4.- Crear el Deployment.
+  5.- Crear el HorizontalPodAutoscalers (hpa).
+  6.- Crear el PodDisruptionBudget (pdb).
+  7.- Crear el Service.
+  8.- Crear el Route.
 ```

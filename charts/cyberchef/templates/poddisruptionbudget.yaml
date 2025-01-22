@@ -1,15 +1,17 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: cyberchef
-  namespace: fernando0069-dev
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: cyberchef
-    app.kubernetes.io/component: cyberchef
-    app.kubernetes.io/part-of: ref-solutions
-    layer: tools
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+  annotations:
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
-  minAvailable: 1
+  minAvailable: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: cyberchef
+      app: {{ .Values.name }}

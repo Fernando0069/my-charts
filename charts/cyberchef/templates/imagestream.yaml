@@ -1,11 +1,15 @@
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  name: cyberchef
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: cyberchef
-    app.kubernetes.io/part-of: ref-solutions
-    layer: tools
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+  annotations:
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   lookupPolicy:
     local: false
@@ -13,7 +17,7 @@ spec:
   - annotations: null
     from:
       kind: DockerImage
-      name: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/cyberchef:latest
+      name: {{ .Values.image }}
     generation: 3
     importPolicy:
       importMode: Legacy

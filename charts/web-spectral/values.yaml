@@ -4,12 +4,13 @@
 namespace: fernando0069-dev
 name: web-spectral
 labels:
-  enviroment: gc
+  enviroment: pro
   layer: tools
 annotations:
   uriofficial: https://stoplight.io/open-source/spectral
 replicaCount: 1
 image: docker.io/fernando0069/web-spectral:latest
+imagePullPolicy: Always
 ports:
   name: http
   containerPort: 8080

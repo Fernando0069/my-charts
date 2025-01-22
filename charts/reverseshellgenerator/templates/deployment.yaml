@@ -29,13 +29,13 @@ spec:
         app: {{ .Values.name }}
     spec:
       containers:
-      - image: {{ .Values.image }}
-        imagePullPolicy: IfNotPresent
-        name: container
+      - name: {{ .Values.name }}
+        image: {{ .Values.image }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
-        - name: http
-          containerPort: 8080
-          protocol: TCP
+        - name: {{ .Values.ports.name }}
+          containerPort: {{ .Values.ports.containerPort }}
+          protocol: {{ .Values.ports.protocol }}
         - name: https
           containerPort: 8443
           protocol: TCP

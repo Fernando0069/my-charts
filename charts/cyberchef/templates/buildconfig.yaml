@@ -1,15 +1,15 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: cyberchef
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: cyberchef
-    app.kubernetes.io/part-of: ref-solutions
-    layer: tools   
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: cyberchef
-    app.kubernetes.io/version: '0.1.0'
-    helm.sh/chart: cyberchef-1.16.0    
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+  annotations:
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   failedBuildsHistoryLimit: 5
   successfulBuildsHistoryLimit: 5
@@ -23,9 +23,9 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/Fernando0069/charts.git'
-      ref: main
-    contextDir: /CyberChef
+      uri: {{ .Values.git.uri }}
+      ref: {{ .Values.git.ref }}
+    contextDir: {{ .Values.git.contextDir }}
   strategy:
     dockerStrategy:
       dockerfilePath: Dockerfile
@@ -33,14 +33,14 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: cyberchef:latest
+      name: {{ .Values.name }}:latest
   triggers:
   - generic:
       secretReference:
-        name: cyberchef-generic-webhook
+        name: {{ .Values.name }}-generic-webhook
     type: Generic
   - github:
       secretReference:
-        name: cyberchef-github-webhook
+        name: {{ .Values.name }}-github-webhook
     type: GitHub
   - type: ConfigChange

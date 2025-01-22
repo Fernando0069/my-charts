@@ -4,12 +4,13 @@
 namespace: fernando0069-dev
 name: reverseshellgenerator
 labels:
-  enviroment: gc
+  enviroment: pro
   layer: tools
 annotations:
   uriofficial: https://github.com/0dayCTF/reverse-shell-generator.git
 replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
+imagePullPolicy: Always
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main

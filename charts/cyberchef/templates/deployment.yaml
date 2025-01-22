@@ -1,24 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    uri-official: https://github.com/gchq/CyberChef.git
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"cyberchef:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"cyberchef\")].image","pause":""}]'
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: cyberchef
-    app.kubernetes.io/component: cyberchef
-    app.kubernetes.io/instance: cyberchef
-    app.kubernetes.io/name: cyberchef
-    app.kubernetes.io/part-of: ref-solutions
-    layer: tools
-  name: cyberchef
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+  annotations:
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   progressDeadlineSeconds: 600
-  replicas: 0
+  replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: cyberchef
+      app: {{ .Values.name }}
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -27,13 +25,12 @@ spec:
   template:
     metadata:
       labels:
-        app: cyberchef
-        deployment: cyberchef
+        app: {{ .Values.name }}
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/cyberchef:latest
-        imagePullPolicy: Always
-        name: cyberchef
+      - name: {{ .Values.name }}
+        image: {{ .Values.image }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
         - containerPort: 8080
           name: http
