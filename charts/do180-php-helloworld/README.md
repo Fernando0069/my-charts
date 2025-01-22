@@ -6,14 +6,14 @@ Punto 1 (helm):
 Desplegampos con tecnología Helm y se añade un ConfigMap con un fichero llamado "phpinfo.php" el cual montamos como el fichero "phpinfo.php", en "/opt/app-root/src", el fichero index.php es añadido a la imagen durante la construcción.
 Para crear la aplicación DO180-PHP-HelloWorld debemos ejecutar los siguiente comandos:
 ```
-  1.- helm repo add apps https://fernando0069.github.io/my-charts/     # Creación del repositorio donde vamos a descargar la aplicación
+  1.- helm repo add apps https://fernando0069.github.io/my-charts/               # Creación del repositorio donde vamos a descargar la aplicación
   2.- helm install php-helloworld apps/DO180-PHP-HelloWorld                      # Instalar la aplicación "DO180-PHP-HelloWorld" con el nombre "php-helloworld".
 ```
 
 Para eliminar la aplicación DO180-PHP-HelloWorld debemos ejecutar los siguiente comandos:
 ```
   1.- helm uninstall php-helloworld                                      # Desinstalar la aplicación con el nombre "php-helloworld" ("DO180-PHP-HelloWorld").
-  2.- helm repo remove apps                                            # Eliminación del repositorio de aplicaciones.
+  2.- helm repo remove apps                                              # Eliminación del repositorio de aplicaciones.
 ```
 
 Punto 2 (cli):
