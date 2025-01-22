@@ -6,33 +6,34 @@ metadata:
   labels:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
-    enviroment: {{ .Values.enviroment }}
-    training: {{ .Values.training }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      deployment: {{ .Values.name }}
+      app: {{ .Values.name }}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        deployment: {{ .Values.name }}
+        app: {{ .Values.name }}
     spec:
       containers:
         - name: {{ .Values.name }}
           image: {{ .Values.image }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
-            - name: http
-              containerPort: {{ .Values.ports.http }}
-              protocol: TCP
-            - name: https
-              containerPort: {{ .Values.ports.https }}
-              protocol: TCP
+            - name: {{ .Values.ports.http.name }}
+              containerPort: {{ .Values.ports.http.containerPort }}
+              protocol: {{ .Values.ports.http.protocol }}
+            - name: {{ .Values.ports.http.name }}
+              containerPort: {{ .Values.ports.http.containerPort }}
+              protocol: {{ .Values.ports.http.protocol }}
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-          imagePullPolicy: IfNotPresent
           resources:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}

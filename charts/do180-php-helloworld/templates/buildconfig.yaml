@@ -6,15 +6,16 @@ metadata:
   labels:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
-    enviroment: {{ .Values.enviroment }}
-    training: {{ .Values.training }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
 spec:
   nodeSelector: null
   output:
     to:
       kind: ImageStreamTag
+      name: {{ .Values.name }}:latest
       namespace: {{ .Values.namespace }}
-      name: 'php-helloworld:latest'
   resources: {}
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
@@ -23,15 +24,15 @@ spec:
     sourceStrategy:
       from:
         kind: ImageStreamTag
-        namespace: openshift
         name: 'php:8.1-ubi9'
+        namespace: openshift
   postCommit: {}
   source:
     type: Git
     git:
-      uri: 'https://github.com/Fernando0069/my-charts.git'
-      ref: main
-    contextDir: charts/do180-php-helloworld/files
+      uri: {{ .Values.git.uri }}
+      ref: {{ .Values.git.ref }}
+    contextDir: {{ .Values.git.contextDir }}
   triggers:
     - type: GitHub
       github:

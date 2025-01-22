@@ -18,6 +18,7 @@ spec:
     to:
       kind: ImageStreamTag
       name: {{ .Values.name }}:latest
+      namespace: {{ .Values.namespace }}
   postCommit: {}
   resources:
     limits:
