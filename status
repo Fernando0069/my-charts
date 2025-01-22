@@ -13,27 +13,26 @@ Training:
                 KO - 1.0.0 - DO180-NodeJS-HelloWorld
                 KO - 1.0.0 - DO180-NodeJS-App
                 KO - 1.0.0 - DO180-PHP-Temperature
-                KO - 1.0.0 - PE - DO180-ToDo-HTML5
-                KO - 1.0.0 - PE - DO180-ToDo-NodeJS
-                KO - 1.0.0 - PE - DO180-ToDo-NodeJS-API
+```
+# Working
+```
+        X - Web - Despliegue OK pero la web no se vé.
+        W - DO180-NodeJS-HelloWorld - XXX
+        X - DO180-NodeJS-App - XXX
+        X - DO180-PHP-Temperature - XXX
+```
+
+# Pending
+```
+        DO180:
+                PE - 1.0.0 - DO180-ToDo-HTML5
+                PE - 1.0.0 - DO180-ToDo-NodeJS
+                PE - 1.0.0 - DO180-ToDo-NodeJS-API
         DO280:
                 XXX
         DO285:
                 XXX
 ```
-# Errores
-```
-        # Web
-                Despliegue OK pero la web no se vé.
-        # DO180-ToDo-HTML5
-                Pendiente
-        # DO180-ToDo-NodeJS
-                Pendiente
-        # DO180-ToDo-NodeJS-API
-                Pendiente
-```
-
-
 
 # ORGANIZAR 
 Organizar todo de aqui para abajo no deberia haber nada 

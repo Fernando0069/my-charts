@@ -6,15 +6,16 @@ metadata:
   labels:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
-    enviroment: {{ .Values.enviroment }}
-    training: {{ .Values.training }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
 spec:
   nodeSelector: null
   output:
     to:
       kind: ImageStreamTag
       namespace: {{ .Values.namespace }}
-      name: 'nodejs-helloworld:latest'
+      name: {{ .Values.name }}:latest
   resources: {}
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
@@ -29,9 +30,9 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/Fernando0069/my-charts.git'
-      ref: main
-    contextDir: charts/do180-nodejs-helloworld/files
+      uri: {{ .Values.git.uri }}
+      ref: {{ .Values.git.ref }}
+    contextDir: {{ .Values.git.contextDir }}
   triggers:
     - type: GitHub
       github:

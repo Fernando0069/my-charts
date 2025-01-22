@@ -6,19 +6,20 @@ metadata:
   labels:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
-    enviroment: {{ .Values.enviroment }}
-    training: {{ .Values.training }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
 spec:
   ipFamilies:
     - IPv4
   ports:
-    - name: http
-      protocol: TCP
-      port: 8080
-      targetPort: 8080
+    - name: {{ .Values.ports.http.name }}
+      port: {{ .Values.ports.http.servicePort }}
+      protocol: {{ .Values.ports.http.protocol }}
+      targetPort: {{ .Values.ports.http.containerPort }}
   internalTrafficPolicy: Cluster
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
-    deployment: {{ .Values.name }}
+    app: {{ .Values.name }}

@@ -1,6 +1,6 @@
 # DO180-php-helloworld charts
 
-Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos hacerlo de tres maneras diferentes pero siempre con los mismos archivos.
+Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre con los mismos archivos.
 
 Punto 1 (helm):
 
