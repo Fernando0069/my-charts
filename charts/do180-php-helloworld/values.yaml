@@ -17,7 +17,7 @@ ports:
     protocol: TCP
     servicePort: 8080
   https:
-    name: http
+    name: https
     containerPort: 8443
     protocol: TCP
     servicePort: 8443
