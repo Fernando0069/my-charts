@@ -1,21 +1,21 @@
-# DO180-NodeJs-HelloWorld charts
+# DO180-NodeJS-HelloWorld charts
 
 Para crear la aplicación "nodejs-helloworld" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre manteniendo los mismos ficheros.
 
 Punto 1 (helm):
 
 Desplegampos con tecnología Helm, en la construccion de la imagen añadimos los ficheros "app.js" y "package.json" los cual se montan en "/opt/app-root/src".
-Para crear la aplicación DO180-NodeJs-HelloWorld debemos ejecutar los siguiente comandos:
+Para crear la aplicación DO180-NodeJS-HelloWorld debemos ejecutar los siguiente comandos:
 ```
   1.- helm repo add apps https://fernando0069.github.io/my-charts/                                             # Creación del repositorio donde vamos a descargar la aplicación
-  2.- helm install nodejs-helloworld apps/DO180-NodeJs-HelloWorld                                              # Instalar la aplicación "DO180-PHP-HelloWorld" con el nombre "php-helloworld".
+  2.- helm install nodejs-helloworld apps/DO180-NodeJS-HelloWorld                                              # Instalar la aplicación "DO180-NodeJS-HelloWorld" con el nombre "nodejs-helloworld".
   3.- curl -vvv https://nodejs-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/          # URL 
 ```
 
 Para eliminar la aplicación DO180-NodeJS-HelloWorld debemos ejecutar los siguiente comandos:
 ```
-  1.- helm uninstall php-helloworld     # Desinstalar la aplicación con el nombre "nodejs-helloworld" ("DO180-NodeJS-HelloWorld").
-  2.- helm repo remove apps             # Eliminación del repositorio de aplicaciones.
+  1.- helm uninstall nodejs-helloworld    # Desinstalar la aplicación con el nombre "nodejs-helloworld" ("DO180-NodeJS-HelloWorld").
+  2.- helm repo remove apps               # Eliminación del repositorio de aplicaciones.
 ```
 
 Punto 2 (cli):
