@@ -1,7 +1,0 @@
-INFO: El chart "DO180-PHP-Temperature-CM" despliega una aplicación en PHP.
-INFO: Despliega los siguiente objetos:
-        - ConfigMap
-        - Deployment.
-        - PodDisruptionBudget.
-        - Service.
-        - Route.

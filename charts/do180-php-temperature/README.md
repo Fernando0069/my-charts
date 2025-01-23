@@ -4,7 +4,7 @@ Para crear la aplicación "php-temperature" del curso DO180 de Red Hat podemos h
 
 Punto 1 (helm):
 
-Se crea la imagen con un fichero llamado "index.php" (BuildConfig) y con tecnología Helm desplegamos.
+Se crea la imagen con un fichero llamado "index.php" (BuildConfig) y con tecnología Helm desplegamos el pod el cual además tendrá un ConfigMap con el archivo "phpinfo.php" que será montado en "/opt/app-root/src/" a través del deployment.
 Para crear la aplicación DO180-PHP-Temperature debemos ejecutar los siguiente comandos:
 ```
   helm repo add apps https://fernando0069.github.io/my-charts/
