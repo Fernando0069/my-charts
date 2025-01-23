@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
       <body>
         <h1>Hello World</h1>
         <p>Hello World!</p>
-		<p>Running on Node.js version: <strong>${process.version}</strong></p>
+        <p>Running on Node.js version: <strong>${process.version}</strong></p>
       </body>
     </html>
   `);

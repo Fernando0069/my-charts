@@ -13,9 +13,10 @@ List applications:
         Web-Spectral
     Training:
         DO180-PHP-HelloWorld
-
         DO180-NodeJS-HelloWorld
+        
         DO180-PHP-Temperature
+        DO180-PHP-Temperature-CM
         DO180-NodeJS-App
         DO180-ToDo-HTML5
         DO180-ToDo-NodeJS

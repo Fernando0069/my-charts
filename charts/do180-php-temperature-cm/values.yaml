@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 
 namespace: fernando0069-dev
-name: php-temperature
+name: php-temperature-cm
 labels:
   enviroment: pro
   layer: training
@@ -28,7 +28,3 @@ resources:
   requests:
     cpu: 5m
     memory: 32Mi
-git:
-  uri: 'https://github.com/Fernando0069/my-charts.git'
-  ref: main
-  contextDir: /charts/do180-php-temperature/files
