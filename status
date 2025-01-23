@@ -11,13 +11,13 @@ Training:
         DO180:
                 OK - 1.0.0 - DO180-PHP-HelloWorld
                 KO - 1.0.0 - DO180-NodeJS-HelloWorld
-                KO - 1.0.0 - DO180-NodeJS-App
                 KO - 1.0.0 - DO180-PHP-Temperature
+                KO - 1.0.0 - DO180-NodeJS-App
 ```
 # Working
 ```
         X - Web - Despliegue OK pero la web no se vé.
-        W - DO180-NodeJS-HelloWorld - XXX
+        W - DO180-NodeJS-HelloWorld - No se ha probado el despliegue, esta pendiente de desplegar
         X - DO180-NodeJS-App - XXX
         X - DO180-PHP-Temperature - XXX
 ```
@@ -25,9 +25,10 @@ Training:
 # Pending
 ```
         DO180:
-                PE - 1.0.0 - DO180-ToDo-HTML5
-                PE - 1.0.0 - DO180-ToDo-NodeJS
-                PE - 1.0.0 - DO180-ToDo-NodeJS-API
+                W - DO180-NodeJS-HelloWorld - No se ha probado el despliegue, esta pendiente de desplegar
+                PE - DO180-ToDo-HTML5
+                PE - DO180-ToDo-NodeJS
+                PE - DO180-ToDo-NodeJS-API
         DO280:
                 XXX
         DO285:

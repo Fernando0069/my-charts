@@ -12,10 +12,11 @@ List applications:
         ReverseShellGenerator
         Web-Spectral
     Training:
-        DO180-NodeJS-HelloWorld
-        DO180-NodeJS-App
         DO180-PHP-HelloWorld
+
+        DO180-NodeJS-HelloWorld
         DO180-PHP-Temperature
+        DO180-NodeJS-App
         DO180-ToDo-HTML5
         DO180-ToDo-NodeJS
         DO180-ToDo-NodeJS-API
@@ -38,11 +39,11 @@ helm repo remove apps
 # Application
 ## Install Application:
 ```
-helm install [NAME_APP] apps/Web
+helm install [NAME_APP] [NAME_APP]/[NAME_APP]
 helm install web apps/Web
 ```
 ## Uninstall Application:
 ```
-helm uninstall [NAME_APP] 
+helm uninstall [NAME_APP]
 helm uninstall cyberchef 
 ```
