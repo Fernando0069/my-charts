@@ -33,3 +33,13 @@ Usando imagestream con la versión del compilador:
   oc expose service/nodejs-helloworld
   curl -vvv https://nodejs-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   ```
+  
+Los objetos que se crean son los siguientes:
+```
+  1.- Imagestream.
+  2.- BuildConfig.
+  3.- Deployment.
+  4.- PodDisruptionBudget.
+  5.- Service.
+  6.- Route.
+```

@@ -36,3 +36,14 @@ Usando imagestream con la versión del compilador:
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   curl -vvv https://php-helloworld-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php
 ```
+
+Los objetos que se crean son los siguientes:
+```
+  1.- Imagestream.
+  2.- BuildConfig.
+  3.- ConfigMap.
+  4.- Deployment.
+  5.- PodDisruptionBudget.
+  6.- Service.
+  7.- Route.
+```
