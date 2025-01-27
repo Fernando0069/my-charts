@@ -9,7 +9,7 @@ Para crear la aplicación DO180-NodeJS-HelloWorld debemos ejecutar los siguiente
 ```
   1.- helm repo add apps https://fernando0069.github.io/my-charts/                                             # Creación del repositorio donde vamos a descargar la aplicación
   2.- helm install nodejs-helloworld apps/DO180-NodeJS-HelloWorld                                              # Instalar la aplicación "DO180-NodeJS-HelloWorld" con el nombre "nodejs-helloworld".
-  3.- curl -vvv https://nodejs-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/          # URL 
+  3.- curl -vvv https://nodejs-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/          # Verificar la URL.
 ```
 
 Para eliminar la aplicación DO180-NodeJS-HelloWorld debemos ejecutar los siguiente comandos:
@@ -17,6 +17,17 @@ Para eliminar la aplicación DO180-NodeJS-HelloWorld debemos ejecutar los siguie
   1.- helm uninstall nodejs-helloworld    # Desinstalar la aplicación con el nombre "nodejs-helloworld" ("DO180-NodeJS-HelloWorld").
   2.- helm repo remove apps               # Eliminación del repositorio de aplicaciones.
 ```
+
+Los objetos que se crean son los siguientes:
+```
+  1.- Imagestream.
+  2.- BuildConfig.
+  3.- Deployment.
+  4.- PodDisruptionBudget.
+  5.- Service.
+  6.- Route.
+```
+
 
 Punto 2 (cli):
 
@@ -39,7 +50,6 @@ Los objetos que se crean son los siguientes:
   1.- Imagestream.
   2.- BuildConfig.
   3.- Deployment.
-  4.- PodDisruptionBudget.
-  5.- Service.
-  6.- Route.
+  4.- Service.
+  5.- Route.
 ```

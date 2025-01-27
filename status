@@ -12,11 +12,10 @@ Training:
                 OK - 1.0.0 - DO180-PHP-HelloWorld
                 OK - 1.0.0 - DO180-NodeJS-HelloWorld
                 OK - 1.0.0 - DO180-PHP-Temperature
-                KO - 1.0.0 - DO180-NodeJS-App
+                OK - 1.0.0 - DO180-NodeJS-App
 ```
 # Working
 ```
-        W - DO180-NodeJS-App
         P - Web - Despliegue OK pero la web no se vé.
 ```
 

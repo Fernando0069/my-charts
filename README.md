@@ -1,5 +1,4 @@
 # my-charts
-my-charts
 
 Se ha creado un repositorio con todas las aplicaciones preparadas para instalar y ser usadas.
 
@@ -15,8 +14,8 @@ List applications:
         DO180-PHP-HelloWorld
         DO180-NodeJS-HelloWorld
         DO180-PHP-Temperature
-        
         DO180-NodeJS-App
+        
         DO180-ToDo-HTML5
         DO180-ToDo-NodeJS
         DO180-ToDo-NodeJS-API

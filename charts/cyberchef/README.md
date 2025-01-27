@@ -6,6 +6,7 @@ Para crear la aplicación CyberChef debemos ejecutar los siguiente comandos:
 ```
   1.- helm repo add apps https://fernando0069.github.io/my-charts/         # Creación del repositorio donde vamos a descargar la aplicación
   2.- helm install cyberchef apps/CyberChef                                # Instalar la aplicación "CyberChef" con el nombre "cyberchef".
+  3.- curl -vvv https://cyberchef-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/      # Verificar la URL.
 ```
 
 Para eliminar la aplicación CyberChef debemos ejecutar los siguiente comandos:

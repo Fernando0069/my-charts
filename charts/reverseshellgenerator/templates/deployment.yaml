@@ -33,12 +33,12 @@ spec:
         image: {{ .Values.image }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
-        - name: {{ .Values.ports.name }}
-          containerPort: {{ .Values.ports.containerPort }}
-          protocol: {{ .Values.ports.protocol }}
-        - name: https
-          containerPort: 8443
-          protocol: TCP
+          - name: {{ .Values.ports.http.name }}
+            containerPort: {{ .Values.ports.http.containerPort }}
+            protocol: {{ .Values.ports.http.protocol }}
+          - name: {{ .Values.ports.https.name }}
+            containerPort: {{ .Values.ports.https.containerPort }}
+            protocol: {{ .Values.ports.https.protocol }}
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File

@@ -19,6 +19,17 @@ Para eliminar la aplicación PHP-Temperature debemos ejecutar los siguiente coma
   2.- helm repo remove apps                                            # Eliminación del repositorio de aplicaciones.
 ```
 
+Los objetos que se crean son los siguientes:
+```
+  1.- Imagestream.
+  2.- BuildConfig.
+  3.- Deployment.
+  4.- PodDisruptionBudget.
+  5.- Service.
+  6.- Route.
+```
+
+
 Punto 2 (cli):
   Creamos de manera automática una imágen la cual lleva todo el código (index.php), mediante la CLI de Openshift (oc):
 ```
@@ -47,7 +58,6 @@ Los objetos que se crean son los siguientes:
   1.- Imagestream.
   2.- BuildConfig.
   3.- Deployment.
-  4.- PodDisruptionBudget.
-  5.- Service.
-  6.- Route.
+  4.- Service.
+  5.- Route.
 ```

@@ -1,5 +1,9 @@
 # Web charts
 
+Quiero hacer una web que sea el status de todas y cada una de las aplicaciones indicando en rojo el mal estado de la aplicacion o herramiento y en verde el buen estado de la aplicación o herramienta.
+
+
+
 Hay que revisar los ficheros:
 ```
   1.- Revisar el values.yaml.

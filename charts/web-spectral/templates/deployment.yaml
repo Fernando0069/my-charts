@@ -33,9 +33,9 @@ spec:
         image:  {{ .Values.image }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
-        - name: {{ .Values.ports.name }}
-          containerPort: {{ .Values.ports.containerPort }}
-          protocol: {{ .Values.ports.protocol }}
+          - name: {{ .Values.ports.http.name }}
+            containerPort: {{ .Values.ports.http.containerPort }}
+            protocol: {{ .Values.ports.http.protocol }}
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File

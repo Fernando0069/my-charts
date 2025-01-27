@@ -1,4 +1,4 @@
-# DO180-php-helloworld charts
+# DO180-PHP-HelloWorld charts
 
 Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre con los mismos archivos.
 
@@ -9,8 +9,8 @@ Para crear la aplicación DO180-PHP-HelloWorld debemos ejecutar los siguiente co
 ```
   1.- helm repo add apps https://fernando0069.github.io/my-charts/                                          # Creación del repositorio donde vamos a descargar la aplicación
   2.- helm install php-helloworld apps/DO180-PHP-HelloWorld                                                 # Instalar la aplicación "DO180-PHP-HelloWorld" con el nombre "php-helloworld".
-  3.- curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/          # URL 
-  4.- curl -vvv https://php-helloworld-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php      # URL --> phpinfo.php
+  3.- curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/          # Verificar la URL. 
+  4.- curl -vvv https://php-helloworld-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php      # Verificar la URL. --> phpinfo.php
 ```
 
 Para eliminar la aplicación DO180-PHP-HelloWorld debemos ejecutar los siguiente comandos:
@@ -18,6 +18,18 @@ Para eliminar la aplicación DO180-PHP-HelloWorld debemos ejecutar los siguiente
   1.- helm uninstall php-helloworld                                      # Desinstalar la aplicación con el nombre "php-helloworld" ("DO180-PHP-HelloWorld").
   2.- helm repo remove apps                                              # Eliminación del repositorio de aplicaciones.
 ```
+
+Los objetos que se crean son los siguientes:
+```
+  1.- Imagestream.
+  2.- BuildConfig.
+  3.- ConfigMap.
+  4.- Deployment.
+  5.- PodDisruptionBudget.
+  6.- Service.
+  7.- Route.
+```
+
 
 Punto 2 (cli):
 
