@@ -11,6 +11,12 @@ Desplegampos con tecnología Helm, Se contruye la imagen y en ella añadimos los
   curl -vvv https://nodejs-app-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
 ```
 
+Para eliminar la aplicación NodeJS-App debemos ejecutar los siguiente comandos:
+```
+  1.- helm uninstall nodejs-app                                   # Desinstalar la aplicación con el nombre "nodejs-app" ("DO180-NodeJS-App").
+  2.- helm repo remove apps                                            # Eliminación del repositorio de aplicaciones.
+```
+
 Punto 2 (cli):
 
 Creamos de manera automática una imágen la cual lleva todo el código (app.js y package.json), mediante la CLI de Openshift (oc):
