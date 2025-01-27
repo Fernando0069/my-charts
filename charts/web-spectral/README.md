@@ -4,8 +4,9 @@ Se crea la imágen desde el fichero Dockerfile con los ficheros de /files y se g
 
 Para crear la aplicación Web-Spectral debemos ejecutar los siguiente comandos:
 ```
-  1.- helm repo add apps https://fernando0069.github.io/my-charts/     # Creación del repositorio donde vamos a descargar la aplicación
-  2.- helm install web-spectral apps/Web-Spectral                      # Instalar la aplicación "Web-Spectral" con el nombre "web-spectral".
+  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                    # Creación del repositorio donde vamos a descargar la aplicación
+  2.- helm install web-spectral apps/Web-Spectral                                                     # Instalar la aplicación "Web-Spectral" con el nombre "web-spectral".
+  3.- curl -vvv https://web-spectral-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/      # Verificar la URL.
 ```
 
 Para eliminar la aplicación Web-Spectral debemos ejecutar los siguiente comandos:
