@@ -6,9 +6,9 @@ Punto 1 (helm):
 
 Desplegampos con tecnología Helm, Se contruye la imagen y en ella añadimos los ficheros "app.js" y "package.json" los cual se montan en "/opt/app-root/src/" a través del deployment. Para crear la aplicación NodeJS-App debemos ejecutar los siguiente comandos:
 ```
-  1.- helm repo add apps https://fernando0069.github.io/my-charts/      # Creación del repositorio donde vamos a descargar la aplicación
-  2.- helm install nodejs-app apps/DO180-NodeJS-App                     # Instalar la aplicación "DO180-NodeJS-App" con el nombre "nodejs-app".
-  3.- curl -vvv https://nodejs-app-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/     # Verificar la URL.
+  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                  # Creación del repositorio donde vamos a descargar la aplicación
+  2.- helm install nodejs-app apps/DO180-NodeJS-App                                                 # Instalar la aplicación "DO180-NodeJS-App" con el nombre "nodejs-app".
+  3.- curl -vvv https://nodejs-app-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/      # Verificar la URL.
 ```
 
 Para eliminar la aplicación NodeJS-App debemos ejecutar los siguiente comandos:
