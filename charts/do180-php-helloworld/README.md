@@ -33,29 +33,30 @@ Los objetos que se crean son los siguientes:
 
 Punto 2 (cli):
 
-Creamos de manera automática una imágen la cual lleva todo el código (index.php), mediante la CLI de Openshift (oc):
-```
+Creamos de manera automática una imágen la cual lleva todo el código (index.php), mediante la CLI de Openshift (oc), no se añade el ConfigMap que se realizó en el "Punto 1 (helm)":
+
 Sin usar image o imagestream:
+```
   oc new-app --name=php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
   oc expose service/php-helloworld
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-  curl -vvv https://php-helloworld-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php
+  oc delete all -l app=php-helloworld
+```
 
 Usando imagestream con la versión del compilador:
+```
   oc new-app -S php
   oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
   oc expose service/php-helloworld
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-  curl -vvv https://php-helloworld-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php
+  oc delete all -l app=php-helloworld
 ```
 
 Los objetos que se crean son los siguientes:
 ```
   1.- Imagestream.
   2.- BuildConfig.
-  3.- ConfigMap.
-  4.- Deployment.
-  5.- PodDisruptionBudget.
-  6.- Service.
-  7.- Route.
+  3.- Deployment.
+  4.- Service.
+  5.- Route.
 ```

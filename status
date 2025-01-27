@@ -11,7 +11,7 @@ Training:
         DO180:
                 OK - 1.0.0 - DO180-PHP-HelloWorld
                 OK - 1.0.0 - DO180-NodeJS-HelloWorld
-                OK - 1.0.0 - DO180-PHP-Temperature
+                OK - 1.0.0 - DO180-PHP-Temperature --> falta compleatr los comentarios del README.md
                 OK - 1.0.0 - DO180-NodeJS-App
 ```
 # Working

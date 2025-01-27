@@ -10,11 +10,6 @@ metadata:
     layer: {{ .Values.labels.layer }}
     training: {{ .Values.labels.training }}
 data:
-  index.php: |
-    <?php
-      print "Hello, World! php version is " . PHP_VERSION . "\n";
-      print "\n";
-    ?>
   phpinfo.php: |
     <?php
       // Show all information, defaults to INFO_ALL
