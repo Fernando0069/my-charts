@@ -20,16 +20,19 @@ Para eliminar la aplicación NodeJS-App debemos ejecutar los siguiente comandos:
 Punto 2 (cli):
 
 Creamos de manera automática una imágen la cual lleva todo el código (app.js y package.json), mediante la CLI de Openshift (oc):
-```
+
 Sin el uso de image o imagestream:
+```
   oc new-app --name=nodejs-app https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-nodejs-app/files -l app=nodejs-app
   oc expose service/nodejs-app
   oc create route edge nodejs-app --service=nodejs-app    # crea ruta segura del tipo edge
       oc expose service nodejs-app
   curl -vvv https://nodejs-app-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=nodejs-app
+```
 
 Usando imagestream con la versión del compilador:
+```
   oc new-app -S nodejs
   oc new-app --image-stream=openshift/nodejs:18-ubi9-minimal --name nodejs-app https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-nodejs-app/files -l app=nodejs-app
   oc expose service/nodejs-app
