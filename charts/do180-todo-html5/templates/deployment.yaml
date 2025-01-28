@@ -42,7 +42,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /
-              port: {{ .Values.ports.http }}
+              port: {{ .Values.ports.http.servicePort }}
               scheme: HTTP
             timeoutSeconds: 1
             periodSeconds: 10
@@ -51,7 +51,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: {{ .Values.ports.http }}
+              port: {{ .Values.ports.http.servicePort }}
               scheme: HTTP
             timeoutSeconds: 1
             periodSeconds: 10
@@ -60,7 +60,7 @@ spec:
           startupProbe:
             httpGet:
               path: /
-              port: {{ .Values.ports.http }}
+              port: {{ .Values.ports.http.servicePort }}
               scheme: HTTP
             initialDelaySeconds: 15
             timeoutSeconds: 1
