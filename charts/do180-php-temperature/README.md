@@ -30,27 +30,24 @@ Los objetos que se crean son los siguientes:
 
 
 Punto 2 (cli):
-  Creamos de manera automática una imágen la cual lleva todo el código (index.php), mediante la CLI de Openshift (oc):
 
 Sin el uso de image o imagestream:
 ```
   oc new-app --name=php-temperature https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-temperature/files -l app=php-temperature
-  oc create cm php-temperature --from-file files/phpinfo.php
-  oc set volume dc/php-temperature --add -t configmap --configmap-name=php-temperature --name=php-temperature --mount-path=/opt/app-root/src/phpinfo.php --subpath=phpinfo.php
   oc expose service/php-temperature
   curl -vvv https://php-temperature-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com
   curl -vvv https://php-temperature-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php
+  oc delete all -l app=php-temperature
 ```
 
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S php
   oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-temperature https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-temperature/files -l app=php-temperature
-  oc create cm php-temperature --from-file files/phpinfo.php
-  oc set volume dc/php-temperature --add -t configmap --configmap-name=php-temperature --name=php-temperature --mount-path=/opt/app-root/src/phpinfo.php --subpath=phpinfo.php
   oc expose service/php-temperature
   curl -vvv https://php-temperature-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com
   curl -vvv https://php-temperature-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php
+  oc delete all -l app=php-temperature
 ```
 
 Los objetos que se crean son los siguientes:

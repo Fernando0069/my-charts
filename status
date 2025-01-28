@@ -11,18 +11,18 @@ Training:
         DO180:
                 OK - 1.0.0 - DO180-PHP-HelloWorld
                 OK - 1.0.0 - DO180-NodeJS-HelloWorld
-                OK - 1.0.0 - DO180-PHP-Temperature --> falta compleatr los comentarios del README.md
+                OK - 1.0.0 - DO180-PHP-Temperature
                 OK - 1.0.0 - DO180-NodeJS-App
 ```
 # Working
 ```
-        P - Web - Despliegue OK pero la web no se vé.
+        W - DO180-ToDo-HTML5
+        W - Web - No funciona, haciendo nuevo desarrollo
 ```
 
 # Pending
 ```
         DO180:
-                PE - DO180-ToDo-HTML5
                 PE - DO180-ToDo-NodeJS
                 PE - DO180-ToDo-NodeJS-API
         DO280:

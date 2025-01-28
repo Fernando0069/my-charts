@@ -1,37 +1,39 @@
-kind: BuildConfig
 apiVersion: build.openshift.io/v1
+kind: BuildConfig
 metadata:
   name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Values.name }}
     app.kubernetes.io/component: {{ .Values.name }}
-    enviroment: {{ .Values.enviroment }}
-    training: {{ .Values.training }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
 spec:
-  nodeSelector: null
-  output:
-    to:
-      kind: ImageStreamTag
-      namespace: {{ .Values.namespace }}
-      name: 'todo-html5:latest'
-  resources: {}
-  successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
-  strategy:
-    type: Source
-    sourceStrategy:
-      from:
-        kind: ImageStreamTag
-        namespace: openshift
-        name: 'ubi9/httpd-24:latest'
+  successfulBuildsHistoryLimit: 5
+  nodeSelector: null
   postCommit: {}
+  runPolicy: Serial
+  resources:
+    limits:
+      cpu: "2"
+      memory: 4Gi
   source:
     type: Git
     git:
-      uri: 'https://github.com/Fernando0069/my-charts.git'
-      ref: main
-    contextDir: charts/do180-todo-html5/
+      uri: {{ .Values.git.uri }}
+      ref: {{ .Values.git.ref }}
+    contextDir: {{ .Values.git.contextDir }}
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ .Values.name }}:latest
+      namespace: {{ .Values.namespace }}
   triggers:
     - type: GitHub
       github:
@@ -42,4 +44,3 @@ spec:
     - type: ConfigChange
     - type: ImageChange
       imageChange: {}
-  runPolicy: Serial
