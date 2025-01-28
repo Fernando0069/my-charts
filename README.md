@@ -15,8 +15,8 @@ List applications:
         DO180-NodeJS-HelloWorld
         DO180-PHP-Temperature
         DO180-NodeJS-App
+        DO180-ToDo-HTML5 - App non-functional but install OK
         
-        DO180-ToDo-HTML5
         DO180-ToDo-NodeJS
         DO180-ToDo-NodeJS-API
         DO280-XXX-XXX

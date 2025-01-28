@@ -13,10 +13,10 @@ Training:
                 OK - 1.0.0 - DO180-NodeJS-HelloWorld
                 OK - 1.0.0 - DO180-PHP-Temperature
                 OK - 1.0.0 - DO180-NodeJS-App
+                OK - 1.0.0 - DO180-ToDo-HTML5 - App non-functional but install OK
 ```
 # Working
 ```
-        W - DO180-ToDo-HTML5
         W - Web - No funciona, haciendo nuevo desarrollo
 ```
 
