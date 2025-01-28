@@ -42,5 +42,3 @@ spec:
       generic:
         secret: XgaK2wM_pNDdsQQolO8u
     - type: ConfigChange
-    - type: ImageChange
-      imageChange: {}
