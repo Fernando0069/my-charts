@@ -1,0 +1,10 @@
+INFO: El chart "Web-Status" despliega la aplicación "web-status".
+INFO: Despliega los siguiente objetos:
+        - Disponer del archivo Dockerfile en git.
+        - Crear el ImageStream.
+        - Crear el BuildConfig.
+        - Crear el Deployment.
+        - Crear el HorizontalPodAutoscalers (hpa).
+        - Crear el PodDisruptionBudget (pdb).
+        - Crear el Service.
+        - Crear el Route.

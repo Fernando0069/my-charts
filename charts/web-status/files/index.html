@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de las Aplicaciones</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>Estado de las Aplicaciones</h1>
+    
+    <h2>Tools</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>APP</th>
+                <th>STATUS</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody id="tools-container">
+            <!-- Los datos se insertarán dinámicamente aquí -->
+        </tbody>
+    </table>
+    
+    <h2>Training</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>APP</th>
+                <th>STATUS</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody id="training-container">
+            <!-- Los datos se insertarán dinámicamente aquí -->
+        </tbody>
+    </table>
+    
+    <script>
+        async function fetchStatus() {
+            const response = await fetch('/status');
+            const data = await response.json();
+
+            console.log("Datos recibidos:", data);
+
+            const toolsTable = document.querySelector('#tools-container');
+            const trainingTable = document.querySelector('#training-container');
+            
+            toolsTable.innerHTML = '';
+            trainingTable.innerHTML = '';
+
+            data.forEach(app => {
+                const row = document.createElement('tr');
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = app.name;
+                row.appendChild(nameCell);
+
+                const statusCell = document.createElement('td');
+                statusCell.textContent = app.status;
+                statusCell.className = app.status === 'OK' ? 'status-ok' : 'status-ko';
+                row.appendChild(statusCell);
+
+                const urlCell = document.createElement('td');
+                const link = document.createElement('a');
+                link.href = app.url || ''; 
+                link.textContent = app.url || 'No disponible';
+                link.target = '_blank';
+                urlCell.appendChild(link);
+                row.appendChild(urlCell);
+
+                if (app.label === 'Tools') {
+                    toolsTable.appendChild(row);
+                } else if (app.label === 'Training') {
+                    trainingTable.appendChild(row);
+                }
+            });
+        }
+        
+        fetchStatus();
+        setInterval(fetchStatus, 10000);
+    </script>
+  </body>
+</html>

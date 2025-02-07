@@ -2,7 +2,7 @@
 # Apps Status
 ```
 Tools:
-        KO - 1.0.0   - Web
+        KO - 1.0.0   - Web-Status
         OK - 10.19.4 - CyberChef
         OK - 1.0.0   - ReverseShellGenerator
         OK - 1.0.0   - Web-Spectral
@@ -17,7 +17,7 @@ Training:
 ```
 # Working
 ```
-        W - Web - No funciona, haciendo nuevo desarrollo
+        W - Web-Status
 ```
 
 # Pending
@@ -29,4 +29,9 @@ Training:
                 XXX
         DO285:
                 XXX
+```
+
+# Mejoras
+```
+        Web-Status - Obtener el dominio de manera automática para poder construir las aplicaciones de manera dinámica.
 ```
