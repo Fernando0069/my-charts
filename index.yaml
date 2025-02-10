@@ -3,9 +3,9 @@ entries:
   CyberChef:
   - apiVersion: v2
     appVersion: 10.19.4
-    created: "2025-01-28T12:01:35.300013642Z"
+    created: "2025-02-10T10:48:45.704250776Z"
     description: A Helm chart for Kubernetes
-    digest: 53af24ed21afe659d45872bc88ba8d09a62f584a7fa85e982a9904d9b2fb1c2f
+    digest: 2d7dbe6a3706de466dabdce60f8ec2c769493b41d489d9d4f908382a826b9b54
     name: CyberChef
     type: application
     urls:
@@ -14,9 +14,9 @@ entries:
   DO180-NodeJS-App:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-01-28T12:01:35.300425396Z"
+    created: "2025-02-10T10:48:45.704624647Z"
     description: A Helm chart for Kubernetes
-    digest: 49205104527ab1549a566091f3383c6f901ef35af8b0f197e2a8cb1b67566c81
+    digest: b5432e8fc4269fec3eeadeecc811bc70e36c77d4d0d4700af82885e58f14b3b1
     name: DO180-NodeJS-App
     type: application
     urls:
@@ -25,9 +25,9 @@ entries:
   DO180-NodeJS-HelloWorld:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-01-28T12:01:35.300844958Z"
+    created: "2025-02-10T10:48:45.705035499Z"
     description: A Helm chart for Kubernetes
-    digest: ce5789c66d2387cdb8aec2071b248f7ec1d634a2b08693c2228e0936c2186680
+    digest: c80755ff153849477b9b68e9a11be07ec778b27b9cb50720ce22beb71bca3b05
     name: DO180-NodeJS-HelloWorld
     type: application
     urls:
@@ -36,9 +36,9 @@ entries:
   DO180-PHP-HelloWorld:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-01-28T12:01:35.301244066Z"
+    created: "2025-02-10T10:48:45.705411053Z"
     description: A Helm chart for Kubernetes
-    digest: 3711e3da45e19c8f46ef21804125591b0a8ecdf28cfae716d6c2fc750f216e1a
+    digest: 82eb5916335451f6d0358f53c8b707fd407f16cae27a05d22673b7b228ee4004
     name: DO180-PHP-HelloWorld
     type: application
     urls:
@@ -47,9 +47,9 @@ entries:
   DO180-PHP-Temperature:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-01-28T12:01:35.301626729Z"
+    created: "2025-02-10T10:48:45.705811332Z"
     description: A Helm chart for Kubernetes
-    digest: a32e2d68df167b4fe8e088b0c8a0b7d3dbcccc4d34182556e74e93ca34055d49
+    digest: 473f171c74a2f38485a24818b71e3e71eb97166eb2d3fd455311ef40dfb3e2cb
     name: DO180-PHP-Temperature
     type: application
     urls:
@@ -58,9 +58,9 @@ entries:
   DO180-ToDo-HTML5:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-01-28T12:01:35.307742949Z"
+    created: "2025-02-10T10:48:45.712015885Z"
     description: A Helm chart for Kubernetes
-    digest: d1ef69d9e375376abc8b0db7e011372eadee7250501347e33561bdac54e01ee9
+    digest: 6ec9c5800e40f4e03555da4b5dbcbeb31148a209e39b73dd4f9bd89f9fe5f8c9
     name: DO180-ToDo-HTML5
     type: application
     urls:
@@ -69,9 +69,9 @@ entries:
   ReverseShellGenerator:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-01-28T12:01:35.308145945Z"
+    created: "2025-02-10T10:48:45.712831257Z"
     description: A Helm chart for Kubernetes
-    digest: e9afdc379934e8343deb770fceb1c1d47ee21845061eeedf3091c2f1104542e0
+    digest: 74efc1f12e2e3a89fab04272b60f82937424fdf68cc412b25108dd32bddc3acc
     name: ReverseShellGenerator
     type: application
     urls:
@@ -80,12 +80,23 @@ entries:
   Web-Spectral:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-01-28T12:01:35.308717901Z"
+    created: "2025-02-10T10:48:45.713742455Z"
     description: A Helm chart for Kubernetes
-    digest: 2f8cf9da28e2a4edbfcfc66c813d8cd1ce9fdb9e1e5025f6dac7911cd6607470
+    digest: 0acf70ae7eb89e3ecf78c56bd1cf002be85ed25a37e7b64df9d798e0d7d847e7
     name: Web-Spectral
     type: application
     urls:
     - apps/Web-Spectral-0.1.0.tgz
     version: 0.1.0
-generated: "2025-01-28T12:01:35.299430379Z"
+  Web-Status:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-02-10T10:48:45.714238868Z"
+    description: A Helm chart for Kubernetes
+    digest: d698352d0c15eca8d9d932fdbeebdafe39557e1f65c7b1b2a1fe6c4299d22be7
+    name: Web-Status
+    type: application
+    urls:
+    - apps/Web-Status-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-02-10T10:48:45.703692177Z"
