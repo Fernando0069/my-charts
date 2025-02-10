@@ -7,7 +7,7 @@ labels:
   enviroment: pro
   layer: tools
 replicaCount: 1
-image: docker.io/fernando0069/web-status:latest
+image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/web-status:latest
 imagePullPolicy: Always
 ports:
   http:
