@@ -24,7 +24,7 @@ resources:
     cpu: 5m
     memory: 32Mi
 startupProbe:
-  initialDelaySeconds: 40
+  initialDelaySeconds: 50
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
