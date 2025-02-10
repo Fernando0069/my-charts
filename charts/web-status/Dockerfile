@@ -1,6 +1,4 @@
-ARG VERSION='9.5-1737531030'
-FROM registry.access.redhat.com/ubi9/nodejs-20-minimal:${VERSION}
-#FROM registry.access.redhat.com/ubi9/nodejs-20-minimal:latest
+FROM registry.access.redhat.com/ubi9/nodejs-20-minimal:latest
 
 USER root
 
@@ -13,11 +11,12 @@ USER 1001
 WORKDIR /app
 
 # Copiar ficheros de la aplicación
-COPY files/package.json /app
-COPY files/index.js /app
-COPY files/style.css /app/public/style.css
-COPY files/index.html /app/public/index.html
 COPY files/error.html /app/public/error.html
+COPY files/index.html /app/public/index.html
+COPY files/index.js /app
+COPY files/package.json /app
+COPY files/style.css /app/public/style.css
+
 
 # Instalar las dependencias necesarias
 RUN npm install --omit=dev
