@@ -18,4 +18,4 @@ ports:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: charts/web-status/files
+  contextDir: charts/web-status
