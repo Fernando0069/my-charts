@@ -41,8 +41,12 @@
         async function fetchStatus() {
             const response = await fetch('/status');
             const data = await response.json();
-
             console.log("Datos recibidos:", data);
+			
+			// Obtener el dominio actual del navegador
+			const domain = window.location.host;
+			// Obtener el protocolo ("http:" o "https:").
+			const protocol = window.location.protocol;
 
             const toolsTable = document.querySelector('#tools-container');
             const trainingTable = document.querySelector('#training-container');
@@ -53,28 +57,39 @@
             data.forEach(app => {
                 const row = document.createElement('tr');
 
-                const nameCell = document.createElement('td');
+                // Columna: Nombre de la aplicación
+				const nameCell = document.createElement('td');
                 nameCell.textContent = app.name;
                 row.appendChild(nameCell);
 
-                const statusCell = document.createElement('td');
+                // Columna: Estado
+				const statusCell = document.createElement('td');
                 statusCell.textContent = app.status;
                 statusCell.className = app.status === 'OK' ? 'status-ok' : 'status-ko';
                 row.appendChild(statusCell);
 
-                const urlCell = document.createElement('td');
-                const link = document.createElement('a');
-                link.href = app.url || ''; 
-                link.textContent = app.url || 'No disponible';
-                link.target = '_blank';
-                urlCell.appendChild(link);
-                row.appendChild(urlCell);
-
-                if (app.label === 'Tools') {
-                    toolsTable.appendChild(row);
-                } else if (app.label === 'Training') {
-                    trainingTable.appendChild(row);
-                }
+				// Columna: URL calculada dinámicamente
+				const urlCell = document.createElement('td');
+				const link = document.createElement('a');
+				
+				// Para construir el subdominio, transformamos el nombre: en minúsculas y eliminamos espacios.
+				const subdomain = app.name.toLowerCase().replace(/\s+/g, '');
+				// Se construye la URL: protocolo + '//' + subdominio + '.' + dominio
+				const computedUrl = protocol + '//' + subdomain + '.' + domain;
+				
+				link.href = computedUrl;
+				link.textContent = computedUrl;
+				link.target = '_blank'; // Se abre en una pestaña nueva
+				
+				urlCell.appendChild(link);
+				row.appendChild(urlCell);
+				
+				// Se agrega la fila a la tabla según la categoría (label)
+				if (app.label === 'Tools') {
+					toolsTable.appendChild(row);
+				} else if (app.label === 'Training') {
+					trainingTable.appendChild(row);
+				}
             });
         }
         
