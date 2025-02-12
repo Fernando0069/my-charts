@@ -41,10 +41,13 @@
 		// Obtener el dominio completo actual
 		const fullDomain = window.location.host;
 
-		// Extraer la parte del dominio quitando "web-status"
-		const domainParts = fullDomain.split('.');
-		domainParts.shift(); // Quitamos "web-status"
-		const cleanDomain = domainParts.join('.'); // Reunimos el dominio correcto
+		// Eliminamos "web-status" del dominio
+		//const domainParts = fullDomain.split('.');
+		//domainParts.shift(); // Quitamos "web-status"
+		//const cleanDomain = domainParts.join('.'); // Reunimos el dominio correcto
+        const cleanDomain = fullDomain.replace(/^web-status-/, '');
+
+        console.log("Dominio limpio generado:", cleanDomain);
 
 		async function fetchStatus() {
 			const response = await fetch('/status');
@@ -79,8 +82,8 @@
 
 				// Para construir el subdominio, transformamos el nombre: en minúsculas y eliminamos espacios.
 				const subdomain = app.name.toLowerCase().replace(/\s+/g, '');
-				// Se construye la URL: protocolo + '//' + subdominio + '.' + dominio
-				const computedUrl = protocol + '//' + subdomain + '.' + domain;
+				// Se construye la URL
+                const computedUrl = protocol + '//' + subdomain + '-' + cleanDomain;
 
 				link.href = computedUrl;
 				link.textContent = computedUrl;
