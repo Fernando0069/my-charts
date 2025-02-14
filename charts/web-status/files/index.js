@@ -9,10 +9,10 @@ const PROTOCOL = "https://";
 // Datos de las aplicaciones
 const applications = [
     { label: 'Tools', name: 'Google', statusUrl: 'https://www.google.com', url: 'https://www.google.com' },
-    { label: 'Tools', name: 'CyberChef-BIEN' },
-    { label: 'Tools', name: 'CyberChef-MAL', statusUrl: 'http://localhost:8080/status-ko', url: 'https://cyberchef.openshift.com' },
-    { label: 'Training', name: 'DO180-PHP-HelloWorld-BIEN' },
-    { label: 'Training', name: 'DO180-PHP-HelloWorld-MAL', statusUrl: 'http://localhost:8080/status-ok', url: 'https://app5.openshift.com' }
+    { label: 'Tools', name: 'CyberChef' },
+    { label: 'Tools', name: 'CyberChef', statusUrl: 'http://localhost:8080/status-ko', url: 'https://cyberchef.openshift.com' },
+    { label: 'Training', name: 'DO180-PHP-HelloWorld' },
+    { label: 'Training', name: 'DO180-PHP-HelloWorld', statusUrl: 'http://localhost:8080/status-ok', url: 'https://app5.openshift.com' }
 ];
 
 // Datos de las aplicaciones
