@@ -11,7 +11,8 @@ const applications = [
     { label: 'Tools', name: 'Google', statusUrl: 'https://www.google.com', url: 'https://www.google.com' },
     { label: 'Tools', name: 'CyberChef-BIEN' },
     { label: 'Tools', name: 'CyberChef-MAL', statusUrl: 'http://localhost:8080/status-ko', url: 'https://cyberchef.openshift.com' },
-    { label: 'Tools', name: 'Web-Spectral-SIN' }
+    { label: 'Training', name: 'DO180-PHP-HelloWorld-BIEN' },
+    { label: 'Training', name: 'DO180-PHP-HelloWorld-MAL', statusUrl: 'http://localhost:8080/status-ok', url: 'https://app5.openshift.com' }
 ];
 
 // Datos de las aplicaciones
@@ -40,7 +41,6 @@ console.log("Dominio detectado en backend:", cleanDomain);
 // Rellenamos los campos faltantes de cada aplicación de manera dinámica
 applications.forEach(app => {
     if (!app.url) {
-        const SUBDOMAIN = app.name.toLowerCase().replace(/\s+/g, '-'); // Formatear el nombre como subdominio
         const SUBDOMAIN = app.name.toLowerCase().replace(/\s+/g, '-'); // Formatear el nombre como subdominio
         app.url = `${PROTOCOL}${SUBDOMAIN}-${cleanDomain}`;
     }
