@@ -50,9 +50,19 @@ applications.forEach(app => {
     console.log(`Configuración de ${app.name}: statusUrl=${app.statusUrl}, url=${app.url}`);
 });
 
+
 // Ruta para obtener el estado de las aplicaciones
 app.get('/status', async (req, res) => {
     const results = await Promise.all(applications.map(app => {
+        // Aseguramos que la URL esté correctamente formada aquí también
+        if (!app.url) {
+            const subdomain = app.name.toLowerCase().replace(/\s+/g, '-');
+            app.url = `${PROTOCOL}${subdomain}-${cleanDomain}`;
+        }
+        if (!app.statusUrl) {
+            app.statusUrl = app.url;
+        }
+
         return new Promise(resolve => {
             console.log(`Verificando ${app.name}: statusUrl=${app.statusUrl}, url=${app.url}`);
             exec(`curl -k -s -o /dev/null -w "%{http_code}" --max-time 5 --connect-timeout 3 -L ${app.statusUrl}`,
