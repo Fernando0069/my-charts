@@ -6,6 +6,15 @@ const PORT = 8080;
 
 const PROTOCOL = "https://";
 
+// Obtener el dominio dinámicamente desde la variable de entorno o del hostname
+const fullDomain = process.env.APP_DOMAIN || require('os').hostname();
+let cleanDomain = fullDomain;
+if (fullDomain.startsWith("web-status-")) {
+    cleanDomain = fullDomain.replace(/^web-status-/, '');
+}
+
+console.log("Dominio detectado en backend:", cleanDomain);
+
 // Datos de las aplicaciones
 const applications = [
     { label: 'Tools', name: 'Google', statusUrl: 'https://www.google.com', url: 'https://www.google.com' },
@@ -29,20 +38,11 @@ const applications = [
 //    { label: 'Training', name: 'App 10', statusUrl: 'http://localhost:8080/status-ko', url: 'https://app10.openshift.com' }
 //];
 
-// Obtener el dominio dinámicamente desde la variable de entorno o del hostname del servidor
-const fullDomain = process.env.APP_DOMAIN || require('os').hostname();
-let cleanDomain = fullDomain;
-if (fullDomain.startsWith("web-status-")) {
-    cleanDomain = fullDomain.replace(/^web-status-/, '');
-}
-
-console.log("Dominio detectado en backend:", cleanDomain);
-
-// Rellenamos los campos faltantes de cada aplicación de manera dinámica
+// Generar `url` y `statusUrl` SOLO si no están definidos
 applications.forEach(app => {
     if (!app.url) {
-        const SUBDOMAIN = app.name.toLowerCase().replace(/\s+/g, '-'); // Formatear el nombre como subdominio
-        app.url = `${PROTOCOL}${SUBDOMAIN}-${cleanDomain}`;
+        const subdomain = app.name.toLowerCase().replace(/\s+/g, '-');
+        app.url = `${PROTOCOL}${subdomain}-${cleanDomain}`;
     }
     if (!app.statusUrl) {
         app.statusUrl = app.url; // Si no hay statusUrl, tomamos el mismo valor de url
@@ -50,21 +50,12 @@ applications.forEach(app => {
     console.log(`Configuración de ${app.name}: statusUrl=${app.statusUrl}, url=${app.url}`);
 });
 
-
 // Ruta para obtener el estado de las aplicaciones
 app.get('/status', async (req, res) => {
     const results = await Promise.all(applications.map(app => {
-        // Aseguramos que la URL esté correctamente formada aquí también
-        if (!app.url) {
-            const subdomain = app.name.toLowerCase().replace(/\s+/g, '-');
-            app.url = `${PROTOCOL}${subdomain}-${cleanDomain}`;
-        }
-        if (!app.statusUrl) {
-            app.statusUrl = app.url;
-        }
-
+        // No recalcular `url`, solo usarla
+        console.log(`Verificando ${app.name}: statusUrl=${app.statusUrl}, url=${app.url}`);
         return new Promise(resolve => {
-            console.log(`Verificando ${app.name}: statusUrl=${app.statusUrl}, url=${app.url}`);
             exec(`curl -k -s -o /dev/null -w "%{http_code}" --max-time 5 --connect-timeout 3 -L ${app.statusUrl}`,
                 (error, stdout) => {
                     console.log(`Respuesta de ${app.statusUrl}: ${stdout}`);
@@ -73,9 +64,7 @@ app.get('/status', async (req, res) => {
                         return resolve({ label: app.label, name: app.name, status: 'KO', message: 'Error de conexión', url: app.url });
                     }
                     const statusCode = parseInt(stdout, 10);
-                    console.log(`Código HTTP recibido para ${app.statusUrl}: ${statusCode}`);
                     const status = statusCode === 200 ? 'OK' : 'KO';
-                    console.log(`Respuesta de ${app.name}: HTTP ${statusCode}`);
                     resolve({ label: app.label, name: app.name, status, message: `HTTP ${statusCode}`, url: app.url });
                 }
             );
@@ -101,7 +90,7 @@ app.use((req, res, next) => {
 
 // Manejador global de errores
 app.use((err, req, res, next) => {
-    console.error(err.stack); // Registra el error en la consola para depuración
+    console.error(err.stack);
     res.status(500).sendFile(path.join(__dirname, 'public', 'error.html'));
 });
 
