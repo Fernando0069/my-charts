@@ -45,8 +45,9 @@ applications.forEach(app => {
         app.url = `${PROTOCOL}${SUBDOMAIN}-${cleanDomain}`;
     }
     if (!app.statusUrl) {
-        app.statusUrl = `${app.url}`;
+        app.statusUrl = app.url; // Si no hay statusUrl, tomamos el mismo valor de url
     }
+    console.log(`Configuración de ${app.name}: statusUrl=${app.statusUrl}, url=${app.url}`);
 });
 
 // Ruta para obtener el estado de las aplicaciones
@@ -64,6 +65,7 @@ app.get('/status', async (req, res) => {
                     const statusCode = parseInt(stdout, 10);
                     console.log(`Código HTTP recibido para ${app.statusUrl}: ${statusCode}`);
                     const status = statusCode === 200 ? 'OK' : 'KO';
+                    console.log(`Respuesta de ${app.name}: HTTP ${statusCode}`);
                     resolve({ label: app.label, name: app.name, status, message: `HTTP ${statusCode}`, url: app.url });
                 }
             );
