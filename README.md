@@ -10,6 +10,7 @@ List applications:
         CyberChef
         ReverseShellGenerator
         Web-Spectral
+
     Training:
         DO180-PHP-HelloWorld
         DO180-NodeJS-HelloWorld

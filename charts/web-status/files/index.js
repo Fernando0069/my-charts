@@ -55,11 +55,13 @@ app.get('/status', async (req, res) => {
         return new Promise(resolve => {
             exec(`curl -k -s -o /dev/null -w "%{http_code}" --max-time 5 --connect-timeout 3 -L ${app.statusUrl}`,
                 (error, stdout) => {
+                    console.log(`Respuesta de ${app.statusUrl}:`, stdout);
                     if (error) {
                         console.error(`Error al consultar ${app.name} (${app.statusUrl}):`, error.message);
                         return resolve({ label: app.label, name: app.name, status: 'KO', message: 'Error de conexión', url: app.url });
                     }
                     const statusCode = parseInt(stdout, 10);
+                    console.log(`Código HTTP recibido para ${app.statusUrl}:`, statusCode);
                     const status = statusCode === 200 ? 'OK' : 'KO';
                     resolve({ label: app.label, name: app.name, status, message: `HTTP ${statusCode}`, url: app.url });
                 }
