@@ -5,6 +5,15 @@ const app = express();
 const PORT = 8080;
 const PROTOCOL = "https://";
 
+
+// Datos de las aplicaciones
+const applications = [
+    { label: 'Tools', name: 'Google', statusUrl: 'https://www.google.com', url: 'https://www.google.com' },
+    { label: 'Tools', name: 'CyberChef' },
+    { label: 'Training', name: 'DO180-PHP-HelloWorld' }
+];
+
+
 // Obtener el dominio dinámicamente desde la variable de entorno o del hostname
 const fullDomain = process.env.APP_DOMAIN || require('os').hostname();
 let cleanDomain = fullDomain;
@@ -12,16 +21,6 @@ if (fullDomain.startsWith("web-status-")) {
     cleanDomain = fullDomain.replace(/^web-status-/, '');
 }
 console.log("Dominio detectado en backend:", cleanDomain);
-
-
-// Datos de las aplicaciones
-const applications = [
-    { label: 'Tools', name: 'Google', statusUrl: 'https://www.google.com', url: 'https://www.google.com' },
-    { label: 'Tools', name: 'CyberChef' },
-    { label: 'Tools', name: 'CyberChef', statusUrl: 'http://localhost:8080/status-ko', url: 'https://cyberchef.openshift.com' },
-    { label: 'Training', name: 'DO180-PHP-HelloWorld' },
-    { label: 'Training', name: 'DO180-PHP-HelloWorld', statusUrl: 'http://localhost:8080/status-ok', url: 'https://app5.openshift.com' }
-];
 
 
 // Rellenar datos de las aplicaciones sin modificar los ya definidos
@@ -38,13 +37,13 @@ console.log("Aplicaciones configuradas:", applications);
 
 
 // Ruta para obtener el estado de las aplicaciones
-taskCheckStatus = async (app) => {
+const taskCheckStatus = async (app) => {
     return new Promise(resolve => {
         exec(`curl -k -s -o /dev/null -w "%{http_code}" --max-time 5 --connect-timeout 3 -L ${app.statusUrl}`,
             (error, stdout) => {
                 console.log(`Respuesta de ${app.statusUrl}: ${stdout}`);
                 if (error) {
-                    console.error(`Error al consultar ${app.name} (${app.statusUrl}):`, error.message);
+                    console.error(`Error al consultar ${app.name} (${app.statusUrl}): ${error.message}`);
                     return resolve({ label: app.label, name: app.name, status: 'KO', message: 'Error de conexión', url: app.url, statusUrl: app.statusUrl });
                 }
                 const statusCode = parseInt(stdout, 10);

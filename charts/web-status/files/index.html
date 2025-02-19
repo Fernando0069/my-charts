@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estado de las Aplicaciones</title>
-    <link rel="stylesheet" href="/style.css">
-  </head>
-  <body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estado de las Aplicaciones</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
     <h1>Estado de las Aplicaciones</h1>
-    
     <h2>Tools</h2>
     <table>
         <thead>
@@ -37,70 +36,68 @@
         </tbody>
     </table>
     
-    <script>
-		// Obtener el dominio completo actual
-		const fullDomain = window.location.host;
+        <script>
+            // Obtener el dominio completo actual
+            const fullDomain = window.location.host;
+            console.log("Dominio completo:", cleanDomain);
 
-		// Eliminamos "web-status" del dominio
-		//const domainParts = fullDomain.split('.');
-		//domainParts.shift(); // Quitamos "web-status"
-		//const cleanDomain = domainParts.join('.'); // Reunimos el dominio correcto
-        const cleanDomain = fullDomain.replace(/^web-status-/, '');
+            // Eliminamos "web-status" del dominio
+            //const domainParts = fullDomain.split('.');
+            //domainParts.shift(); // Quitamos "web-status"
+            //const cleanDomain = domainParts.join('.'); // Reunimos el dominio correcto
+            
+            const cleanDomain = fullDomain.replace(/^web-status-/, '');
+            console.log("Dominio limpio:", cleanDomain);
 
-        console.log("Dominio limpio generado:", cleanDomain);
+            async function fetchStatus() {
+                const response = await fetch('/status');
+                const data = await response.json();
+                console.log("Datos recibidos:", data);
 
-		async function fetchStatus() {
-			const response = await fetch('/status');
-			const data = await response.json();
-			console.log("Datos recibidos:", data);
+                const protocol = window.location.protocol;
+                const toolsTable = document.querySelector('#tools-container');
+                const trainingTable = document.querySelector('#training-container');
 
-			const protocol = window.location.protocol;
-			const toolsTable = document.querySelector('#tools-container');
-			const trainingTable = document.querySelector('#training-container');
+                toolsTable.innerHTML = '';
+                trainingTable.innerHTML = '';
 
-			toolsTable.innerHTML = '';
-			trainingTable.innerHTML = '';
+                data.forEach(app => {
+                    const row = document.createElement('tr');
 
-			data.forEach(app => {
-				const row = document.createElement('tr');
+                    // Columna: Nombre de la aplicación
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = app.name;
+                    row.appendChild(nameCell);
 
-				// Columna: Nombre de la aplicación
-				const nameCell = document.createElement('td');
-				nameCell.textContent = app.name;
-				row.appendChild(nameCell);
+                    // Columna: Estado
+                    const statusCell = document.createElement('td');
+                    statusCell.textContent = app.status;
+                    statusCell.className = app.status === 'OK' ? 'status-ok' : 'status-ko';
+                    row.appendChild(statusCell);
 
-				// Columna: Estado
-				const statusCell = document.createElement('td');
-				statusCell.textContent = app.status;
-				statusCell.className = app.status === 'OK' ? 'status-ok' : 'status-ko';
-				row.appendChild(statusCell);
+                    // Columna: URL calculada correctamente
+                    const urlCell = document.createElement('td');
+                    const link = document.createElement('a');
+                    link.href = app.url;  // Usar la URL recibida del backend
+                    link.textContent = app.url;  // Mostrar la URL
+                    link.target = '_blank'; // Se abre en una pestaña nueva
+                    urlCell.appendChild(link);
+                    row.appendChild(urlCell);
 
-				// Columna: URL calculada correctamente
-				const urlCell = document.createElement('td');
-				const link = document.createElement('a');
-
-
-				// Para construir el subdominio, transformamos el nombre: en minúsculas y eliminamos espacios.
-				const subdomain = app.name.toLowerCase().replace(/\s+/g, '');
-				// Se construye la URL
-                const computedUrl = protocol + '//' + subdomain + '-' + cleanDomain;
-
-				link.href = computedUrl;
-				link.textContent = computedUrl;
-				link.target = '_blank'; // Se abre en una pestaña nueva
-				urlCell.appendChild(link);
-				row.appendChild(urlCell);
-
-				// Se agrega la fila a la tabla según la categoría (label)
-				if (app.label === 'Tools') {
-					toolsTable.appendChild(row);
-				} else if (app.label === 'Training') {
-					trainingTable.appendChild(row);
-				}
-			});
-		}
-		fetchStatus();
-		setInterval(fetchStatus, 10000);
-    </script>
-  </body>
+                    // Se agrega la fila a la tabla según la categoría (label)
+                    if (app.label === 'Tools') {
+                    	toolsTable.appendChild(row);
+                    } else if (app.label === 'Training') {
+                    	trainingTable.appendChild(row);
+                    }
+                    // Para construir el subdominio, transformamos el nombre: en minúsculas y eliminamos espacios.
+                    //const subdomain = app.name.toLowerCase().replace(/\s+/g, '');
+                    // Se construye la URL
+                    //const computedUrl = protocol + '//' + subdomain + '-' + cleanDomain;
+                });
+            }
+            fetchStatus();
+            setInterval(fetchStatus, 10000);
+        </script>
+    </body>
 </html>
