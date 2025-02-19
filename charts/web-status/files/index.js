@@ -12,6 +12,7 @@ const applications = [
     { label: 'Tools', name: 'CyberChef' },
     { label: 'Training', name: 'DO180-PHP-HelloWorld' }
 ];
+console.log("Aplicaciones configuradas (1):", applications);
 
 
 // Obtener el dominio dinámicamente desde la variable de entorno o del hostname
@@ -33,7 +34,7 @@ applications.forEach(app => {
         app.statusUrl = app.url;
     }
 });
-console.log("Aplicaciones configuradas:", applications);
+console.log("Aplicaciones configuradas (2):", applications);
 
 
 // Ruta para obtener el estado de las aplicaciones
