@@ -37,25 +37,17 @@ metadata:
   namespace: fernando0069-dev
 spec:
   params:
-    - default: 'https://github.com/Fernando0069/my-charts.git'
-      name: repo-url
-      type: string
-    - default: main
-      name: branch
-      type: string
     - default: Fernando
       name: git-user
       type: string
     - default: fernando0069@gmail.com
       name: git-email
       type: string
+    - default: web-status cyberchef reverseshellgenerator web-spectral do180-php-helloworld do180-nodejs-helloworld do180-php-temperature do180-nodejs-app do180-todo-html5
+      name: app-list
+      type: string
   tasks:
     - name: clone-repo
-      params:
-        - name: repo-url
-          value: $(params.repo-url)
-        - name: revision
-          value: $(params.branch)
       taskRef:
         kind: Task
         name: clone-repo
@@ -63,6 +55,9 @@ spec:
         - name: source
           workspace: shared-workspace
     - name: helm-lint
+      params:
+        - name: app-list
+          value: $(params.app-list)
       runAfter:
         - clone-repo
       taskRef:
@@ -72,14 +67,14 @@ spec:
         - name: source
           workspace: shared-workspace
     - name: create-packages
+      params:
+        - name: app-list
+          value: $(params.app-list)
       runAfter:
         - helm-lint
       taskRef:
         kind: Task
         name: create-packages
-      params:
-        - name: app-list
-          value: "web-status cyberchef reverseshellgenerator web-spectral do180-php-helloworld do180-nodejs-helloworld do180-php-temperature do180-nodejs-app do180-todo-html5"
       workspaces:
         - name: source
           workspace: shared-workspace
@@ -107,6 +102,11 @@ spec:
         - name: source
           workspace: shared-workspace
     - name: update-gh-pages
+      params:
+        - name: git-user
+          value: $(params.git-user)
+        - name: git-email
+          value: $(params.git-email)
       runAfter:
         - git-push
       taskRef:
@@ -128,21 +128,18 @@ metadata:
   name: clone-repo
   namespace: fernando0069-dev
 spec:
-  params:
-    - name: repo-url
-      type: string
-    - name: branch
-      type: string
-  workspaces:
-    - name: source
   steps:
-    - name: clone
+    - computeResources: {}
       image: alpine/git
+      name: clone
       script: |
         #!/bin/sh
         set -e
+        rm -rf $(workspaces.source.path)/my-charts
         cd $(workspaces.source.path)
-        git clone $(params.repo-url) --branch $(params.branch)
+        git clone 'https://github.com/Fernando0069/my-charts.git' --branch main
+  workspaces:
+    - name: source
 ```
 #### helm-lint
 ```
@@ -152,16 +149,26 @@ metadata:
   name: helm-lint
   namespace: fernando0069-dev
 spec:
-  workspaces:
-    - name: source
+  params:
+    - name: app-list
+      type: string
   steps:
-    - name: lint
+    - computeResources: {}
       image: alpine/helm
+      name: lint
       script: |
         #!/bin/sh
         set -e
-        cd $(workspaces.source.path)/my-charts
-        helm lint .
+        for app in $(params.app-list); do
+          echo "Linting chart: $app"
+          if [ -d "$(workspaces.source.path)/my-charts/charts/$app" ]; then
+            helm lint $(workspaces.source.path)/my-charts/charts/$app
+          else
+            echo "Warning: Chart directory $(workspaces.source.path)/my-charts/charts/$app does not exist!"
+          fi
+        done
+  workspaces:
+    - name: source
 ```
 #### create-packages
 ```
@@ -174,11 +181,9 @@ spec:
   params:
     - name: app-list
       type: string
-  workspaces:
-    - name: source
   steps:
-    - name: package-charts
-      image: alpine/helm
+    - image: alpine/helm
+      name: package-charts
       script: |
         #!/bin/sh
         set -e
@@ -193,6 +198,8 @@ spec:
             echo "⚠️  Advertencia: La carpeta '$app' no existe en my-charts."
           fi
         done
+  workspaces:
+    - name: source
 ```
 #### update-index
 ```
@@ -202,16 +209,16 @@ metadata:
   name: update-index
   namespace: fernando0069-dev
 spec:
-  workspaces:
-    - name: source
   steps:
-    - name: update-index
-      image: alpine/helm
+    - image: alpine/helm
+      name: update-index
       script: |
         #!/bin/sh
         set -e
         cd $(workspaces.source.path)/my-charts
         helm repo index .
+  workspaces:
+    - name: source
 ```
 #### git-push
 ```
@@ -226,11 +233,9 @@ spec:
       type: string
     - name: git-email
       type: string
-  workspaces:
-    - name: source
   steps:
-    - name: push
-      image: alpine/git
+    - image: alpine/git
+      name: push
       script: |
         #!/bin/sh
         set -e
@@ -240,6 +245,8 @@ spec:
         git add .
         git commit -m "Actualización automática del Chart"
         git push origin main
+  workspaces:
+    - name: source
 ```
 #### update-gh-pages
 ```
@@ -254,11 +261,9 @@ spec:
       type: string
     - name: git-email
       type: string
-  workspaces:
-    - name: source
   steps:
-    - name: reset
-      image: alpine/git
+    - image: alpine/git
+      name: reset
       script: |
         #!/bin/sh
         set -e
@@ -279,6 +284,8 @@ spec:
         # Confirmar y hacer push de la rama limpia
         git commit --allow-empty -m "Reiniciando gh-pages"
         git push origin gh-pages --force
+  workspaces:
+    - name: source
 ```
 
 ### TriggerBinding
