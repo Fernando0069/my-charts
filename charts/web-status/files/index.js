@@ -17,8 +17,11 @@ console.log("Aplicaciones configuradas (1):", applications);
 
 // Ruta para obtener el estado de las aplicaciones
 app.get('/status', async (req, res) => {
-	const cleanDomain = req.query.domain || 'default-domain.com'; // Obtener el dominio de la consulta
-	console.log("Dominio detectado en backend:", cleanDomain);
+    const queryDomain = req.query.domain;
+    if (queryDomain) {
+        cleanDomain = queryDomain; // Sobrescribir con el dominio correcto
+        console.log("Dominio actualizado desde frontend:", cleanDomain);
+    }
 
 	// Rellenar datos de las aplicaciones
 	applications.forEach(app => {
