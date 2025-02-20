@@ -6,7 +6,7 @@ Se ha creado un repositorio con todas las aplicaciones preparadas para instalar 
 ```
 List applications: 
     Tools:
-        Web
+        Web-Status
         CyberChef
         ReverseShellGenerator
         Web-Spectral
