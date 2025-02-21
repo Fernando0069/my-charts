@@ -9,15 +9,15 @@ const PROTOCOL = "https://";
 // Datos de las aplicaciones
 const applications = [
 	{ label: 'Tools', name: 'Google', statusUrl: 'https://www.google.com', url: 'https://www.google.com' },
-	{ label: 'Tools', name: 'Web-Status' },
 	{ label: 'Tools', name: 'CyberChef' },
 	{ label: 'Tools', name: 'ReverseShellGenerator' },
 	{ label: 'Tools', name: 'Web-Spectral' },
-	{ label: 'Training', name: 'DO180-PHP-HelloWorld' },
-	{ label: 'Training', name: 'DO180-NodeJS-HelloWorld' },
-	{ label: 'Training', name: 'DO180-PHP-Temperature' },
-	{ label: 'Training', name: 'DO180-NodeJS-App' },
-	{ label: 'Training', name: 'DO180-ToDo-HTML5' }
+	{ label: 'Tools', name: 'Web-Status' },
+	{ label: 'Training', course: 'DO180', name: 'PHP-HelloWorld' },
+	{ label: 'Training', course: 'DO180', name: 'NodeJS-HelloWorld' },
+	{ label: 'Training', course: 'DO180', name: 'PHP-Temperature' },
+	{ label: 'Training', course: 'DO180', name: 'NodeJS-App' },
+	{ label: 'Training', course: 'DO180', name: 'ToDo-HTML5' }
 ];
 console.log("Aplicaciones configuradas (1):", applications);
 
@@ -60,7 +60,7 @@ const taskCheckStatus = async (app) => {
 				}
 				const statusCode = parseInt(stdout, 10);
 				const status = statusCode === 200 ? 'OK' : 'KO';
-				resolve({ label: app.label, name: app.name, status, message: `HTTP ${statusCode}`, url: app.url, statusUrl: app.statusUrl });
+				resolve({ label: app.label, course: app.course, name: app.name, status, message: `HTTP ${statusCode}`, url: app.url, statusUrl: app.statusUrl });
 			}
 		);
 	});
