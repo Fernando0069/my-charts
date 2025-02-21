@@ -9,8 +9,15 @@ const PROTOCOL = "https://";
 // Datos de las aplicaciones
 const applications = [
 	{ label: 'Tools', name: 'Google', statusUrl: 'https://www.google.com', url: 'https://www.google.com' },
+	{ label: 'Tools', name: 'Web-Status' },
 	{ label: 'Tools', name: 'CyberChef' },
-	{ label: 'Training', name: 'DO180-PHP-HelloWorld' }
+	{ label: 'Tools', name: 'ReverseShellGenerator' },
+	{ label: 'Tools', name: 'Web-Spectral' },
+	{ label: 'Training', name: 'DO180-PHP-HelloWorld' },
+	{ label: 'Training', name: 'DO180-NodeJS-HelloWorld' },
+	{ label: 'Training', name: 'DO180-PHP-Temperature' },
+	{ label: 'Training', name: 'DO180-NodeJS-App' },
+	{ label: 'Training', name: 'DO180-ToDo-HTML5' }
 ];
 console.log("Aplicaciones configuradas (1):", applications);
 

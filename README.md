@@ -6,10 +6,10 @@ Se ha creado un repositorio con todas las aplicaciones preparadas para instalar 
 ```
 List applications: 
     Tools:
-        Web-Status
         CyberChef
         ReverseShellGenerator
         Web-Spectral
+        Web-Status
 
     Training:
         DO180-PHP-HelloWorld
@@ -40,7 +40,7 @@ helm repo remove apps
 ## Install Application:
 ```
 helm install [NAME_APP] [NAME_APP]/[NAME_APP]
-helm install web apps/Web
+helm install web-spectral apps/Web-Spectral
 ```
 ## Uninstall Application:
 ```

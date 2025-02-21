@@ -2,10 +2,10 @@
 # Apps Status
 ```
 Tools:
-        KO - 1.0.0   - Web-Status
-        OK - 10.19.4 - CyberChef
-        OK - 1.0.0   - ReverseShellGenerator
-        OK - 1.0.0   - Web-Spectral
+        OK - 10.19.4  - CyberChef
+        OK - 1.0.0    - ReverseShellGenerator
+        OK - 6.14.2   - Web-Spectral
+        KO - 1.0.0    - Web-Status
 
 Training:
         DO180:
@@ -18,6 +18,9 @@ Training:
 # Working
 ```
         W - Web-Status
+        Pruebas:
+                Lanzar 1 app antes de web-status y luego lanzar otra, verificar que las apps funcionan independientemente y luego a través de web-status y verificar que se ven todas las apps desplegadas.
+Pendiente de guardar y relanzar el autodeploy (falla por el pvc hay qeu revisarlo) y redesplegar las apps.
 ```
 
 # Pending
@@ -33,7 +36,7 @@ Training:
 
 # Mejoras
 ```
-        Web-Status - Obtener el dominio de manera automática para poder construir las aplicaciones de manera dinámica.
+        XXX        
 ```
 
 # URL
