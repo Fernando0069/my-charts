@@ -22,6 +22,7 @@ Training:
                 Lanzar 1 app antes de web-status y luego lanzar otra, verificar que las apps funcionan independientemente y luego a través de web-status y verificar que se ven todas las apps desplegadas.
 Pendiente:
         Las URL de las apps de training fallan por el nombre "DO180" se ha quitado del nombre y se ha añadido como variable para añadirlo como otro campo de la columna.
+        La ruta de web-status no funciona por https --> ponerla en https
 ```
 
 # Pending
