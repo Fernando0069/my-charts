@@ -20,7 +20,8 @@ Training:
         W - Web-Status
         Pruebas:
                 Lanzar 1 app antes de web-status y luego lanzar otra, verificar que las apps funcionan independientemente y luego a través de web-status y verificar que se ven todas las apps desplegadas.
-Pendiente de guardar y relanzar el autodeploy (falla por el pvc hay qeu revisarlo) y redesplegar las apps.
+Pendiente:
+        Las URL de las apps de training fallan por el nombre "DO180" se ha quitado del nombre y se ha añadido como variable para añadirlo como otro campo de la columna.
 ```
 
 # Pending

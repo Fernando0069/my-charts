@@ -16,3 +16,6 @@ spec:
     name: {{ .Values.name }}
     weight: 100
   wildcardPolicy: None
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
