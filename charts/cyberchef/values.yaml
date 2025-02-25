@@ -16,7 +16,8 @@ git:
   ref: main
   contextDir: /charts/cyberchef
 ports:
-  name: http
-  containerPort: 8080
-  protocol: TCP
-  servicePort: 8080
+  http:
+    name: http
+    containerPort: 8080
+    protocol: TCP
+    servicePort: 8080

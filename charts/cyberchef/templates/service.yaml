@@ -20,10 +20,6 @@ spec:
     port: {{ .Values.ports.servicePort }}
     protocol: {{ .Values.ports.protocol }}
     targetPort: {{ .Values.ports.containerPort }}
-  - name: https
-    port: 8443
-    protocol: TCP
-    targetPort: 8443
   selector:
     app: {{ .Values.name }}
   sessionAffinity: None
