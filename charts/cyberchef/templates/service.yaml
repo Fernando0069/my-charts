@@ -16,10 +16,10 @@ spec:
   - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-  - name: {{ .Values.ports.name }}
-    port: {{ .Values.ports.servicePort }}
-    protocol: {{ .Values.ports.protocol }}
-    targetPort: {{ .Values.ports.containerPort }}
+  - name: {{ .Values.ports.http.name }}
+    port: {{ .Values.ports.http.servicePort }}
+    protocol: {{ .Values.ports.http.protocol }}
+    targetPort: {{ .Values.ports.http.containerPort }}
   selector:
     app: {{ .Values.name }}
   sessionAffinity: None
