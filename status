@@ -17,24 +17,26 @@ Training:
 ```
 # Working
 ```
-        W - Web-Status
+        W - Web-Status    
+        W - Web-Spectral:
+                Falla la creación de la ruta.
+                Falla el app version de helm.
         Pruebas:
-                Lanzar 1 app antes de web-status y luego lanzar otra, verificar que las apps funcionan independientemente y luego a través de web-status y verificar que se ven todas las apps desplegadas.
-Pendiente:
-        La ruta de web-status no funciona por https --> ponerla en https
-        
-        Las URL de las apps de training fallan por el nombre "DO180" se ha quitado del nombre y se ha añadido como variable para añadirlo como otro campo de la columna.
+                Web-Spectral:
+                        route
+                CyberChef:
+                        route
 ```
 
 # Pending
 ```
         DO180:
-                PE - DO180-ToDo-NodeJS
-                PE - DO180-ToDo-NodeJS-API
+                PE - DO180-ToDo-NodeJS - https://github.com/RedHatTraining/DO180-apps/tree/master/todoapp
+                PE - DO180-ToDo-NodeJS-API - https://github.com/RedHatTraining/DO180-apps/tree/master/todoapp
         DO280:
-                XXX
+                XXX - https://github.com/RedHatTraining/DO280-apps
         DO285:
-                XXX
+                XXX - https://github.com/RedHatTraining/do285-apps
 ```
 
 # Mejoras

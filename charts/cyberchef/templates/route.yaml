@@ -12,7 +12,7 @@ metadata:
     uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   port:
-    targetPort: http
+    targetPort: {{ .Values.ports.http.name }}
   tls:
     insecureEdgeTerminationPolicy: Redirect
     termination: edge

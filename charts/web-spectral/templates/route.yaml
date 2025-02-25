@@ -10,12 +10,11 @@ metadata:
     layer: {{ .Values.labels.layer }}
 spec:
   port:
-    targetPort: http
+    targetPort: {{ .Values.ports.http.name }}
   to:
     kind: Service
     name: {{ .Values.name }}
     weight: 100
-  wildcardPolicy: None
   tls:
-    insecureEdgeTerminationPolicy: Redirect
     termination: edge
+  wildcardPolicy: None
