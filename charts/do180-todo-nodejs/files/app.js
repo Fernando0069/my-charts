@@ -8,7 +8,7 @@ model.connect(db.params, function(err) {
 });
 
 var server = restify.createServer() 
-    .use(restify.fullResponse())
+    .pre(restify.plugins.pre.context())
     .use(restify.queryParser())
     .use(restify.bodyParser());
     
