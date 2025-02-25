@@ -39,7 +39,6 @@ Sin el uso de image o imagestream:
   oc delete all -l app=todo-html5
 ```
 
-
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S php
@@ -47,13 +46,4 @@ Usando imagestream con la versión del compilador:
   oc expose service/todo-html5
   curl -vvv https://todo-html5-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=todo-html5
-```
-
-Los objetos que se crean son los siguientes:
-```
-  1.- Imagestream.
-  2.- BuildConfig.
-  3.- Deployment.
-  4.- Service.
-  5.- Route.
 ```

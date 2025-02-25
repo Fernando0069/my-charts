@@ -17,15 +17,7 @@ Training:
 ```
 # Working
 ```
-        W - Web-Status    
-        W - Web-Spectral:
-                Falla la creación de la ruta.
-                Falla el app version de helm.
-        Pruebas:
-                Web-Spectral:
-                        route
-                CyberChef:
-                        route
+        W - DO180-ToDo-NodeJS
 ```
 
 # Pending
@@ -47,4 +39,8 @@ Training:
 # URL
 ```
 https://oauth-openshift.apps.rm2.thpm.p1.openshiftapps.com/oauth/authorize?client_id=console&redirect_uri=https%3A%2F%2Fconsole-openshift-console.apps.rm2.thpm.p1.openshiftapps.com%2Fauth%2Fcallback&response_type=code&scope=user%3Afull&state=94dd8c862f279057fdc4b769584898e3
+https://github.com/RedHatTraining?q=do3&type=all&language=&sort=
+https://github.com/redhat-cop/helm-charts
+https://github.com/redhat-cop/namespace-configuration-operator/tree/master
+https://hub.docker.com/r/fernando0069/web-spectral
 ```

@@ -1,28 +1,49 @@
-# DO180-ToDo-HTML5 charts
+# DO180-ToDo-NodeJS charts
 
-Para crear la aplicación "todo-html5" del curso DO180 de Red Hat podemos hacerlo de tres maneras diferentes pero siempre manteniendo los mismos ficheros.
+Para crear la aplicación "ToDo-NodeJS" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre manteniendo los mismos ficheros.
 
-Punto 1
-  Creamos de manera automática una imágen la cual lleva todo el código (index.php), mediante la CLI de Openshift (oc):
+Punto 1 (helm):
+
+Se crea la imagen con el BuildConfig con el Dockerfile y con todos los ficheros necesarios que serán montados en "/var/www/html/" a través del deployment.
+Para crear la aplicación ToDo-NodeJS debemos ejecutar los siguiente comandos:
 ```
-Sin el uso de image o imagestream:
-  oc new-app --name=todo-html5 https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-todo-html5/files -l app=todo-html5
-  oc expose service/todo-html5
-  curl -vvv https://todo-html5-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                       # Creación del repositorio donde vamos a descargar la aplicación
+  2.- helm install todo-nodejs apps/DO180-ToDo-NodeJS                                                    # Instalar la aplicación "DO180-ToDo-NodeJS" con el nombre "todo-nodejs".
+  3.- curl -vvv https://todo-nodejs-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/          # Verificar la URL. 
+```
 
+Para eliminar la aplicación ToDo-NodeJS debemos ejecutar los siguiente comandos:
+```
+  1.- helm uninstall todo-nodejs                             # Desinstalar la aplicación con el nombre "todo-nodejs" ("DO180-ToDo-NodeJS").
+  2.- helm repo remove apps                                  # Eliminación del repositorio de aplicaciones.
+```
+
+Los objetos que se crean son los siguientes:
+```
+  1.- Imagestream.
+  2.- BuildConfig.
+  3.- Deployment.
+  4.- PodDisruptionBudget.
+  5.- Service.
+  6.- Route.
+```
+
+
+Punto 2 (cli):
+
+Sin el uso de image o imagestream:
+```
+  oc new-app --name=todo-nodejs https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-todo-nodejs/files -l app=todo-nodejs
+  oc expose service/todo-nodejs
+  curl -vvv https://todo-nodejs-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc delete all -l app=todo-nodejs
+```
 
 Usando imagestream con la versión del compilador:
+```
   oc new-app -S php
-  oc new-app --image-stream=openshift/php:8.1-ubi9 --name todo-html5 https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-todo-html5/files -l app=todo-html5
-  oc expose service/todo-html5
-  curl -vvv https://todo-html5-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-```
-
-
-Punto 2:
-  Desplegampos con tecnología Helm y se añade un ConfigMap con un fichero llamado "phpinfo.php" el cual montamos como el fichero "index.php", en "/opt/app-root/src" y no es añadido en la imagen.
-```
-  helm repo add apps https://fernando0069.github.io/my-charts/
-  helm install do180-todo-html5 apps/DO180-ToDo-HTML5
-  curl -vvv https://todo-html5-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc new-app --image-stream=openshift/php:8.1-ubi9 --name todo-nodejs https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-todo-nodejs/files -l app=todo-nodejs
+  oc expose service/todo-nodejs
+  curl -vvv https://todo-nodejs-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc delete all -l app=todo-nodejs
 ```
