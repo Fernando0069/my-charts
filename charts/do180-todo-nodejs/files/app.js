@@ -7,14 +7,14 @@ model.connect(db.params, function(err) {
     if (err) throw err;
 });
 
-var server = restify.createServer() 
+var server = restify.createServer()
     .pre(restify.plugins.pre.context())
-    .use(restify.queryParser())
-    .use(restify.bodyParser());
-    
-controller.context(server, '/todo/api', model); 
+    .use(restify.plugins.queryParser())
+    .use(restify.plugins.bodyParser());
 
-server.get(/\/todo\/?.*/, restify.serveStatic({
+controller.context(server, '/todo/api', model);
+
+server.get(/\/todo\/?\.*/, restify.plugins.serveStatic({
     'directory': __dirname,
     'default': 'index.html'
 }));
@@ -26,10 +26,8 @@ server.listen(port, function (err) {
     else
         console.log('App is ready at : ' + port);
 });
- 
+
 if (process.env.environment == 'production')
     process.on('uncaughtException', function (err) {
         console.error(JSON.parse(JSON.stringify(err, ['stack', 'message', 'inner'], 2)))
     });
-    
-
