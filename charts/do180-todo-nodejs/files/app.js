@@ -1,7 +1,5 @@
 var restify = require('restify');
-
 var controller = require('./controllers/items');
-
 var db = require('./models/db');
 var model = require('./models/items');
 
