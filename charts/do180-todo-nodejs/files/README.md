@@ -1,9 +1,10 @@
 # DO276 JavaScript/Node.js To Do List App
 
-Based on Restify 4.0 and Sequelize 3.14. Tested on Node.js 0.10 from SCL with Mariadb 5.5.
+Based on Restify 11.1 and Sequelize 6.32. Tested on Node.js 20 in OpenShift using the UBI 9 base image with MySQL 3.6.
 
-Do `npm install` do download dependencies.
+Run npm install to install dependencies (if not using OpenShift automatic dependency installation).
 
+The application is automatically started in OpenShift. If running locally, use npm start.
 Run as `node app.js`
 
 * Don't do pagination yet.
