@@ -21,9 +21,9 @@ server.get({ path: '/todo/*', name: 'todo-nodejs' }, restify.plugins.serveStatic
 }));
 */
 
-server.get({ path: '/*', name: 'todo-nodejs'}, restify.plugins.serveStatic({ 
-    'directory': __dirname,
-    'default': 'index.html'
+server.get({ path: '/*', name: 'todo-nodejs' }, restify.plugins.serveStatic({ 
+    directory: __dirname + '/todo',
+    default: 'index.html'
 }));
 
 var port = process.env.PORT || 30080;
