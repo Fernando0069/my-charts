@@ -18,6 +18,12 @@ Training:
 # Working
 ```
         W - DO180-ToDo-NodeJS - no funciona, todo obsoleto (NodeJS 0.10), actualizando código
+                ruta con https.
+                el puerto configurado es 30080 en el archivo app.js
+                el servicio es el 8080 por eso la ruta no funciona
+                como cambiar el puerto del servicio con el comando oc (CLI) 
+                cambiar el puerto del deploymento indica 8080 y el pod usa 30080
+                mantener y ajustar el entorno al puerto del pod 30080 y luego usar el del servicio para acceso por la ruta
 ```
 
 # Pending

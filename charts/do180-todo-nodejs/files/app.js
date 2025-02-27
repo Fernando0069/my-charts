@@ -14,7 +14,14 @@ var server = restify.createServer()
 
 controller.context(server, '/todo/api', model);
 
+/*
 server.get({ path: '/todo/*', name: 'todo-nodejs' }, restify.plugins.serveStatic({
+    'directory': __dirname,
+    'default': 'index.html'
+}));
+*/
+
+server.get({ path: '/*', name: 'todo-nodejs'}, restify.plugins.serveStatic({ 
     'directory': __dirname,
     'default': 'index.html'
 }));

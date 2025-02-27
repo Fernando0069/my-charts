@@ -5,7 +5,7 @@ Based on Restify 11.1 and Sequelize 6.32. Tested on Node.js 20 in OpenShift usin
 Run npm install to install dependencies (if not using OpenShift automatic dependency installation).
 
 The application is automatically started in OpenShift. If running locally, use npm start.
-Run as `node app.js`
+Run as `node app.js`.
 
 * Don't do pagination yet.
 

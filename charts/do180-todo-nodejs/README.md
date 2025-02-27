@@ -34,7 +34,10 @@ Punto 2 (cli):
 Sin el uso de image o imagestream:
 ```
   oc new-app --name=todo-nodejs https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-todo-nodejs/files -l app=todo-nodejs
-  oc expose service/todo-nodejs
+  oc patch deployment todo-nodejs --type='json' -p '[{"op": "replace", "path": "/spec/template/spec/containers/0/ports/0/containerPort", "value": 30080}]'
+  oc patch service todo-nodejs --type='json' -p '[{"op": "replace", "path": "/spec/ports/0/targetPort", "value": 30080}]'
+  oc create route edge todo-nodejs --service=todo-nodejs
+
   curl -vvv https://todo-nodejs-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=todo-nodejs
 ```
