@@ -13,14 +13,9 @@ imagePullPolicy: Always
 ports:
   http:
     name: http
-    containerPort: 8080
+    containerPort: 30080
     protocol: TCP
     servicePort: 8080
-  https:
-    name: https
-    containerPort: 8443
-    protocol: TCP
-    servicePort: 8443
 resources:
   limits:
     cpu: 10m
@@ -31,4 +26,7 @@ resources:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: charts/do180-todo-nodejs/
+  contextDir: charts/do180-todo-nodejs/files
+triggers:
+  github: YLF_IXnyD1g-Ay1yOiLb
+  generic: non3rqA5qQaiRu3OYZDn

@@ -9,7 +9,7 @@ metadata:
     enviroment: {{ .Values.enviroment }}
     training: {{ .Values.training }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       deployment: {{ .Values.name }}
@@ -23,13 +23,9 @@ spec:
         - name: {{ .Values.name }}
           image: {{ .Values.image }}
           ports:
-            - name: http
-              containerPort: {{ .Values.ports.http }}
-              protocol: TCP
-            - name: https
-              containerPort: {{ .Values.ports.https }}
-              protocol: TCP
-          resources: {}
+            - name: {{ .Values.ports.http.name }}
+              containerPort: {{ .Values.ports.http.containerPort }}
+              protocol: {{ .Values.ports.http.protocol }}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: IfNotPresent
@@ -43,8 +39,9 @@ spec:
           readinessProbe:
             httpGet:
               path: /
-              port: 8080
+              port: {{ .Values.ports.http.containerPort }}
               scheme: HTTP
+            initialDelaySeconds: 10
             timeoutSeconds: 1
             periodSeconds: 10
             successThreshold: 1
@@ -52,8 +49,9 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: 8080
+              port: {{ .Values.ports.http.containerPort }}
               scheme: HTTP
+            initialDelaySeconds: 10
             timeoutSeconds: 1
             periodSeconds: 10
             successThreshold: 1
@@ -61,31 +59,18 @@ spec:
           startupProbe:
             httpGet:
               path: /
-              port: 8080
+              port: {{ .Values.ports.http.containerPort }}
               scheme: HTTP
-            initialDelaySeconds: 15
+            initialDelaySeconds: 10
             timeoutSeconds: 1
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3
-          volumeMounts:
-          - name: phpinfo-php
-            mountPath: /opt/app-root/src/phpinfo.php
-            readOnly: true
-            subPath: phpinfo.php
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-      volumes:
-      - name: phpinfo-php
-        configMap:
-          name: {{ .Values.name }}
-          items:
-            - key: phpinfo.php
-              path: phpinfo.php
-          defaultMode: 420
   strategy:
     type: RollingUpdate
     rollingUpdate:

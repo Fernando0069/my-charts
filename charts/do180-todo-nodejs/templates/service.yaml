@@ -12,17 +12,13 @@ spec:
   ipFamilies:
     - IPv4
   ports:
-    - name: http
-      protocol: TCP
-      port: 8080
-      targetPort: 8080
-    - name: https
-      protocol: TCP
-      port: 8443
-      targetPort: 8443
+    - name: {{ .Values.ports.http.name }}
+      protocol: {{ .Values.ports.http.protocol }}
+      port: {{ .Values.ports.http.servicePort }}
+      targetPort: {{ .Values.ports.http.containerPort }}
   internalTrafficPolicy: Cluster
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
-    deployment: {{ .Values.name }}
+    app: {{ .Values.name }}

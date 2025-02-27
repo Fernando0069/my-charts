@@ -9,7 +9,7 @@ metadata:
     enviroment: {{ .Values.enviroment }}
     training: {{ .Values.training }}
 spec:
-  minAvailable: 1
+  minAvailable: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.name }}

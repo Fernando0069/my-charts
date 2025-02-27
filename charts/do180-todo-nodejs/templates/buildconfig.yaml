@@ -14,7 +14,7 @@ spec:
     to:
       kind: ImageStreamTag
       namespace: {{ .Values.namespace }}
-      name: 'php-temperature:latest'
+      name: '{{ .Values.name }}:latest'
   resources: {}
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
@@ -24,21 +24,21 @@ spec:
       from:
         kind: ImageStreamTag
         namespace: openshift
-        name: 'php:8.1-ubi9'
+        name: 'nodejs:20-ubi9'
   postCommit: {}
   source:
     type: Git
     git:
-      uri: 'https://github.com/Fernando0069/my-charts.git'
-      ref: main
-    contextDir: charts/do180-php-temperature/files
+      uri: {{ .Values.git.uri }}
+      ref: {{ .Values.git.ref }}
+    contextDir: {{ .Values.git.contextDir }}
   triggers:
     - type: GitHub
       github:
-        secret: 8ySggNEGcksRWIsmpP2R
+        secret: {{ .Values.triggers.github }}
     - type: Generic
       generic:
-        secret: XgaK2wM_YNDdsQUolO8u
+        secret: {{ .Values.triggers.generic }}
     - type: ConfigChange
     - type: ImageChange
       imageChange: {}
