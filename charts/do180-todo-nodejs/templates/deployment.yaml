@@ -13,12 +13,12 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      deployment: {{ .Values.name }}
+      app: {{ .Values.name }}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        deployment: {{ .Values.name }}
+        app: {{ .Values.name }}
     spec:
       containers:
         - name: {{ .Values.name }}
