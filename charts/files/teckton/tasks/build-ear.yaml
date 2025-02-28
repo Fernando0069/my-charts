@@ -12,6 +12,8 @@ spec:
         #!/bin/sh
         set -e
         cd $(workspaces.source.path)/my-charts/charts/files/helloworld_ear
-        maven clean package
+        mvn clean package
+        mv target/helloworld.ear . 
+        rm -rf target/
   workspaces:
     - name: source

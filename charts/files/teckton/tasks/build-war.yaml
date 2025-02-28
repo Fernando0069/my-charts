@@ -11,12 +11,9 @@ spec:
       script: |
         #!/bin/sh
         set -e
-        ls -lR  $(workspaces.source.path)/my-charts/charts/files/helloworld_war
         cd $(workspaces.source.path)/my-charts/charts/files/helloworld_war
         mvn clean package
-        ls -lR  $(workspaces.source.path)/my-charts/charts/files/helloworld_war
         mv target/helloworld.war . 
         rm -rf target/
-        ls -lR  $(workspaces.source.path)/my-charts/charts/files/helloworld_war
   workspaces:
     - name: source
