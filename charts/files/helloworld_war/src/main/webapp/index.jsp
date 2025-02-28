@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mi Aplicación WAR</title>
+    <title>HelloWorld - Mi Aplicación WAR</title>
 </head>
 <body>
-    <h1>Bienvenido a mi aplicación WAR</h1>
+    <h1>Bienvenido a mi aplicación WAR - HelloWorld</h1>
     <a href="hello">Ir a HelloServlet</a>
 </body>
 </html>
