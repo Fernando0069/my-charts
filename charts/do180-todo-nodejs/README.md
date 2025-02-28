@@ -2,6 +2,8 @@
 
 Para crear la aplicación "ToDo-NodeJS" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre manteniendo los mismos ficheros.
 
+Este despliegue tiene una peculiaridad y es que el puerto de la aplicación es "30080" y se ha ajustado todo para que instale correctamente y vemamos la web.
+
 Punto 1 (helm):
 
 Se crea la imagen con el BuildConfig con el Dockerfile y con todos los ficheros necesarios que serán montados en "/var/www/html/" a través del deployment.

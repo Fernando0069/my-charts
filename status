@@ -13,23 +13,17 @@ Training:
                 OK - 1.0.0 - DO180-NodeJS-HelloWorld
                 OK - 1.0.0 - DO180-PHP-Temperature
                 OK - 1.0.0 - DO180-NodeJS-App
-                OK - 1.0.0 - DO180-ToDo-HTML5 - App non-functional but install OK
+                OK - 1.0.0 - DO180-ToDo-HTML5 - App not functional (no DB available) but install OK.
+                OK - 1.0.0 - DO180-ToDo-NodeJS - App not functional (no DB available) but install OK.
 ```
 # Working
 ```
-        W - DO180-ToDo-NodeJS - no funciona, todo obsoleto (NodeJS 0.10), actualizando código
-                ruta con https.
-                el puerto configurado es 30080 en el archivo app.js
-                el servicio es el 8080 por eso la ruta no funciona
-                como cambiar el puerto del servicio con el comando oc (CLI) 
-                cambiar el puerto del deploymento indica 8080 y el pod usa 30080
-                mantener y ajustar el entorno al puerto del pod 30080 y luego usar el del servicio para acceso por la ruta
+
 ```
 
 # Pending
 ```
         DO180:
-                PE - DO180-ToDo-NodeJS - https://github.com/RedHatTraining/DO180-apps/tree/master/todoapp
                 PE - DO180-ToDo-NodeJS-API - https://github.com/RedHatTraining/DO180-apps/tree/master/todoapp
         DO280:
                 XXX - https://github.com/RedHatTraining/DO280-apps
@@ -39,7 +33,10 @@ Training:
 
 # Mejoras
 ```
-        XXX        
+        Añadir DB (servidores y clientes) de varios tipos (mariadb, mysql, mongodb, portgresql, y oracle) para probar las conexiones, mediante templates (cli) y mediante helm con pvc 
+        Buscar más ejemplos como cuando hicimos el curso.
+        Crear WAR (HelloWorld) para los diferentes entornos de servidores de aplicaciones o crear un WAR o EAR en funcion del servidor de aplicaciones.
+        Instalar operador - 
 ```
 
 # URL

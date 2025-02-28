@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: update-index
+  namespace: fernando0069-dev
+spec:
+  steps:
+    - image: alpine/helm
+      name: update-index
+      script: |
+        #!/bin/sh
+        set -e
+        cd $(workspaces.source.path)/my-charts
+        helm repo index .
+  workspaces:
+    - name: source
