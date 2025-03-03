@@ -9,6 +9,7 @@ Tools:
 
 Training:
         DO180:
+                KO - 1.0.0 - DO180-Openshift-HelloWorld
                 OK - 1.0.0 - DO180-PHP-HelloWorld
                 OK - 1.0.0 - DO180-NodeJS-HelloWorld
                 OK - 1.0.0 - DO180-PHP-Temperature
@@ -18,7 +19,22 @@ Training:
 ```
 # Working
 ```
-
+        W - do180-openshift-helloworld
+        W - do180-retro-games
+        P - do180-antipacman
+        P - do180-the-gems
+        P - do180-O
+        P - do180-tic-tac-toe
+        P - do180-Alge-s_escapade
+        P - do180-Lord-of-the-Rings
+        P - do180-javascript-tetris
+        P - do180-mariohtml5
+        P - do180-weather-app
+        P - do180-Lilo-and-Stitch-trailer
+        P - do180-pacman
+        P - do180-tetris
+        P - do180-Hangman-Game
+        P - do180-React-Weather-App
 ```
 
 # Pending
@@ -33,10 +49,10 @@ Training:
 
 # Mejoras
 ```
-        Añadir DB (servidores y clientes) de varios tipos (mariadb, mysql, mongodb, portgresql, y oracle) para probar las conexiones, mediante templates (cli) y mediante helm con pvc 
+        Añadir DB (servidores y clientes) de varios tipos (mariadb, mysql, mongodb, portgresql, y oracle) para probar las conexiones usando clinetes, mediante templates (cli) y mediante helm con pvc
         Buscar más ejemplos como cuando hicimos el curso.
         Crear WAR (HelloWorld) para los diferentes entornos de servidores de aplicaciones o crear un WAR o EAR en funcion del servidor de aplicaciones.
-        Instalar operador - 
+        Instalar operador - mediante Helm
 ```
 
 # URL
