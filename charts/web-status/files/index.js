@@ -5,7 +5,6 @@ const app = express();
 const PORT = 8080;
 const PROTOCOL = "https://";
 
-
 // Datos de las aplicaciones
 const applications = [
 	{ label: 'Tools', name: 'Google', statusUrl: 'https://www.google.com', url: 'https://www.google.com' },
@@ -14,7 +13,7 @@ const applications = [
 	{ label: 'Tools', name: 'Web-Spectral' },
 	{ label: 'Tools', name: 'IT-Tools' },
 	{ label: 'Tools', name: 'Web-Status' },
-	{ label: 'Training', course: 'DO180', name: 'Openshift-HelloWorld' },
+	{ label: 'Training', course: 'DO180', name: 'Openshift-HelloWorld', ports: [8080, 8888] },
 	{ label: 'Training', course: 'DO180', name: 'PHP-HelloWorld' },
 	{ label: 'Training', course: 'DO180', name: 'NodeJS-HelloWorld' },
 	{ label: 'Training', course: 'DO180', name: 'PHP-Temperature' },
@@ -25,32 +24,35 @@ const applications = [
 ];
 console.log("Aplicaciones configuradas (1):", applications);
 
-
 // Ruta para obtener el estado de las aplicaciones
 app.get('/status', async (req, res) => {
     const queryDomain = req.query.domain;
     if (queryDomain) {
-        cleanDomain = queryDomain; // Sobrescribir con el dominio correcto
+        cleanDomain = queryDomain;
         console.log("Dominio actualizado desde frontend:", cleanDomain);
     }
 
-	// Rellenar datos de las aplicaciones
+	let expandedApps = [];
 	applications.forEach(app => {
-		if (!app.url) {
-			const subdomain = app.name.toLowerCase().replace(/\s+/g, '-');
-			app.url = `${PROTOCOL}${subdomain}-${cleanDomain}`;
-		}
-		if (!app.statusUrl) {
-			app.statusUrl = app.url;
+		if (app.ports) {
+			app.ports.forEach(port => {
+				let subdomain = `${app.name.toLowerCase().replace(/\s+/g, '-')}-${port}`;
+				let fullUrl = `${PROTOCOL}${subdomain}-${cleanDomain}`;
+				expandedApps.push({ label: app.label, course: app.course, name: `${app.name} (${port})`, url: fullUrl, statusUrl: fullUrl });
+			});
+		} else {
+			let subdomain = app.name.toLowerCase().replace(/\s+/g, '-');
+			let fullUrl = `${PROTOCOL}${subdomain}-${cleanDomain}`;
+			expandedApps.push({ label: app.label, course: app.course, name: app.name, url: fullUrl, statusUrl: fullUrl });
 		}
 	});
-	console.log("Aplicaciones configuradas (2):", applications);
 
-	const results = await Promise.all(applications.map(app => taskCheckStatus(app)));
+	console.log("Aplicaciones configuradas (2):", expandedApps);
+
+	const results = await Promise.all(expandedApps.map(app => taskCheckStatus(app)));
 	console.log("Enviando datos a la web:", results);
 	res.json(results);
-});	
-
+});
 
 // Comprobación de estado de las aplicaciones
 const taskCheckStatus = async (app) => {
