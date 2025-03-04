@@ -2,11 +2,14 @@
 Aplicaciones pendientes de incorporar.
 
 ## DOCs:
+```
   DO180-apps
   DO280-apps
   RHCA-study-notes
+```
 
 ## Apps:
+```
   antipacman
   the-gems
   o
@@ -24,3 +27,4 @@ Aplicaciones pendientes de incorporar.
   React-Weather-App
   retro-games
   game-off-2012
+```
