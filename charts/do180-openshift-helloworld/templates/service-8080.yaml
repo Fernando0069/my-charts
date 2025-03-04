@@ -17,10 +17,6 @@ spec:
       port: {{ .Values.ports.8080.servicePort }}
       protocol: {{ .Values.ports.8080.protocol }}
       targetPort: {{ .Values.ports.8080.containerPort }}
-    - name: {{ .Values.ports.8888.name }}
-      port: {{ .Values.ports.8888.servicePort }}
-      protocol: {{ .Values.ports.8888.protocol }}
-      targetPort: {{ .Values.ports.8888.containerPort }}
   internalTrafficPolicy: Cluster
   type: ClusterIP
   ipFamilyPolicy: SingleStack
