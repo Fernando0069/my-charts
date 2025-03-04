@@ -1,0 +1,28 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: create-packages
+  namespace: fernando0069-dev
+spec:
+  params:
+    - name: app-list
+      type: string
+  steps:
+    - image: alpine/helm
+      name: package-charts
+      script: |
+        #!/bin/sh
+        set -e
+        cd $(workspaces.source.path)/my-charts
+        mkdir -p apps
+        # Recorrer la lista de aplicaciones y empaquetarlas
+        for app in $(params.app-list); do
+          if [ -d "$app" ]; then
+            helm package charts/"$app" -d apps/
+            echo "✅ Paquete creado: apps/$app-*.tgz"
+          else
+            echo "⚠️  Advertencia: La carpeta '$app' no existe en my-charts."
+          fi
+        done
+  workspaces:
+    - name: source

@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: helm-lint
+  namespace: fernando0069-dev
+spec:
+  params:
+    - name: app-list
+      type: string
+  steps:
+    - computeResources: {}
+      image: alpine/helm
+      name: lint
+      script: |
+        #!/bin/sh
+        set -e
+        for app in $(params.app-list); do
+          echo "Linting chart: $app"
+          if [ -d "$(workspaces.source.path)/my-charts/charts/$app" ]; then
+            helm lint $(workspaces.source.path)/my-charts/charts/$app
+          else
+            echo "Warning: Chart directory $(workspaces.source.path)/my-charts/charts/$app does not exist!"
+          fi
+        done
+  workspaces:
+    - name: source

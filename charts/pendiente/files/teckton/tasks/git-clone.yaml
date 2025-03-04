@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: git-clone
+  namespace: fernando0069-dev
+spec:
+  steps:
+    - computeResources: {}
+      image: alpine/git
+      name: git-clone
+      script: |
+        #!/bin/sh
+        set -e
+        rm -rf $(workspaces.source.path)/my-charts
+        cd $(workspaces.source.path)
+        git clone 'https://github.com/Fernando0069/my-charts.git' --branch main
+  workspaces:
+    - name: source

@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: build-war
+  namespace: fernando0069-dev
+spec:
+  steps:
+    - computeResources: {}
+      image: maven:3.9-eclipse-temurin-21
+      name: maven-war
+      script: |
+        #!/bin/sh
+        set -e
+        cd $(workspaces.source.path)/my-charts/charts/files/helloworld_war
+        mvn clean package
+        mv target/helloworld.war . 
+        rm -rf target/
+  workspaces:
+    - name: source
