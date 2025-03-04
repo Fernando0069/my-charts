@@ -1,11 +1,12 @@
 
 # Apps Status
 ```
-  Tools:
-    OK - 10.19.4  - CyberChef
-    OK - 1.0.0    - ReverseShellGenerator
-    OK - 6.14.2   - Web-Spectral
-    KO - 1.0.0    - Web-Status
+Tools:
+  OK - 10.19.4  - CyberChef
+  OK - 1.0.0    - ReverseShellGenerator
+  OK - 6.14.2   - Web-Spectral
+  KO - 1.0.0    - IT-Tools
+  OK - 1.0.0    - Web-Status
 
 Training:
   DO180:
