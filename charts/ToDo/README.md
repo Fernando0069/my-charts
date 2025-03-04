@@ -1,13 +1,6 @@
 # Apps pendientes
 Aplicaciones pendientes de incorporar.
 
-## DOCs:
-```
-  DO180-apps
-  DO280-apps
-  RHCA-study-notes
-```
-
 ## Apps:
 ```
   game-off-2012
