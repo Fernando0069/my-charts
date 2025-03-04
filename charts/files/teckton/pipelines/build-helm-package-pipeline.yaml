@@ -11,7 +11,7 @@ spec:
     - default: fernando0069@gmail.com
       name: git-email
       type: string
-    - default: web-status cyberchef reverseshellgenerator web-spectral do180-php-helloworld do180-nodejs-helloworld do180-php-temperature do180-nodejs-app do180-todo-html5
+    - default: web-status cyberchef reverseshellgenerator web-spectral do180-openshift-helloworld do180-php-helloworld do180-nodejs-helloworld do180-php-temperature do180-nodejs-app do180-todo-html5 do180-todo-nodejs
       name: app-list
       type: string
   tasks:
@@ -66,20 +66,6 @@ spec:
       taskRef:
         kind: Task
         name: git-push
-      workspaces:
-        - name: source
-          workspace: shared-workspace
-    - name: update-gh-pages
-      params:
-        - name: git-user
-          value: $(params.git-user)
-        - name: git-email
-          value: $(params.git-email)
-      runAfter:
-        - git-push
-      taskRef:
-        kind: Task
-        name: update-gh-pages
       workspaces:
         - name: source
           workspace: shared-workspace
