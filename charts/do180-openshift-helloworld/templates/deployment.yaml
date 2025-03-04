@@ -13,20 +13,19 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: openshift-helloworld
+      app: {{ .Values.name }}
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: openshift-helloworld
+        app: {{ .Values.name }}
     spec:
       containers:
-        - name: openshift-helloworld
-          image: 'image-registry.openshift-image-registry.svc:5000/fernando0069-dev/openshift-helloworld@sha256:08bfc0e01b53e9b5b4dbcc1df52565f74b861a886f0b337678f358729edb5eb8'
+        - name: {{ .Values.name }}
+          image: {{ .Values.image }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-          imagePullPolicy: {{ .Values.imagePullPolicy }}
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
