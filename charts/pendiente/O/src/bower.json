@@ -1,7 +1,0 @@
-{
-  "name": "game-o",
-  "dependencies": {
-    "cutjs": "*",
-    "extrajs": "*"
-  }
-}
