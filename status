@@ -1,66 +1,75 @@
 
 # Apps Status
 ```
-Tools:
-        OK - 10.19.4  - CyberChef
-        OK - 1.0.0    - ReverseShellGenerator
-        OK - 6.14.2   - Web-Spectral
-        KO - 1.0.0    - Web-Status
+  Tools:
+    OK - 10.19.4  - CyberChef
+    OK - 1.0.0    - ReverseShellGenerator
+    OK - 6.14.2   - Web-Spectral
+    KO - 1.0.0    - Web-Status
 
 Training:
-        DO180:
-                KO - 1.0.0 - DO180-Openshift-HelloWorld
-                OK - 1.0.0 - DO180-PHP-HelloWorld
-                OK - 1.0.0 - DO180-NodeJS-HelloWorld
-                OK - 1.0.0 - DO180-PHP-Temperature
-                OK - 1.0.0 - DO180-NodeJS-App
-                OK - 1.0.0 - DO180-ToDo-HTML5 - App not functional (no DB available) but install OK.
-                OK - 1.0.0 - DO180-ToDo-NodeJS - App not functional (no DB available) but install OK.
+  DO180:
+    KO - 1.0.0 - DO180-Openshift-HelloWorld
+    OK - 1.0.0 - DO180-PHP-HelloWorld
+    OK - 1.0.0 - DO180-NodeJS-HelloWorld
+    OK - 1.0.0 - DO180-PHP-Temperature
+    OK - 1.0.0 - DO180-NodeJS-App
+    OK - 1.0.0 - DO180-ToDo-HTML5 - App not functional (no DB available) but install OK.
+    OK - 1.0.0 - DO180-ToDo-NodeJS - App not functional (no DB available) but install OK.
 ```
 # Working
 ```
-        W - do180-openshift-helloworld - Añadir a status las dos URL´s (definir como).
-        W - do180-retro-games
-        P - do180-antipacman
-        P - do180-the-gems
-        P - do180-O
-        P - do180-tic-tac-toe
-        P - do180-Alge-s_escapade
-        P - do180-Lord-of-the-Rings
-        P - do180-javascript-tetris
-        P - do180-mariohtml5
-        P - do180-weather-app
-        P - do180-Lilo-and-Stitch-trailer
-        P - do180-pacman
-        P - do180-tetris
-        P - do180-Hangman-Game
-        P - do180-React-Weather-App
-        P - IT-Tools (https://github.com/CorentinTh/it-tools)
+  W - do180-openshift-helloworld - Añadir a status las dos URL´s (definir como).
+  P - do180-game-off-2012
+  P - do180-retro-games
+  P - do180-antipacman
+  P - do180-the-gems
+  P - do180-O
+  P - do180-tic-tac-toe
+  P - do180-Alge-s_escapade
+  P - do180-Lord-of-the-Rings
+  P - do180-javascript-tetris
+  P - do180-mariohtml5
+  P - do180-weather-app
+  P - do180-Lilo-and-Stitch-trailer
+  P - do180-pacman
+  P - do180-tetris
+  P - do180-Hangman-Game
+  P - do180-React-Weather-App
+  P - IT-Tools (https://github.com/CorentinTh/it-tools)
 ```
 
 # Pending
 ```
-        DO180:
-                PE - DO180-ToDo-NodeJS-API - https://github.com/RedHatTraining/DO180-apps/tree/master/todoapp
-        DO280:
-                XXX - https://github.com/RedHatTraining/DO280-apps
-        DO285:
-                XXX - https://github.com/RedHatTraining/do285-apps
+  DO180:
+    PE - DO180-ToDo-NodeJS-API - https://github.com/RedHatTraining/DO180-apps/tree/master/todoapp
+  DO280:
+    XXX - https://github.com/RedHatTraining/DO280-apps
+  DO285:
+    XXX - https://github.com/RedHatTraining/do285-apps
 ```
 
 # Mejoras
 ```
-        Añadir DB (servidores y clientes) de varios tipos (mariadb, mysql, mongodb, portgresql, y oracle) para probar las conexiones usando clinetes, mediante templates (cli) y mediante helm con pvc
-        Buscar más ejemplos como cuando hicimos el curso.
-        Crear WAR (HelloWorld) para los diferentes entornos de servidores de aplicaciones o crear un WAR o EAR en funcion del servidor de aplicaciones.
-        Instalar operador - mediante Helm
+  Añadir DB (servidores y clientes) de varios tipos (mariadb, mysql, mongodb, portgresql, y oracle) para probar las conexiones usando clinetes, mediante templates (cli) y mediante helm con pvc
+  Buscar más ejemplos como cuando hicimos el curso.
+  Crear WAR (HelloWorld) para los diferentes entornos de servidores de aplicaciones o crear un WAR o EAR en funcion del servidor de aplicaciones.
+  Instalar operador - mediante Helm
 ```
 
 # URL
 ```
-https://oauth-openshift.apps.rm2.thpm.p1.openshiftapps.com/oauth/authorize?client_id=console&redirect_uri=https%3A%2F%2Fconsole-openshift-console.apps.rm2.thpm.p1.openshiftapps.com%2Fauth%2Fcallback&response_type=code&scope=user%3Afull&state=94dd8c862f279057fdc4b769584898e3
-https://github.com/RedHatTraining?q=do3&type=all&language=&sort=
-https://github.com/redhat-cop/helm-charts
-https://github.com/redhat-cop/namespace-configuration-operator/tree/master
-https://hub.docker.com/r/fernando0069/web-spectral
+  https://oauth-openshift.apps.rm2.thpm.p1.openshiftapps.com/oauth/authorize?client_id=console&redirect_uri=https%3A%2F%2Fconsole-openshift-console.apps.rm2.thpm.p1.openshiftapps.com%2Fauth%2Fcallback&response_type=code&scope=user%3Afull&state=94dd8c862f279057fdc4b769584898e3
+  https://github.com/RedHatTraining?q=do3&type=all&language=&sort=
+  https://github.com/redhat-cop/helm-charts
+  https://github.com/redhat-cop/namespace-configuration-operator/tree/master
+  https://hub.docker.com/r/fernando0069/web-spectral
+```
+
+# DOCs:
+```
+  DO180-apps - https://github.com/RedHatTraining/DO180-apps
+  DO280-apps - https://github.com/RedHatTraining/DO280-apps
+  DO288-apps - https://github.com/RedHatTraining/DO288-apps
+  RHCA-study-notes - https://github.com/lisenet/RHCA-study-notes
 ```
