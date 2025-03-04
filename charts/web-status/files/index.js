@@ -34,7 +34,9 @@ app.get('/status', async (req, res) => {
 
 	let expandedApps = [];
 	applications.forEach(app => {
-		if (app.ports) {
+		if (app.statusUrl && app.url) {
+			expandedApps.push(app);
+		} else if (app.ports) {
 			app.ports.forEach(port => {
 				let subdomain = `${app.name.toLowerCase().replace(/\s+/g, '-')}-${port}`;
 				let fullUrl = `${PROTOCOL}${subdomain}-${cleanDomain}`;
