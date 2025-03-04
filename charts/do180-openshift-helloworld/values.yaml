@@ -12,12 +12,12 @@ image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/openshi
 imagePullPolicy: Always
 ports:
   http8080:
-    name: 8080
+    name: http-8080
     containerPort: 8080
     protocol: TCP
     servicePort: 8080
   http8888:
-    name: 8888
+    name: http-8888
     containerPort: 8888
     protocol: TCP
     servicePort: 8888
