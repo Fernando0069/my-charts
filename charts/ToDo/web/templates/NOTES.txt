@@ -1,8 +1,0 @@
-INFO: La aplicacioón "web" despliega unservidor web con una página web en formato html.
-INFO: Se despliega los siguientes objetos:
-        - ConfigMap.
-        - Deployment.
-        - HorizontalPodAutoscaler.
-        - PodDisruptionBudget.
-        - Service.
-        - Route. 
