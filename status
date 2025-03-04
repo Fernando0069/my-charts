@@ -19,7 +19,7 @@ Training:
 ```
 # Working
 ```
-        W - do180-openshift-helloworld
+        W - do180-openshift-helloworld - Añadir a status las dos URL´s (definir como).
         W - do180-retro-games
         P - do180-antipacman
         P - do180-the-gems
@@ -35,6 +35,7 @@ Training:
         P - do180-tetris
         P - do180-Hangman-Game
         P - do180-React-Weather-App
+        P - IT-Tools (https://github.com/CorentinTh/it-tools)
 ```
 
 # Pending

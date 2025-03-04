@@ -11,23 +11,16 @@ replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/openshift-helloworld:latest
 imagePullPolicy: Always
 ports:
-  http:
-    name: http
+  8080:
+    name: 8080
     containerPort: 8080
     protocol: TCP
     servicePort: 8080
-  https:
-    name: https
-    containerPort: 8443
+  8888:
+    name: 8888
+    containerPort: 8888
     protocol: TCP
-    servicePort: 8443
-resources:
-  limits:
-    cpu: 10m
-    memory: 64Mi
-  requests:
-    cpu: 5m
-    memory: 32Mi
+    servicePort: 8888
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main

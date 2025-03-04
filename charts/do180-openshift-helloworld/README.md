@@ -2,6 +2,8 @@
 
 Para crear la aplicación "openshift-helloworld" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre con los mismos archivos.
 
+La aplicación "openshift-helloworld" dispone de dos puertos en activo (8080 y 8888) por eso a la hora de crear el servicio o la ruta hay que hacerlo de una determinada manera.
+
 Punto 1 (helm):
 
 Para crear la aplicación DO180-Openshift-HelloWorld debemos ejecutar los siguiente comandos:
@@ -33,20 +35,16 @@ Punto 2 (cli):
 
 Creamos de manera automática una imágen la cual lleva el contenido del directorio "files".
 
-Sin usar image o imagestream:
-```
-  oc new-app --name=openshift-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-openshift-helloworld/files -l app=openshift-helloworld
-  oc expose service/openshift-helloworld
-  curl -vvv https://openshift-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-  oc delete all -l app=openshift-helloworld
-```
-
 Usando imagestream con la versión del compilador:
 ```
-  oc new-app -S go
-  oc new-app --image-stream=openshift/golang:1.18-ubi9 --name openshift-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-openshift-helloworld/files -l app=openshift-helloworld
-  oc expose service/openshift-helloworld
-  curl -vvv https://openshift-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc new-app -S golang
+  oc new-app --name=openshift-helloworld golang~https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-openshift-helloworld/files -l app=openshift-helloworld
+  oc expose deployment openshift-helloworld --port=8080 --target-port=8080 --name=openshift-helloworld-8080
+  oc expose deployment openshift-helloworld --port=8888 --target-port=8888 --name=openshift-helloworld-8888
+  oc create route edge openshift-helloworld-8080 --service=openshift-helloworld-8080 --port=8080
+  oc create route edge openshift-helloworld-8888 --service=openshift-helloworld-8888 --port=8888
+  curl -vvv https://openshift-helloworld-8080-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  curl -vvv https://openshift-helloworld-8888-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=openshift-helloworld
 ```
 
