@@ -1,5 +1,5 @@
 <p align="center">
-<img src="img/splash-screen.png" height="400" />
+<img src="files/img/splash-screen.png" height="400" />
 </p>
 
 ## Synopsis
@@ -26,7 +26,7 @@ Tested in Firefox Safari, and Chrome on Windows, Linux and Mac.
  * JavaScript
 
 ## Screenshots
-<img src="img/screenshot-1.png" height="200" />&nbsp;
-<img src="img/screenshot-2.png" height="200" />
-<img src="img/screenshot-3.png" height="200" />&nbsp;
-<img src="img/screenshot-4.png" height="200" />
+<img src="files/img/screenshot-1.png" height="200" />&nbsp;
+<img src="files/img/screenshot-2.png" height="200" />
+<img src="files/img/screenshot-3.png" height="200" />&nbsp;
+<img src="files/img/screenshot-4.png" height="200" />
