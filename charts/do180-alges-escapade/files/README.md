@@ -11,7 +11,6 @@ Can you get three stars on every level?
 
 ## Controls
 Control Alge by using the following keys:
-
  * D or Right arrow to move Alge right
  * A or Left arrow to move Alge left
  * W or Up arrow or Space to jump
@@ -23,8 +22,8 @@ Tested in Firefox Safari, and Chrome on Windows, Linux and Mac.
 
 ## Technology Used
  * HTML5
+ * CSS
  * JavaScript
- * [GameJs](http://gamejs.org/)
 
 ## Screenshots
 <img src="img/screenshot-1.png" height="200" />&nbsp;
