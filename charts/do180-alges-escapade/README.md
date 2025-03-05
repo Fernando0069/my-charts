@@ -1,22 +1,22 @@
-# DO180-Game-Off-2012 charts
+# DO180-Alges-Escapade charts
 
-Para crear la aplicación "game-off-2012" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre con los mismos archivos.
+Para crear la aplicación "alges-escapade" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre con los mismos archivos.
 
-La aplicación "game-off-2012" dispone de dos puertos en activo (8080 y 8888) por eso a la hora de crear el servicio o la ruta hay que hacerlo de una determinada manera.
+La aplicación "alges-escapade" dispone de dos puertos en activo (8080 y 8888) por eso a la hora de crear el servicio o la ruta hay que hacerlo de una determinada manera.
 
 Punto 1 (helm):
 
-Para crear la aplicación DO180-Game-Off-2012 debemos ejecutar los siguiente comandos:
+Para crear la aplicación DO180-Alges-Escapade debemos ejecutar los siguiente comandos:
 ```
-  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                          # Creación del repositorio donde vamos a descargar la aplicación
-  2.- helm install game-off-2012 apps/DO180-Game-Off-2012                                            # Instalar la aplicación "DO180-Game-Off-2012" con el nombre "game-off-2012".
-  3.- curl -vvv https://game-off-2012-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/    # Verificar la URL. 
+  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                    # Creación del repositorio donde vamos a descargar la aplicación
+  2.- helm install alges-escapade apps/DO180-Alges-Escapade                                           # Instalar la aplicación "DO180-Alges-Escapade" con el nombre "alges-escapade".
+  3.- curl -vvv https://alges-escapade-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/    # Verificar la URL. 
 ```
 
-Para eliminar la aplicación DO180-Game-Off-2012 debemos ejecutar los siguiente comandos:
+Para eliminar la aplicación DO180-Alges-Escapade debemos ejecutar los siguiente comandos:
 ```
-  1.- helm uninstall game-off-2012       # Desinstalar la aplicación con el nombre "game-off-2012" ("DO180-Game-Off-2012").
-  2.- helm repo remove apps                     # Eliminación del repositorio de aplicaciones.
+  1.- helm uninstall alges-escapade       # Desinstalar la aplicación con el nombre "alges-escapade" ("DO180-Alges-Escapade").
+  2.- helm repo remove apps               # Eliminación del repositorio de aplicaciones.
 ```
 
 Los objetos que se crean son los siguientes:

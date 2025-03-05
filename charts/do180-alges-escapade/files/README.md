@@ -1,5 +1,5 @@
 <p align="center">
-<img src="http://dave-and-mike.github.com/game-off-2012/img/splash-screen.png" height="400" />
+<img src="img/splash-screen.png" height="400" />
 </p>
 
 ## Synopsis
@@ -27,7 +27,7 @@ Tested in Firefox Safari, and Chrome on Windows, Linux and Mac.
  * [GameJs](http://gamejs.org/)
 
 ## Screenshots
-<img src="http://dave-and-mike.github.com/game-off-2012/img/screenshot-1.png" height="200" />&nbsp;
-<img src="http://dave-and-mike.github.com/game-off-2012/img/screenshot-2.png" height="200" />
-<img src="http://dave-and-mike.github.com/game-off-2012/img/screenshot-3.png" height="200" />&nbsp;
-<img src="http://dave-and-mike.github.com/game-off-2012/img/screenshot-4.png" height="200" />
+<img src="img/screenshot-1.png" height="200" />&nbsp;
+<img src="img/screenshot-2.png" height="200" />
+<img src="img/screenshot-3.png" height="200" />&nbsp;
+<img src="img/screenshot-4.png" height="200" />

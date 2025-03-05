@@ -2,13 +2,13 @@
 # This is a YAML-formatted file.
 
 namespace: fernando0069-dev
-name: game-off-2012
+name: alges-escapade
 labels:
   enviroment: pro
   layer: training
   training: DO180
 replicaCount: 1
-image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/openshift-helloworld:latest
+image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/alges-escapade:latest
 imagePullPolicy: Always
 ports:
   http:
@@ -24,4 +24,4 @@ ports:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: charts/do180-game-off-2012/files
+  contextDir: charts/do180-alges-escapade/files
