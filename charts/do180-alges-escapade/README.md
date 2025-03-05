@@ -41,12 +41,11 @@ Dado que OpenShift espera un entorno para ejecutar código, pero JavaScript puro
 
 Usando imagestream con la versión del compilador:
 ```
-  oc new-app --name=game-off-2012 httpd~https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-game-off-2012/files -l app=game-off-2012
-  oc expose svc game-off-2012 --name=game-off-2012-8080
-  oc create route edge game-off-2012-8443 --service=game-off-2012
-  curl -vvv http://game-off-2012-8080-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-  curl -vvv https://game-off-2012-8443-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-  oc delete all -l app=game-off-2012
+  oc new-app --name=alges-escapade httpd~https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-alges-escapade/files -l app=alges-escapade
+  oc create route edge --service=alges-escapade     # crea ruta segura del tipo edge
+    oc expose service/alges-escapade                # crea ruta no segura
+  curl -vvv https://alges-escapade-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc delete all -l app=alges-escapade
 ```
 
 Los objetos que se crean son los siguientes:

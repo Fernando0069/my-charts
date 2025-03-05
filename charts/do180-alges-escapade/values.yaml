@@ -16,11 +16,6 @@ ports:
     containerPort: 8080
     protocol: TCP
     servicePort: 8080
-  https:
-    name: https
-    containerPort: 8443
-    protocol: TCP
-    servicePort: 8443
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
