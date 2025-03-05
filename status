@@ -20,7 +20,7 @@ Training:
 
 # Working
 ```
-  W - do180-alges-escapade
+  W - do180-alges-escapade - OK si lo haces por comando, si lo haces por Helm falla en la creación de un secret temporal que ocupa mas de 1Mb y no deja.
   P - do180-retro-games
   P - do180-antipacman
   P - do180-the-gems

@@ -20,7 +20,7 @@ const applications = [
 	{ label: 'Training', course: 'DO180', name: 'NodeJS-App' },
 	{ label: 'Training', course: 'DO180', name: 'ToDo-HTML5' },
 	{ label: 'Training', course: 'DO180', name: 'ToDo-NodeJS' },
-	{ label: 'Training', course: 'DO180', name: 'Game-Off-2012' },
+	{ label: 'Training', course: 'DO180', name: 'Alge´s-Escapade' },
 	{ label: 'Training', course: 'DO180', name: 'ToDo-NodeJS-API' }
 ];
 console.log("Aplicaciones configuradas (1):", applications);
