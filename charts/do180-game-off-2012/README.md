@@ -35,25 +35,17 @@ Punto 2 (cli):
 
 Creamos de manera automática una imágen la cual lleva el contenido del directorio "files".
 
-Sin el uso de image o imagestream:
-```
-  oc new-app --name=game-off-2012 https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-game-off-2012/files -l app=game-off-2012
-  oc create route edge game-off-2012 --service=game-off-2012      # crea ruta segura del tipo edge
-    oc expose service/game-off-2012                               # crea ruta no segura
-  curl -vvv https://game-off-2012-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-  oc delete all -l app=game-off-2012
-```
+Como la aplicación es JavaScript puro (no Node.js), OpenShift no sabe cómo ejecutarla automáticamente porque "oc new-app" está diseñado para aplicaciones tipo servidor como Node.js, Python, Java, etc.
+
+Dado que OpenShift espera un entorno para ejecutar código, pero JavaScript puro (HTML/CSS/JS) no necesita un servidor backend, se necesita una estrategia diferente.
 
 Usando imagestream con la versión del compilador:
 ```
-  oc new-app -S golang
-  oc new-app --name=game-off-2012 golang~https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-game-off-2012/files -l app=game-off-2012
-  oc expose deployment game-off-2012 --port=8080 --target-port=8080 --name=game-off-2012-8080
-  oc expose deployment game-off-2012 --port=8888 --target-port=8888 --name=game-off-2012-8888
-  oc create route edge game-off-2012-8080 --service=game-off-2012-8080 --port=8080
-  oc create route edge game-off-2012-8888 --service=game-off-2012-8888 --port=8888
-  curl -vvv https://game-off-2012-8080-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-  curl -vvv https://game-off-2012-8888-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc new-app --name=game-off-2012 httpd~https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-game-off-2012/files -l app=game-off-2012
+  oc expose svc game-off-2012 --name=game-off-2012-8080
+  oc create route edge game-off-2012-8443 --service=game-off-2012
+  curl -vvv http://game-off-2012-8080-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  curl -vvv https://game-off-2012-8443-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=game-off-2012
 ```
 
