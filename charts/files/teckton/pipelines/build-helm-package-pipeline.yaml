@@ -11,7 +11,7 @@ spec:
     - default: fernando0069@gmail.com
       name: git-email
       type: string
-    - default: web-status cyberchef reverseshellgenerator web-spectral do180-openshift-helloworld do180-php-helloworld do180-nodejs-helloworld do180-php-temperature do180-nodejs-app do180-todo-html5 do180-todo-nodejs
+    - default: web-status cyberchef reverseshellgenerator web-spectral do180-openshift-helloworld do180-php-helloworld do180-nodejs-helloworld do180-php-temperature do180-nodejs-app do180-todo-html5 do180-todo-nodejs do180-alges-escapade
       name: app-list
       type: string
   tasks:
