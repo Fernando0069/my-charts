@@ -1,0 +1,6 @@
+INFO: El chart "Web-Spectral" despliega la aplicación "web-spectral" de manera sencilla para el analisis de ficheros OpenAPI.
+INFO: Despliega los siguiente objetos:
+        - Deployment.
+        - PodDisruptionBudget.
+        - Service.
+        - Route.

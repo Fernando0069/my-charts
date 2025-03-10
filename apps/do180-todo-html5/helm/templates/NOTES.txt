@@ -1,0 +1,8 @@
+INFO: El chart "DO180-ToDo-HTLM5" despliega una aplicación en PHP.
+INFO: Despliega los siguiente objetos:
+        - Imagestream.
+        - BuildConfig.
+        - Deployment.
+        - PodDisruptionBudget.
+        - Service.
+        - Route.

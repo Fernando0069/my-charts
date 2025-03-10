@@ -1,0 +1,25 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+  annotations:
+    uri-official: {{ .Values.annotations.uriofficial }}
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - name: latest
+    from:
+      kind: DockerImage
+      name: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
+    generation: 6
+    importPolicy:
+      importMode: Legacy
+    referencePolicy:
+      type: Source

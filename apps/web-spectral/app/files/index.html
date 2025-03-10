@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectral File Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        .hidden {
+            display: none;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        .report {
+            margin-top: 20px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:disabled {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Analyze Your OpenAPI File</h2>
+        <form id="uploadForm">
+            <input type="file" id="fileInput" accept=".yaml,.json" required />
+            <button type="submit">Upload and Analyze</button>
+        </form>
+        <p id="message" class="message hidden">Analyzing your file...</p>
+        <div id="report" class="report hidden"></div>
+        <button id="downloadBtn" class="hidden">Download Report</button>
+    </div>
+
+    <script>
+        const maxFileSizeMB = 1; // Maximum file size in MB
+
+        const fileInput = document.getElementById('fileInput');
+        const uploadForm = document.getElementById('uploadForm');
+        const message = document.getElementById('message');
+        const report = document.getElementById('report');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        uploadForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select a file.');
+                return;
+            }
+
+            // Validate file size
+            if (file.size > maxFileSizeMB * 1024 * 1024) {
+                alert(`File size exceeds ${maxFileSizeMB} MB. Please choose a smaller file.`);
+                return;
+            }
+
+            // Show analyzing message
+            message.classList.remove('hidden');
+            report.classList.add('hidden');
+            downloadBtn.classList.add('hidden');
+            message.textContent = 'Analyzing your file...';
+
+            try {
+                // Simulate file upload and analysis
+                const formData = new FormData();
+                formData.append('file', file);
+
+                // Replace with actual backend endpoint
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to analyze file.');
+                }
+
+                const analysisReport = await response.text();
+
+                // Display report
+                message.classList.add('hidden');
+                report.classList.remove('hidden');
+                report.textContent = analysisReport;
+                downloadBtn.classList.remove('hidden');
+
+                // Setup download button
+                downloadBtn.onclick = () => {
+                    const blob = new Blob([analysisReport], { type: 'text/plain' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'analysis_report.txt';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                };
+            } catch (error) {
+                message.textContent = 'Error: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>

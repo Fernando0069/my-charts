@@ -1,0 +1,11 @@
+INFO: El chart "ReverseShellGenerator" despliega una aplicación para la creación de "Reverse Shell" de manera sencilla para los CTF.
+INFO: Despliega los siguiente objetos:
+        - Imagestream.
+        - Secret (generic webhook).
+        - Secret (github webhook).
+        - BuildConfig.
+        - Deployment.
+        - HorizontalPodAutoscaler.
+        - PodDisruptionBudget.
+        - Service.
+        - Route.
