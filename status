@@ -20,6 +20,9 @@ Training:
 
 # Working
 ```
+  W - Se ha cambiado la arquitectura del repositorio, hay que hacer las pruebas de funcionamiento de todas las aplicaciones que estén OK.
+
+  
   W - do180-alges-escapade - OK si lo haces por comando, si lo haces por Helm falla en la creación de un secret temporal que ocupa mas de 1Mb y no deja.
   P - do180-retro-games
   P - do180-antipacman

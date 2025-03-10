@@ -1,0 +1,12 @@
+INFO: El chart "CyberChef" despliega la aplicación "CyberChef" dedicada a la trasnformación de información (a base64, epoch, etc.).
+INFO: Despliega los siguiente objetos:
+        - Dockerfile.
+        - Imagestream.
+        - Secret (generic webhook).
+        - Secret (github webhook).
+        - BuildConfig.
+        - Deployment.
+        - HorizontalPodAutoscaler.
+        - PodDisruptionBudget.
+        - Service.
+        - Route.
