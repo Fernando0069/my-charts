@@ -1,9 +1,0 @@
-INFO: El chart "DO180-PHP-HelloWorld" despliega una aplicación en PHP.
-INFO: Despliega los siguiente objetos:
-        - Imagestream.
-        - BuildConfig.
-        - ConfigMap.
-        - Deployment.
-        - PodDisruptionBudget.
-        - Service.
-        - Route.
