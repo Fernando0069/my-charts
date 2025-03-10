@@ -1,0 +1,25 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: '{{ .Values.name }}-8080'
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: {{ .Values.ports.http8080.name }}
+      port: {{ .Values.ports.http8080.servicePort }}
+      protocol: {{ .Values.ports.http8080.protocol }}
+      targetPort: {{ .Values.ports.http8080.containerPort }}
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: {{ .Values.name }}

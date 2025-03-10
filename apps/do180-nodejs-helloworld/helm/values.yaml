@@ -1,0 +1,31 @@
+# Default values for buildachart.
+# This is a YAML-formatted file.
+
+namespace: fernando0069-dev
+name: nodejs-helloworld
+labels:
+  enviroment: pro
+  layer: training
+  training: DO180
+replicaCount: 1
+image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/nodejs-helloworld:latest
+imagePullPolicy: Always
+ports:
+  http:
+    name: http
+    containerPort: 8080
+    protocol: TCP
+    servicePort: 8080
+git:
+  uri: 'https://github.com/Fernando0069/my-charts.git'
+  ref: main
+  contextDir: /charts/do180-nodejs-helloworld/files
+resources:
+  limits:
+    cpu: 20m
+    memory: 64Mi
+  requests:
+    cpu: 5m
+    memory: 32Mi
+startupProbe:
+  initialDelaySeconds: 60
