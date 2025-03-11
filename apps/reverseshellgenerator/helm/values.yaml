@@ -11,10 +11,6 @@ annotations:
 replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/reverseshellgenerator:latest
 imagePullPolicy: Always
-git:
-  uri: 'https://github.com/Fernando0069/my-charts.git'
-  ref: main
-  contextDir: /charts/reverseshellgenerator
 ports:
   http:
     name: http
@@ -26,3 +22,8 @@ ports:
     containerPort: 8443
     protocol: TCP
     servicePort: 8443
+git:
+  uri: 'https://github.com/Fernando0069/my-charts.git'
+  ref: main
+  contextDir: apps/reverseshellgenerator/app/
+  

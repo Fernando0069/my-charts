@@ -1,6 +1,12 @@
 # Web-Spectral charts
 
-Se crea la imágen desde el fichero Dockerfile con los ficheros de /files y se guarda en "docker.io/fernando0069/web-spectral:latest".
+En la carpeta "app" está los archivos para la creación de la aplicacion mediante una imagen.
+En la carpeta "helm" está los archivos para la creación de la aplicación mediante Helm.
+
+Esta aplicación solo se puede ejecutar con Helm.
+
+Se crea la imágen desde el fichero Dockerfile con los ficheros de "files" y se guarda en 
+La imagen que usamos (docker.io/fernando0069/web-spectral:latest) está creada desde el Dockerfile y con los archivos de "files".
 
 Para crear la aplicación Web-Spectral debemos ejecutar los siguiente comandos:
 ```

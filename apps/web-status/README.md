@@ -1,5 +1,10 @@
 # Web-Status charts
 
+En la carpeta "app" está los archivos para la creación de la aplicacion mediante una imagen.
+En la carpeta "helm" está los archivos para la creación de la aplicación mediante Helm.
+
+Esta aplicación solo se puede ejecutar con Helm.
+
 Se crea la imágen desde el archivo Dockerfile ubicado en app/Dockerfile.
 
 Para crear la aplicación Web-Status debemos ejecutar los siguiente comandos:
@@ -25,27 +30,4 @@ Los objetos que se crean son los siguientes:
   5.- PodDisruptionBudget (pdb).
   6.- Service.
   7.- Route.
-```
-
-Comandos:
-```
-Construir: podman build -t web-status:0.1 .
-           podman build -t web-status:latest .
-Ejecución: podman run -d --name web-status -p 8080:8080 web-status:0.1
-           podman run -d --name web-status -p 8080:8080 web-status:latest
-Shell: podman exec -it web-status /bin/bash
-Verificar: curl -vvv http://localhost:8080
-           curl -vvv http://localhost:8080/status
-```
-
-Proxy:
-```
-  export HTTP_PROXY=http://app_ses_proxypre:sajBwdx4.67S@10.11.33.86:80/
-  export HTTPS_PROXY=http://app_ses_proxypre:sajBwdx4.67S@10.11.33.86:80/
-  export NO_PROXY=ocspcomp.cert.fnmt.es,tsafirma.redsara.es,pmicrofirmabio.ses.mir.es,.ses.mir.es,.redpol.mir.es,.sgsics.es,.pre-ses.mir.es,.pre.redpol.mir.es,ocsprep.cert.fnmt.es
-```
-
-Revisar permisos:
-```
-  chmod 644 public/style.css public/index.html public/error.html
 ```

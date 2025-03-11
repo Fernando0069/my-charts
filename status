@@ -20,7 +20,7 @@ Training:
 
 # Working
 ```
-  W - Se ha cambiado la arquitectura del repositorio, hay que hacer las pruebas de funcionamiento de todas las aplicaciones que estén OK.
+  W - Se ha cambiado la arquitectura del repositorio, hay que hacer las pruebas de funcionamiento de todas las aplicaciones que estén OK. Se han revisado las "tools" falta probarlas y el resto falta revisar y probar.
 
   
   W - do180-alges-escapade - OK si lo haces por comando, si lo haces por Helm falla en la creación de un secret temporal que ocupa mas de 1Mb y no deja.
@@ -75,4 +75,28 @@ Training:
   DO280-apps - https://github.com/RedHatTraining/DO280-apps
   DO288-apps - https://github.com/RedHatTraining/DO288-apps
   RHCA-study-notes - https://github.com/lisenet/RHCA-study-notes
+```
+
+# Varios
+## Comandos:
+```
+Construir: podman build -t web-status:0.1 .
+           podman build -t web-status:latest .
+Ejecución: podman run -d --name web-status -p 8080:8080 web-status:0.1
+           podman run -d --name web-status -p 8080:8080 web-status:latest
+Shell: podman exec -it web-status /bin/bash
+Verificar: curl -vvv http://localhost:8080
+           curl -vvv http://localhost:8080/status
+```
+
+## Proxy:
+```
+  export HTTP_PROXY=http://app_ses_proxypre:sajBwdx4.67S@10.11.33.86:80/
+  export HTTPS_PROXY=http://app_ses_proxypre:sajBwdx4.67S@10.11.33.86:80/
+  export NO_PROXY=ocspcomp.cert.fnmt.es,tsafirma.redsara.es,pmicrofirmabio.ses.mir.es,.ses.mir.es,.redpol.mir.es,.sgsics.es,.pre-ses.mir.es,.pre.redpol.mir.es,ocsprep.cert.fnmt.es
+```
+
+## Revisar permisos:
+```
+  chmod 644 public/style.css public/index.html public/error.html
 ```
