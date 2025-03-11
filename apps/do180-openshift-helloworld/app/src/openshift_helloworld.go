@@ -6,18 +6,21 @@ import (
 	"os"
 )
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	response := os.Getenv("RESPONSE")
-	if len(response) == 0 {
-		response = "Hello OpenShift!"
-	}
+func helloHandler(port string) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		response := os.Getenv("RESPONSE")
+		if len(response) == 0 {
+			response = "Hello OpenShift!"
+		}
 
-	fmt.Fprintln(w, response)
-	fmt.Println("Servicing request.")
+		fmt.Fprintf(w, "%s (Served from port: %s)\n", response, port)
+		fmt.Printf("Servicing request on port %s.\n", port)
+	}
 }
 
 func listenAndServe(port string) {
-	fmt.Printf("serving on %s\n", port)
+	http.HandleFunc("/", helloHandler(port))
+	fmt.Printf("Serving on port %s\n", port)
 	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		panic("ListenAndServe: " + err.Error())
@@ -25,18 +28,17 @@ func listenAndServe(port string) {
 }
 
 func main() {
-	http.HandleFunc("/", helloHandler)
-	port := os.Getenv("PORT")
-	if len(port) == 0 {
-		port = "8080"
+	port1 := os.Getenv("PORT")
+	if len(port1) == 0 {
+		port1 = "8080"
 	}
-	go listenAndServe(port)
+	go listenAndServe(port1)
 
-	port = os.Getenv("SECOND_PORT")
-	if len(port) == 0 {
-		port = "8888"
+	port2 := os.Getenv("SECOND_PORT")
+	if len(port2) == 0 {
+		port2 = "8888"
 	}
-	go listenAndServe(port)
+	go listenAndServe(port2)
 
 	select {}
 }
