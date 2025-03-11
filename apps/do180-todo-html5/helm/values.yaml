@@ -31,4 +31,4 @@ resources:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: charts/do180-todo-html5/
+  contextDir: apps/do180-todo-html5/app/

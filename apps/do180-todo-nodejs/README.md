@@ -1,5 +1,8 @@
 # DO180-ToDo-NodeJS charts
 
+En la carpeta "app" está los archivos para la creación de la aplicacion mediante una imagen.
+En la carpeta "helm" está los archivos para la creación de la aplicación mediante Helm.
+
 Para crear la aplicación "ToDo-NodeJS" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre manteniendo los mismos ficheros.
 
 Este despliegue tiene una peculiaridad y es que el puerto de la aplicación es "30080" y se ha ajustado todo para que instale correctamente y vemamos la web.
@@ -35,7 +38,7 @@ Punto 2 (cli):
 
 Sin el uso de image o imagestream:
 ```
-  oc new-app --name=todo-nodejs https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-todo-nodejs/files -l app=todo-nodejs
+  oc new-app --name=todo-nodejs https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-todo-nodejs/app/src -l app=todo-nodejs
   oc patch deployment todo-nodejs --type='json' -p '[{"op": "replace", "path": "/spec/template/spec/containers/0/ports/0/containerPort", "value": 30080}]'
   oc patch service todo-nodejs --type='json' -p '[{"op": "replace", "path": "/spec/ports/0/targetPort", "value": 30080}]'
   oc create route edge todo-nodejs --service=todo-nodejs
@@ -46,7 +49,7 @@ Sin el uso de image o imagestream:
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S nodejs
-  oc new-app --image-stream=openshift/nodejs:20-ubi9 --name todo-nodejs https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-todo-nodejs/files -l app=todo-nodejs
+  oc new-app --image-stream=openshift/nodejs:20-ubi9 --name todo-nodejs https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-todo-nodejs/app/src -l app=todo-nodejs
   oc patch deployment todo-nodejs --type='json' -p '[{"op": "replace", "path": "/spec/template/spec/containers/0/ports/0/containerPort", "value": 30080}]'
   oc patch service todo-nodejs --type='json' -p '[{"op": "replace", "path": "/spec/ports/0/targetPort", "value": 30080}]'
   oc create route edge todo-nodejs --service=todo-nodejs

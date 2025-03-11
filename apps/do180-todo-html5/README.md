@@ -1,5 +1,8 @@
 # DO180-ToDo-HTML5 charts
 
+En la carpeta "app" está los archivos para la creación de la aplicacion mediante una imagen.
+En la carpeta "helm" está los archivos para la creación de la aplicación mediante Helm.
+
 Para crear la aplicación "ToDo-HTML5" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre manteniendo los mismos ficheros.
 
 Punto 1 (helm):
@@ -33,7 +36,7 @@ Punto 2 (cli):
 
 Sin el uso de image o imagestream:
 ```
-  oc new-app --name=todo-html5 https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-todo-html5/files -l app=todo-html5
+  oc new-app --name=todo-html5 https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-todo-html5/app/src -l app=todo-html5
   oc expose service/todo-html5
   curl -vvv https://todo-html5-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=todo-html5
@@ -42,7 +45,7 @@ Sin el uso de image o imagestream:
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S php
-  oc new-app --image-stream=openshift/php:8.1-ubi9 --name todo-html5 https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-todo-html5/files -l app=todo-html5
+  oc new-app --image-stream=openshift/php:8.1-ubi9 --name todo-html5 https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-todo-html5/app/src -l app=todo-html5
   oc expose service/todo-html5
   curl -vvv https://todo-html5-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=todo-html5

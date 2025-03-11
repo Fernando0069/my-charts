@@ -19,7 +19,7 @@ ports:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: charts/do180-todo-nodejs/files
+  contextDir: apps/do180-todo-nodejs/app/src
 triggers:
   github: YLF_IXnyD1g-Ay1yOiLb
   generic: non3rqA5qQaiRu3OYZDn
