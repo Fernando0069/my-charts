@@ -1,5 +1,8 @@
 # DO180-PHP-Temperature charts
 
+En la carpeta "app" está los archivos para la creación de la aplicacion mediante una imagen.
+En la carpeta "helm" está los archivos para la creación de la aplicación mediante Helm.
+
 Para crear la aplicación "php-temperature" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre manteniendo los mismos ficheros.
 
 Punto 1 (helm):
@@ -33,7 +36,7 @@ Punto 2 (cli):
 
 Sin el uso de image o imagestream:
 ```
-  oc new-app --name=php-temperature https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-temperature/files -l app=php-temperature
+  oc new-app --name=php-temperature https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-php-temperature/app/src -l app=php-temperature
   oc expose service/php-temperature
   curl -vvv https://php-temperature-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com
   curl -vvv https://php-temperature-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php
@@ -43,7 +46,7 @@ Sin el uso de image o imagestream:
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S php
-  oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-temperature https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-temperature/files -l app=php-temperature
+  oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-temperature https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-php-temperature/app/src -l app=php-temperature
   oc expose service/php-temperature
   curl -vvv https://php-temperature-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com
   curl -vvv https://php-temperature-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com/phpinfo.php

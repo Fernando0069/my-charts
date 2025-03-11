@@ -1,5 +1,8 @@
 # DO180-PHP-HelloWorld charts
 
+En la carpeta "app" está los archivos para la creación de la aplicacion mediante una imagen.
+En la carpeta "helm" está los archivos para la creación de la aplicación mediante Helm.
+
 Para crear la aplicación "php-helloworld" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre con los mismos archivos.
 
 Punto 1 (helm):

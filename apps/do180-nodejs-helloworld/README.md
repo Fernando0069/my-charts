@@ -1,5 +1,8 @@
 # DO180-NodeJS-HelloWorld charts
 
+En la carpeta "app" está los archivos para la creación de la aplicacion mediante una imagen.
+En la carpeta "helm" está los archivos para la creación de la aplicación mediante Helm.
+
 Para crear la aplicación "nodejs-helloworld" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre manteniendo los mismos ficheros.
 
 Punto 1 (helm):

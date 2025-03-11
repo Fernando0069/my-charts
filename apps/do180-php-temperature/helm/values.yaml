@@ -31,4 +31,4 @@ resources:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: /charts/do180-php-temperature/files
+  contextDir: apps/do180-php-temperature/app/src/

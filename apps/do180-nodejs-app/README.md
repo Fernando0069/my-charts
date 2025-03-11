@@ -1,5 +1,8 @@
 # DO180-NodeJS-App charts
 
+En la carpeta "app" está los archivos para la creación de la aplicacion mediante una imagen.
+En la carpeta "helm" está los archivos para la creación de la aplicación mediante Helm.
+
 Para crear la aplicación "nodejs-app" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre manteniendo los mismos ficheros.
 
 Punto 1 (helm):
@@ -34,7 +37,7 @@ Creamos de manera automática una imágen la cual lleva todo el código (app.js 
 
 Sin el uso de image o imagestream:
 ```
-  oc new-app --name=nodejs-app https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-nodejs-app/files -l app=nodejs-app
+  oc new-app --name=nodejs-app https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-nodejs-app/app/src -l app=nodejs-app
   oc create route edge nodejs-app --service=nodejs-app      # crea ruta segura del tipo edge
     oc expose service/nodejs-app                            # crea ruta no segura
   curl -vvv http://nodejs-app-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
@@ -44,7 +47,7 @@ Sin el uso de image o imagestream:
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S nodejs
-  oc new-app --image-stream=openshift/nodejs:18-ubi9-minimal --name nodejs-app https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-nodejs-app/files -l app=nodejs-app
+  oc new-app --image-stream=openshift/nodejs:18-ubi9-minimal --name nodejs-app https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-nodejs-app/app/src -l app=nodejs-app
   oc create route edge nodejs-app --service=nodejs-app    # crea ruta segura del tipo edge
     oc expose service/nodejs-app                          # crea ruta no segura
   curl -vvv https://nodejs-app-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
