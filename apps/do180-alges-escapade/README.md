@@ -1,5 +1,8 @@
 # DO180-Alges-Escapade charts
 
+En la carpeta "app" está los archivos para la creación de la aplicacion mediante una imagen.
+En la carpeta "helm" está los archivos para la creación de la aplicación mediante Helm.
+
 Para crear la aplicación "alges-escapade" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre con los mismos archivos.
 
 La aplicación "alges-escapade" dispone de dos puertos en activo (8080 y 8888) por eso a la hora de crear el servicio o la ruta hay que hacerlo de una determinada manera.
@@ -41,7 +44,7 @@ Dado que OpenShift espera un entorno para ejecutar código, pero JavaScript puro
 
 Usando imagestream con la versión del compilador:
 ```
-  oc new-app --name=alges-escapade httpd~https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-alges-escapade/files -l app=alges-escapade
+  oc new-app --name=alges-escapade httpd~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-alges-escapade/app/src -l app=alges-escapade
   oc create route edge --service=alges-escapade     # crea ruta segura del tipo edge
     oc expose service/alges-escapade                # crea ruta no segura
   curl -vvv https://alges-escapade-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
