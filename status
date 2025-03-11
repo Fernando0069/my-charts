@@ -16,15 +16,12 @@ Training:
     OK - 1.0.0 - DO180-NodeJS-App
     OK - 1.0.0 - DO180-ToDo-HTML5 - App not functional (no DB available) but install OK.
     OK - 1.0.0 - DO180-ToDo-NodeJS - App not functional (no DB available) but install OK.
+    OK - 1.0.0 - DO180-Alges-Escapade
 ```
 
 # Working
 ```
-  W - Se ha cambiado la arquitectura del repositorio, hay que hacer las pruebas de funcionamiento de todas las aplicaciones que estén OK. Se han revisado las "tools" falta probarlas y el resto falta revisar y probar.
-
-  
-  W - do180-alges-escapade - OK si lo haces por comando, si lo haces por Helm falla en la creación de un secret temporal que ocupa mas de 1Mb y no deja.
-  P - do180-retro-games
+  W - do180-retro-games
   P - do180-antipacman
   P - do180-the-gems
   P - do180-O
