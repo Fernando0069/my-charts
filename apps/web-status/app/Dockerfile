@@ -11,12 +11,11 @@ USER 1001
 WORKDIR /app
 
 # Copiar ficheros de la aplicación
-COPY files/error.html /app/public/error.html
-COPY files/index.html /app/public/index.html
-COPY files/index.js /app
-COPY files/package.json /app
-COPY files/style.css /app/public/style.css
-
+COPY src/error.html /app/public/error.html
+COPY src/index.html /app/public/index.html
+COPY src/index.js /app
+COPY src/package.json /app
+COPY src/style.css /app/public/style.css
 
 # Instalar las dependencias necesarias
 RUN npm install --omit=dev
