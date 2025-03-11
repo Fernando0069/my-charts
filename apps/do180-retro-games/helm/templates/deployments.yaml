@@ -1,0 +1,215 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Values.asteroids.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.asteroids.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.asteroids.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.asteroids.name }}
+    spec:
+      containers:
+        - name: {{ .Values.asteroids.name }}
+          image: {{ .Values.asteroids.image }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - name: {{ .Values.http.name }}
+              containerPort: {{ .Values.http.containerPort }}
+              protocol: {{ .Values.http.protocol }}
+            - name: {{ .Values.https.name }}
+              containerPort: {{ .Values.https.containerPort }}
+              protocol: {{ .Values.https.protocol }}
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Values.lunar-lander.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.lunar-lander.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.lunar-lander.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.lunar-lander.name }}
+    spec:
+      containers:
+        - name: {{ .Values.lunar-lander.name }}
+          image: {{ .Values.lunar-lander.image }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - name: {{ .Values.http.name }}
+              containerPort: {{ .Values.http.containerPort }}
+              protocol: {{ .Values.http.protocol }}
+            - name: {{ .Values.https.name }}
+              containerPort: {{ .Values.https.containerPort }}
+              protocol: {{ .Values.https.protocol }}
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Values.snake.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.snake.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.snake.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.snake.name }}
+    spec:
+      containers:
+        - name: {{ .Values.snake.name }}
+          image: {{ .Values.snake.image }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - name: {{ .Values.http.name }}
+              containerPort: {{ .Values.http.containerPort }}
+              protocol: {{ .Values.http.protocol }}
+            - name: {{ .Values.https.name }}
+              containerPort: {{ .Values.https.containerPort }}
+              protocol: {{ .Values.https.protocol }}
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Values.space-invaders.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.snake.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.snake.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.snake.name }}
+    spec:
+      containers:
+        - name: {{ .Values.snake.name }}
+          image: {{ .Values.snake.image }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - name: {{ .Values.http.name }}
+              containerPort: {{ .Values.http.containerPort }}
+              protocol: {{ .Values.http.protocol }}
+            - name: {{ .Values.https.name }}
+              containerPort: {{ .Values.https.containerPort }}
+              protocol: {{ .Values.https.protocol }}
+          resources:
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

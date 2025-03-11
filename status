@@ -21,7 +21,10 @@ Training:
 
 # Working
 ```
-  W - do180-retro-games
+  W - do180-retro-games - pendiente de realizar las pruebas de helm, el resto realizado y probado.
+
+  W - Web-Status - Añadir la nueva aplicación.
+
   P - do180-antipacman
   P - do180-the-gems
   P - do180-O

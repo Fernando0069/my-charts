@@ -1,0 +1,7 @@
+INFO: El chart "DO180-Retro-Games" despliega una aplicación en JavaScript.
+INFO: Despliega los siguiente objetos:
+        - Imagestream (4).
+        - BuildConfig (4).
+        - Deployment (4).
+        - Service (4).
+        - Route (4).

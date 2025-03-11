@@ -1,0 +1,59 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: {{ .Values.asteroids.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.asteroids.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
+spec:
+  lookupPolicy:
+    local: false
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: {{ .Values.lunar-lander.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.lunar-lander.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
+spec:
+  lookupPolicy:
+    local: false
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: {{ .Values.snake.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.snake.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
+spec:
+  lookupPolicy:
+    local: false
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: {{ .Values.space-invaders.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.space-invaders.name }}
+    app.kubernetes.io/component: {{ .Values.name }}
+    enviroment: {{ .Values.labels.enviroment }}
+    layer: {{ .Values.labels.layer }}
+    training: {{ .Values.labels.training }}
+spec:
+  lookupPolicy:
+    local: false
