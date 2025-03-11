@@ -12,16 +12,17 @@ func helloHandler(port string) http.HandlerFunc {
 		if len(response) == 0 {
 			response = "Hello OpenShift!"
 		}
-
 		fmt.Fprintf(w, "%s (Served from port: %s)\n", response, port)
-		fmt.Printf("Servicing request on port %s.\n", port)
+		fmt.Println("Servicing request on port", port)
 	}
 }
 
 func listenAndServe(port string) {
-	http.HandleFunc("/", helloHandler(port))
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", helloHandler(port))
+
 	fmt.Printf("Serving on port %s\n", port)
-	err := http.ListenAndServe(":"+port, nil)
+	err := http.ListenAndServe(":"+port, mux)
 	if err != nil {
 		panic("ListenAndServe: " + err.Error())
 	}
