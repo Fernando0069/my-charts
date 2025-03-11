@@ -24,4 +24,4 @@ ports:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: apps/do180-openshift-helloworld/apps/src/
+  contextDir: apps/do180-openshift-helloworld/app/src/
