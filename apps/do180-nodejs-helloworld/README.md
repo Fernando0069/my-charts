@@ -35,7 +35,7 @@ Creamos de manera automática una imágen la cual lleva todo el código (app.js 
 
 Sin usar image o imagestream:
 ```
-  oc new-app --name=nodejs-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-nodejs-helloworld/files -l app=nodejs-helloworld
+  oc new-app --name=nodejs-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-nodejs-helloworld/app/src -l app=nodejs-helloworld
   oc expose service/nodejs-helloworld
   curl -vvv https://nodejs-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=nodejs-helloworld
@@ -44,7 +44,7 @@ Sin usar image o imagestream:
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S nodejs
-  oc new-app --image-stream=openshift/nodejs:20-ubi9-minimal --name nodejs-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-nodejs-helloworld/files -l app=nodejs-helloworld
+  oc new-app --image-stream=openshift/nodejs:20-ubi9-minimal --name nodejs-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-nodejs-helloworld/app/src -l app=nodejs-helloworld
   oc expose service/nodejs-helloworld
   curl -vvv https://nodejs-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=nodejs-helloworld

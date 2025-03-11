@@ -19,7 +19,7 @@ ports:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: /charts/do180-nodejs-helloworld/files
+  contextDir: apps/do180-nodejs-helloworld/app/src
 resources:
   limits:
     cpu: 20m

@@ -37,7 +37,7 @@ Creamos de manera automática una imágen la cual lleva todo el código (index.p
 
 Sin usar image o imagestream:
 ```
-  oc new-app --name=php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
+  oc new-app --name=php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-php-helloworld/app/src -l app=php-helloworld
   oc expose service/php-helloworld
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=php-helloworld
@@ -46,7 +46,7 @@ Sin usar image o imagestream:
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S php
-  oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=charts/do180-php-helloworld/files -l app=php-helloworld
+  oc new-app --image-stream=openshift/php:8.1-ubi9 --name php-helloworld https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-php-helloworld/app/src -l app=php-helloworld
   oc expose service/php-helloworld
   curl -vvv https://php-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=php-helloworld
