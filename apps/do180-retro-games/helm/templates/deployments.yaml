@@ -24,12 +24,12 @@ spec:
           image: {{ .Values.asteroids.image }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
-            - name: {{ .Values.http.name }}
-              containerPort: {{ .Values.http.containerPort }}
-              protocol: {{ .Values.http.protocol }}
-            - name: {{ .Values.https.name }}
-              containerPort: {{ .Values.https.containerPort }}
-              protocol: {{ .Values.https.protocol }}
+            - name: {{ .Values.ports.http.name }}
+              containerPort: {{ .Values.ports.http.containerPort }}
+              protocol: {{ .Values.ports.http.protocol }}
+            - name: {{ .Values.ports.https.name }}
+              containerPort: {{ .Values.ports.https.containerPort }}
+              protocol: {{ .Values.ports.https.protocol }}
           resources:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}
@@ -78,12 +78,12 @@ spec:
           image: {{ .Values.lunarlander.image }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
-            - name: {{ .Values.http.name }}
-              containerPort: {{ .Values.http.containerPort }}
-              protocol: {{ .Values.http.protocol }}
-            - name: {{ .Values.https.name }}
-              containerPort: {{ .Values.https.containerPort }}
-              protocol: {{ .Values.https.protocol }}
+            - name: {{ .Values.ports.http.name }}
+              containerPort: {{ .Values.ports.http.containerPort }}
+              protocol: {{ .Values.ports.http.protocol }}
+            - name: {{ .Values.ports.https.name }}
+              containerPort: {{ .Values.ports.https.containerPort }}
+              protocol: {{ .Values.ports.https.protocol }}
           resources:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}
@@ -132,12 +132,12 @@ spec:
           image: {{ .Values.snake.image }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
-            - name: {{ .Values.http.name }}
-              containerPort: {{ .Values.http.containerPort }}
-              protocol: {{ .Values.http.protocol }}
-            - name: {{ .Values.https.name }}
-              containerPort: {{ .Values.https.containerPort }}
-              protocol: {{ .Values.https.protocol }}
+            - name: {{ .Values.ports.http.name }}
+              containerPort: {{ .Values.ports.http.containerPort }}
+              protocol: {{ .Values.ports.http.protocol }}
+            - name: {{ .Values.ports.https.name }}
+              containerPort: {{ .Values.ports.https.containerPort }}
+              protocol: {{ .Values.ports.https.protocol }}
           resources:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}
@@ -186,12 +186,12 @@ spec:
           image: {{ .Values.spaceinvaders.image }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           ports:
-            - name: {{ .Values.http.name }}
-              containerPort: {{ .Values.http.containerPort }}
-              protocol: {{ .Values.http.protocol }}
-            - name: {{ .Values.https.name }}
-              containerPort: {{ .Values.https.containerPort }}
-              protocol: {{ .Values.https.protocol }}
+            - name: {{ .Values.ports.http.name }}
+              containerPort: {{ .Values.ports.http.containerPort }}
+              protocol: {{ .Values.ports.http.protocol }}
+            - name: {{ .Values.ports.https.name }}
+              containerPort: {{ .Values.ports.https.containerPort }}
+              protocol: {{ .Values.ports.https.protocol }}
           resources:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}
