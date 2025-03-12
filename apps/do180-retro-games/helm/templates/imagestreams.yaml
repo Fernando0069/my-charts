@@ -16,10 +16,10 @@ spec:
 kind: ImageStream
 apiVersion: image.openshift.io/v1
 metadata:
-  name: {{ .Values.lunar-lander.name }}
+  name: {{ .Values.lunarlander.name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.lunar-lander.name }}
+    app: {{ .Values.lunarlander.name }}
     app.kubernetes.io/component: {{ .Values.name }}
     enviroment: {{ .Values.labels.enviroment }}
     layer: {{ .Values.labels.layer }}
@@ -46,10 +46,10 @@ spec:
 kind: ImageStream
 apiVersion: image.openshift.io/v1
 metadata:
-  name: {{ .Values.space-invaders.name }}
+  name: {{ .Values.spaceinvaders.name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.space-invaders.name }}
+    app: {{ .Values.spaceinvaders.name }}
     app.kubernetes.io/component: {{ .Values.name }}
     enviroment: {{ .Values.labels.enviroment }}
     layer: {{ .Values.labels.layer }}

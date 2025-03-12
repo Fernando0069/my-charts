@@ -34,7 +34,7 @@ asteroids:
   name: retro-games-asteroids
   image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/retro-games-asteroids:latest
   contextDir: apps/do180-retro-games/app/src/asteroids/
-lunar-lander:
+lunarlander:
   name: retro-games-lunar-lander
   image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/retro-games-lunar-lander:latest
   contextDir: apps/do180-retro-games/app/src/lunar-lander/
@@ -42,7 +42,7 @@ snake:
   name: retro-games-snake
   image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/retro-games-snake:latest
   contextDir: apps/do180-retro-games/app/src/snake/
-space-invaders:
+spaceinvaders:
   name: retro-games-space-invaders
   image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/retro-games-space-invaders:latest
   contextDir: apps/do180-retro-games/app/src/space-invaders/

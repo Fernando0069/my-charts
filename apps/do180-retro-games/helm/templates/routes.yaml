@@ -25,10 +25,10 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
 metadata:
-  name: {{ .Values.lunar-lander.name }}
+  name: {{ .Values.lunarlander.name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.lunar-lander.name }}
+    app: {{ .Values.lunarlander.name }}
     app.kubernetes.io/component: {{ .Values.name }}
     enviroment: {{ .Values.labels.enviroment }}
     layer: {{ .Values.labels.layer }}
@@ -36,7 +36,7 @@ metadata:
 spec:
   to:
     kind: Service
-    name: {{ .Values.lunar-lander.name }}
+    name: {{ .Values.lunarlander.name }}
     weight: 100
   port:
     targetPort: {{ .Values.ports.http.name }}
@@ -71,10 +71,10 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
 metadata:
-  name: {{ .Values.space-invaders.name }}
+  name: {{ .Values.spaceinvaders.name }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.space-invaders.name }}
+    app: {{ .Values.spaceinvaders.name }}
     app.kubernetes.io/component: {{ .Values.name }}
     enviroment: {{ .Values.labels.enviroment }}
     layer: {{ .Values.labels.layer }}
@@ -82,7 +82,7 @@ metadata:
 spec:
   to:
     kind: Service
-    name: {{ .Values.space-invaders.name }}
+    name: {{ .Values.spaceinvaders.name }}
     weight: 100
   port:
     targetPort: {{ .Values.ports.http.name }}
