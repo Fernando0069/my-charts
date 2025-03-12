@@ -20,22 +20,29 @@ const applications = [
 	{ label: 'Training', course: 'DO180', name: 'NodeJS-App' },
 	{ label: 'Training', course: 'DO180', name: 'ToDo-HTML5' },
 	{ label: 'Training', course: 'DO180', name: 'ToDo-NodeJS' },
+	{ label: 'Training', course: 'DO180', name: 'ToDo-NodeJS-API' },
 	{ label: 'Training', course: 'DO180', name: 'Alges-Escapade' },
-	{ label: 'Training', course: 'DO180', name: 'ToDo-NodeJS-API' }
+	{ label: 'Training', course: 'DO180', name: 'Retro-Games', games: ['Asteroids', 'Lunar Lander', 'Snake', 'Space Invaders'] }
 ];
 console.log("Aplicaciones configuradas (1):", applications);
 
 // Ruta para obtener el estado de las aplicaciones
 app.get('/status', async (req, res) => {
-    const queryDomain = req.query.domain;
-    if (queryDomain) {
-        cleanDomain = queryDomain;
-        console.log("Dominio actualizado desde frontend:", cleanDomain);
-    }
+	const queryDomain = req.query.domain;
+	if (queryDomain) {
+		cleanDomain = queryDomain;
+		console.log("Dominio actualizado desde frontend:", cleanDomain);
+	}
 
 	let expandedApps = [];
 	applications.forEach(app => {
-		if (app.statusUrl && app.url) {
+		if (app.games) {
+			app.games.forEach(game => {
+				let gameName = game.toLowerCase().replace(/\s+/g, '-');
+				let fullUrl = `${PROTOCOL}retro-games-${gameName}-${cleanDomain}`;
+				expandedApps.push({ label: app.label, course: app.course, name: `Retro-Games (${game})`, url: fullUrl, statusUrl: fullUrl });
+			});
+		} else if (app.statusUrl && app.url) {
 			expandedApps.push(app);
 		} else if (app.ports) {
 			app.ports.forEach(port => {
