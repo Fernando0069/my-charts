@@ -44,7 +44,8 @@ Los objetos que se crean son los siguientes:
 
 ## cli
 
-Asteroids:
+### Asteroids:
+
 ![Screenshot of Asteroids](app/src/asteroids/screenshot.png)
 
 Usando imagestream con la versión del compilador:
@@ -66,7 +67,8 @@ Los objetos que se crean son los siguientes:
 ```
 
 
-Lunar Lander:
+### Lunar Lander:
+
 ![Screenshot of Lunar Lander](app/src/lunar-lander/screenshot.png)
 
 Usando imagestream con la versión del compilador:
@@ -88,7 +90,8 @@ Los objetos que se crean son los siguientes:
 ```
 
 
-Snake:
+### Snake:
+
 ![Screenshot of Snake](app/src/snake/screenshot.png)
 
 Usando imagestream con la versión del compilador:
@@ -110,7 +113,8 @@ Los objetos que se crean son los siguientes:
 ```
 
 
-Space Invaders:
+### Space Invaders:
+
 ![Screenshot of Space Invaders](app/src/space-invaders/screenshot.png)
 
 Usando imagestream con la versión del compilador:

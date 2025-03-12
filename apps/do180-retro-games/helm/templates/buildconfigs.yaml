@@ -58,7 +58,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: '{{ .Values.asteroids.name }}:latest'
+      name: '{{ .Values.lunarlander.name }}:latest'
   resources: {}
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
@@ -103,7 +103,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: '{{ .Values.asteroids.name }}:latest'
+      name: '{{ .Values.snake.name }}:latest'
   resources: {}
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
