@@ -73,6 +73,7 @@ my-charts/                      # Directorio global para almacenar el código de
 │       └── README.md
 │── charts/                                # Directorio global para almacenar los paquetes Helm
 │   ├── [APP_NAME]-[VERSION_CHART].tgz     # Todas las aplicaciones tienen este formato.
+│   ├── Web-Status-0.1.0.tgz               # Aplicación Web-Status enpaquetada.
 │   └── README.md                          # Documentación de las aplicaciones preparadas.
 │── ToDo                   # Directorio donde están las aplicaciones pendientes de realizar.
 │── .gitignore             # Para evitar que Helm empaquete archivos innecesarios

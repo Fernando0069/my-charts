@@ -1,0 +1,7 @@
+INFO: El chart "DO180-O" despliega una aplicación en JavaScript.
+INFO: Despliega los siguiente objetos:
+        - Imagestream.
+        - BuildConfig.
+        - Deployment.
+        - Service.
+        - Route.
