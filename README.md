@@ -25,6 +25,7 @@ List applications:
         DO180-O
         DO180-Tic-Tac-Toe
         DO180-Tetris-JS
+        DO180-Super-Mario-HTML5
 ```
 
 # Repository
