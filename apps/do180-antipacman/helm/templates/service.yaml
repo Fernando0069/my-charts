@@ -17,9 +17,39 @@ spec:
       protocol: {{ .Values.ports.http.protocol }}
       port: {{ .Values.ports.http.servicePort }}
       targetPort: {{ .Values.ports.http.containerPort }}
+    - name: {{ .Values.ports.https.name }}
+      protocol: {{ .Values.ports.https.protocol }}
+      port: {{ .Values.ports.https.servicePort }}
+      targetPort: {{ .Values.ports.https.containerPort }}
   internalTrafficPolicy: Cluster
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
     app: {{ .Values.name }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

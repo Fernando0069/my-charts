@@ -18,7 +18,7 @@ Para crear la aplicación "antipacman" del curso DO180 de Red Hat podemos hacerl
 
 Para crear la aplicación AntiPacMan debemos ejecutar los siguiente comandos:
 ```
-  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                   # Creación del repositorio donde vamos a descargar la aplicación
+  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                   # Creación del repositorio donde vamos a descargar la aplicación.
   2.- helm install antipacman apps/DO180-AntiPacMan                                                  # Instalar la aplicación "DO180-AntiPacMan" con el nombre "antipacman".
   3.- curl -vvv https://antipacman-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com               # Verificar la URL. 
 ```
