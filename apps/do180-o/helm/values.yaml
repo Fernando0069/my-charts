@@ -8,7 +8,7 @@ labels:
   layer: training
   training: DO180
 replicaCount: 1
-image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/o-game:latest
+image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/o:latest
 imagePullPolicy: Always
 ports:
   http:
