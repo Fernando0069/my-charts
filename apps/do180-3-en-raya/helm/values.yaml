@@ -2,13 +2,13 @@
 # This is a YAML-formatted file.
 
 namespace: fernando0069-dev
-name: tictactoe
+name: 3-en-raya
 labels:
   enviroment: pro
   layer: training
   training: DO180
 replicaCount: 1
-image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/tictactoe:latest
+image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/3-en-raya:latest
 imagePullPolicy: Always
 ports:
   http:
@@ -24,6 +24,6 @@ ports:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: apps/do180-tictactoe/app/src
+  contextDir: apps/do180-3-en-raya/app/src
 isfrom:
   name: 'httpd:2.4-ubi8'

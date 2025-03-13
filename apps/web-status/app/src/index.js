@@ -23,7 +23,8 @@ const applications = [
 	{ label: 'Training', course: 'DO180', name: 'Alges-Escapade' },
 	{ label: 'Training', course: 'DO180', name: 'Retro-Games', games: ['Asteroids', 'Lunar Lander', 'Snake', 'Space Invaders'] },
 	{ label: 'Training', course: 'DO180', name: 'AntiPacMan' },
-	{ label: 'Training', course: 'DO180', name: 'O' }
+	{ label: 'Training', course: 'DO180', name: 'O' },
+	{ label: 'Training', course: 'DO180', name: '3-en-raya' }
 ];
 console.log("Aplicaciones configuradas (1):", applications);
 
