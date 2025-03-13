@@ -19,17 +19,18 @@ Training:
     OK - 1.0.0 - DO180-Alges-Escapade
     OK - 1.0.0 - DO180-Retro-Games
     OK - 1.0.0 - DO180-AntiPacMan
+    OK - 1.0.0 - DO180-O
 ```
 
 # Working
 ```
-  P - do180-O
+  P - do180-tic-tac-toe
   W - Web-Status - Añadir la nueva aplicación.
   W - do180-the-gems - Contiene errores, hay que volver a cargarlo
 
 
   
-  P - do180-tic-tac-toe
+  
   P - do180-Lord-of-the-Rings
   P - do180-javascript-tetris
   P - do180-mariohtml5

@@ -22,6 +22,7 @@ List applications:
         DO180-Alges-Escapade
         DO180-Retro-Games
         DO180-AntiPacMan
+        DO180-O
 ```
 
 # Repository
