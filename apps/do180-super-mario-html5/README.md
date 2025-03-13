@@ -18,15 +18,15 @@ Para crear la aplicación "super-mario-html5" del curso DO180 de Red Hat podemos
 
 Para crear la aplicación "Super-Mario-HTML5" debemos ejecutar los siguiente comandos:
 ```
-  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                 # Creación del repositorio donde vamos a descargar la aplicación.
-  2.- helm install super-mario-html5 apps/DO180-Super-Mario-HTML5                                                  # Instalar la aplicación "DO180-Super-Mario-HTML5" con el nombre "super-mario-html5".
+  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                         # Creación del repositorio donde vamos a descargar la aplicación.
+  2.- helm install super-mario-html5 apps/DO180-Super-Mario-HTML5                                          # Instalar la aplicación "DO180-Super-Mario-HTML5" con el nombre "super-mario-html5".
   3.- curl -vvv https://super-mario-html5-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com              # Verificar la URL. 
 ```
 
 Para eliminar la aplicación "Super-Mario-HTML5" debemos ejecutar los siguiente comandos:
 ```
   1.- helm uninstall super-super-mario-html5                      # Desinstalar la aplicación con el nombre "super-mario-html5" ("DO180-Super-Mario-HTML5").
-  2.- helm repo remove apps                            # Eliminación del repositorio de aplicaciones.
+  2.- helm repo remove apps                                       # Eliminación del repositorio de aplicaciones.
 ```
 
 Los objetos que se crean son los siguientes:
