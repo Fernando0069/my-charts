@@ -27,29 +27,3 @@ spec:
   sessionAffinity: None
   selector:
     app: {{ .Values.name }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

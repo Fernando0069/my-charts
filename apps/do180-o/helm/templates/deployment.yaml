@@ -10,7 +10,7 @@ metadata:
     layer: {{ .Values.labels.layer }}
     training: {{ .Values.labels.training }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
       app: {{ .Values.name }}
