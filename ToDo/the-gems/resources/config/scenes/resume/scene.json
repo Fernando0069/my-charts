@@ -1,8 +1,0 @@
-{
-  "name" : "",
-	"tilemap" : "resources/config/scenes/resume/tilemap.json",
-	"imagesRootDir" : "resources/",
-  "images" : {
-
-  }
-}
