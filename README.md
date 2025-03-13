@@ -19,6 +19,9 @@ List applications:
         DO180-NodeJS-App
         DO180-ToDo-HTML5 - App not functional (no DB available) but install OK.
         DO180-ToDo-NodeJS - App not functional (no DB available) but install OK.
+        DO180-Alges-Escapade
+        DO180-Retro-Games
+        DO180-AntiPacMan
 ```
 
 # Repository
@@ -37,7 +40,7 @@ helm repo remove [NAME_REPO]
 ## Install Application:
 ```
 helm install [NAME_APP] [NAME_APP]/[NAME_APP]
-    helm install web-spectral apps/Web-Spectral
+    helm install web-status apps/Web-Status
 ```
 ## Uninstall Application:
 ```
@@ -47,40 +50,29 @@ helm uninstall [NAME_APP]
 
 # Architecture
 ```
-my-charts/
-│── apps/                  # Todas las aplicaciones dentro de este directorio
-│   ├── cyberchef          # Aplicación CyberChef
-│   │   ├── helm/          # Chart de Helm específico para CyberChef
-│   │   │   ├── Chart.yaml 
-│   │   │   ├── values.yaml
-│   │   │   └── templates/
-│   │   ├── app/           # Código fuente de la aplicación
-│   │   │   ├── src/       # Código fuente (HTML, CSS, JS, etc.)
-│   │   │   └── Dockerfile # Archivo Docker para construir la imagen de la app
-│   │   └── README.md      # Documentación específica de la app
-│   └── web-status         # Aplicación Web Status
-│       ├── helm/          # Chart de Helm específico para Web Status
+my-charts/                      # Directorio global para almacenar el código de las aplicaciones
+│── apps/                       # Todas las aplicaciones dentro de este directorio
+│   ├── [APP_NAME]              # Nombre de la aplicación en minusculas
+│   │   ├── app/                # Código para la creación de la aplicación
+│   │   │   ├── src/            # Código fuente (HTML, CSS, JS, etc.)
+│   │   │   └── Dockerfile      # Archivo Docker para construir la imagen de la aplicación
+│   │   ├── helm/               # Chart de Helm específico para CyberChef
+│   │   │   ├── Chart.yaml      # XXXX 
+│   │   │   ├── values.yaml     # XXXX
+│   │   │   └── templates/      # XXXX
+│   │   └── README.md           # Documentación específica de la aplicación
+│   └── web-status
+│       ├── app/
+│       │   ├── src/
+│       │   └── Dockerfile
+│       ├── helm/
 │       │   ├── Chart.yaml 
 │       │   ├── values.yaml
 │       │   └── templates/
-│       ├── app/           # Código fuente de la aplicación
-│       │   ├── src/       # Código fuente (HTML, CSS, JS, etc.)
-│       │   └── Dockerfile # Archivo Docker para construir la imagen de la app
-│       └── README.md      # Documentación específica de la app
-│── charts/                # Directorio global para almacenar los paquetes Helm
-│   ├── CyberChef-0.1.0.tgz
-│   ├── DO180-Alges-Escapade-0.1.0.tgz
-│   ├── DO180-NodeJS-App-0.1.0.tgz
-│   ├── DO180-NodeJS-HelloWorld-0.1.0.tgz
-│   ├── DO180-Openshift-HelloWorld-0.1.0.tgz
-│   ├── DO180-PHP-HelloWorld-0.1.0.tgz
-│   ├── DO180-PHP-Temperature-0.1.0.tgz
-│   ├── DO180-ToDo-HTML5-0.1.0.tgz
-│   ├── DO180-ToDo-NodeJS-0.1.0.tgz
-│   ├── ReverseShellGenerator-0.1.0.tgz
-│   ├── Web-Spectral-0.1.0.tgz
-│   ├── Web-Status-0.1.0.tgz
-│   └── README.md              # Documentación de las aplicaciones preparadas.
+│       └── README.md
+│── charts/                                # Directorio global para almacenar los paquetes Helm
+│   ├── [APP_NAME]-[VERSION_CHART].tgz     # Todas las aplicaciones tienen este formato.
+│   └── README.md                          # Documentación de las aplicaciones preparadas.
 │── ToDo                   # Directorio donde están las aplicaciones pendientes de realizar.
 │── .gitignore             # Para evitar que Helm empaquete archivos innecesarios
 │── global-configs/        # Configuraciones generales de todas las apps (si aplica)

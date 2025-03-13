@@ -18,15 +18,14 @@ Training:
     OK - 1.0.0 - DO180-ToDo-NodeJS - App not functional (no DB available) but install OK.
     OK - 1.0.0 - DO180-Alges-Escapade
     OK - 1.0.0 - DO180-Retro-Games
+    OK - 1.0.0 - DO180-AntiPacMan
 ```
 
 # Working
 ```
-  W - do180-antipacman
+  W - do180-the-gems
   W - Web-Status - Añadir la nueva aplicación.
 
-
-  P - do180-the-gems
   P - do180-O
   P - do180-tic-tac-toe
   P - do180-Lord-of-the-Rings
@@ -43,8 +42,6 @@ Training:
 
 # Pending
 ```
-  DO180:
-    PE - DO180-ToDo-NodeJS-API - https://github.com/RedHatTraining/DO180-apps/tree/master/todoapp
   DO280:
     XXX - https://github.com/RedHatTraining/DO280-apps
   DO285:
