@@ -20,9 +20,9 @@ const applications = [
 	{ label: 'Training', course: 'DO180', name: 'NodeJS-App' },
 	{ label: 'Training', course: 'DO180', name: 'ToDo-HTML5' },
 	{ label: 'Training', course: 'DO180', name: 'ToDo-NodeJS' },
-	{ label: 'Training', course: 'DO180', name: 'ToDo-NodeJS-API' },
 	{ label: 'Training', course: 'DO180', name: 'Alges-Escapade' },
-	{ label: 'Training', course: 'DO180', name: 'Retro-Games', games: ['Asteroids', 'Lunar Lander', 'Snake', 'Space Invaders'] }
+	{ label: 'Training', course: 'DO180', name: 'Retro-Games', games: ['Asteroids', 'Lunar Lander', 'Snake', 'Space Invaders'] },
+	{ label: 'Training', course: 'DO180', name: 'AntiPacMan' }
 ];
 console.log("Aplicaciones configuradas (1):", applications);
 

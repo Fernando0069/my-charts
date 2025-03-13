@@ -7,7 +7,7 @@ Para crear la aplicación "alges-escapade" del curso DO180 de Red Hat podemos ha
 
 La aplicación "alges-escapade" dispone de dos puertos en activo (8080 y 8888) por eso a la hora de crear el servicio o la ruta hay que hacerlo de una determinada manera.
 
-Punto 1 (helm):
+helm):
 
 Para crear la aplicación DO180-Alges-Escapade debemos ejecutar los siguiente comandos:
 ```

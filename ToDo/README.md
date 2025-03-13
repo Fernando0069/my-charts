@@ -3,7 +3,6 @@ Aplicaciones pendientes de incorporar.
 
 ## Apps:
 ```
-  game-off-2012
   antipacman
   the-gems
   o
@@ -19,7 +18,6 @@ Aplicaciones pendientes de incorporar.
   tetris
   Hangman-Game
   React-Weather-App
-  retro-games
 ```
 
 ## Revision
