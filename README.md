@@ -23,6 +23,8 @@ List applications:
         DO180-Retro-Games
         DO180-AntiPacMan
         DO180-O
+        DO180-Tic-Tac-Toe
+        DO180-Tetris-JS
 ```
 
 # Repository
@@ -53,14 +55,14 @@ helm uninstall [NAME_APP]
 ```
 my-charts/                      # Directorio global para almacenar el código de las aplicaciones
 │── apps/                       # Todas las aplicaciones dentro de este directorio
-│   ├── [APP_NAME]              # Nombre de la aplicación en minusculas
+│   ├── [APP_NAME]              # Nombre de la aplicación en minúsculas
 │   │   ├── app/                # Código para la creación de la aplicación
 │   │   │   ├── src/            # Código fuente (HTML, CSS, JS, etc.)
 │   │   │   └── Dockerfile      # Archivo Docker para construir la imagen de la aplicación
-│   │   ├── helm/               # Chart de Helm específico para CyberChef
-│   │   │   ├── Chart.yaml      # XXXX 
-│   │   │   ├── values.yaml     # XXXX
-│   │   │   └── templates/      # XXXX
+│   │   ├── helm/               # Chart de Helm específico para la aplicación
+│   │   │   ├── Chart.yaml      # Metadatos del chart de Helm (nombre, versión, descripción)
+│   │   │   ├── values.yaml     # Valores configurables del chart (puertos, imágenes, réplicas)
+│   │   │   └── templates/      # Plantillas YAML para los recursos de Kubernetes (Deployments, Services, Ingress)
 │   │   └── README.md           # Documentación específica de la aplicación
 │   └── web-status
 │       ├── app/
