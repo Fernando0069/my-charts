@@ -21,19 +21,17 @@ Training:
     OK - 1.0.0 - DO180-AntiPacMan
     OK - 1.0.0 - DO180-O
     OK - 1.0.0 - DO180-Tic-Tac-Toe
+    KO - 1.0.0 - DO180-Tetris-JS
 ```
 
 # Working
 ```
-  W - DO180-Tic-Tac-Toe - Falta hacer la parte de Helm el resto creado y probado
+  W - do180-tetris-js
   W - Web-Status - Añadir la nueva aplicación.
   W - do180-the-gems - Contiene errores, hay que volver a cargarlo
 
 
-  
-  
   P - do180-Lord-of-the-Rings
-  P - do180-javascript-tetris
   P - do180-mariohtml5
   P - do180-weather-app
   P - do180-Lilo-and-Stitch-trailer
