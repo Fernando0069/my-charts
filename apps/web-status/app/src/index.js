@@ -27,7 +27,11 @@ const applications = [
 	{ label: 'Training', course: 'DO180', name: 'Tic-Tac-Toe' },
 	{ label: 'Training', course: 'DO180', name: 'Tetris-JS' },
 	{ label: 'Training', course: 'DO180', name: 'Super-Mario-HTML5' },
-	{ label: 'Training', course: 'DO180', name: 'Lord-of-the-Rings' }
+	{ label: 'Training', course: 'DO180', name: 'Lord-of-the-Rings' },
+	{ label: 'Training', course: 'DO180', name: 'Lilo-and-Stitch' },
+	{ label: 'Training', course: 'DO180', name: 'Weather-React' },
+	{ label: 'Training', course: 'DO180', name: 'Pacman' },
+	{ label: 'Training', course: 'DO180', name: 'Hangman-Game' }
 ];
 console.log("Aplicaciones configuradas (1):", applications);
 
