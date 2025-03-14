@@ -29,15 +29,18 @@ Training:
 # Working
 ```
   W - 
-  W - Web-Status - Añadir la nueva aplicación.
-
-  P - do180-the-gems - Contiene errores, hay que volver a cargarlo
+  W - do180-lilo-and-stitch
   P - do180-weather-app
-  P - do180-Lilo-and-Stitch-trailer
   P - do180-pacman
   P - do180-tetris
   P - do180-Hangman-Game
   P - do180-React-Weather-App
+  
+  W - Web-Status - Añadir la nueva aplicación.
+
+  P - do180-the-gems - Contiene errores, hay que volver a cargarlo
+  
+  
   P - IT-Tools (https://github.com/CorentinTh/it-tools)
 ```
 
