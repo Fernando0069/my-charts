@@ -33,8 +33,6 @@ Training:
   W - DO180-Weather-React - solo funciona por http y no por https, helm no probado
   W - DO180-Pacman - falla porque falta una DB en formato mongo que no está creada - investigar
 
-  P - do180-weather-app - Cambiar nombre y poner la tecnologia donde las XXXXX
-  
   W - Web-Status - Añadir la nueva aplicación.
 
   P - do180-the-gems - Contiene errores, hay que volver a cargarlo
