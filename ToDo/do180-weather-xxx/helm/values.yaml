@@ -2,13 +2,13 @@
 # This is a YAML-formatted file.
 
 namespace: fernando0069-dev
-name: lilo-and-stitch
+name: weather-xxx
 labels:
   enviroment: pro
   layer: training
   training: DO180
 replicaCount: 1
-image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/lilo-and-stitch:latest
+image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/weather-xxx:latest
 imagePullPolicy: Always
 ports:
   http:
@@ -24,6 +24,6 @@ ports:
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: apps/do180-lilo-and-stitch/app/src
+  contextDir: apps/do180-weather-xxx/app/src
 isfrom:
   name: 'httpd:2.4-ubi8'
