@@ -1,7 +1,0 @@
-# OpenShift build artifacts
-node_modules
-package-lock.json
-*.log
-npm-debug.log*
-.openshift
-.DS_Store
