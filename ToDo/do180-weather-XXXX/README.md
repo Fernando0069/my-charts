@@ -6,3 +6,4 @@ This directory contains an example Java EE 8 app that is used by the Java EE 8 s
 - master - contains the starting branch for a user
 - solution - contains the finished app that they user should end up with after completing the scenarios from learn.openshift.com
 
+https://github.com/tqvarnst/weather-app
