@@ -25,14 +25,14 @@ Training:
     OK - 1.0.0 - DO180-Super-Mario-HTML5
     OK - 1.0.0 - DO180-Lord-of-the-Rings
     OK - 1.0.0 - DO180-Lilo-and-Stitch
+    OK - 1.0.0 - DO180-Hangman-Game
 ```
 
 # Working
 ```
-  W - DO180-Weather-React - pendiente de pruebas
-  W - DO180-Pacman - pendiente de pruebas
-  W - DO180-Hangman-Game - pendiente de pruebas
-  
+  W - DO180-Weather-React - solo funciona por http y no por https, helm no probado
+  W - DO180-Pacman - falla porque falta una DB en formato mongo que no está creada - investigar
+
   P - do180-weather-app - Cambiar nombre y poner la tecnologia donde las XXXXX
   
   W - Web-Status - Añadir la nueva aplicación.

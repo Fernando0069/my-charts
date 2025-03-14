@@ -44,18 +44,10 @@ Los objetos que se crean son los siguientes:
 
 ## cli
 
-Sin el uso de image o imagestream:
-```
-  oc new-app --name=hangman-game https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-hangman-game/app/src -l app=hangman-game
-  oc create route edge --service=hangman-game     # crea ruta segura del tipo edge
-  curl -vvv https://hangman-game-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-  oc delete all -l app=hangman-game
-```
-
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S httpd
-  oc new-app --name=hangman-game httpd~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-hangman-game/app/src -l app=hangman-game
+  oc new-app --name=hangman-game httpd:2.4-ubi9~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-hangman-game/app/src -l app=hangman-game
   oc create route edge --service=hangman-game     # crea ruta segura del tipo edge
   curl -vvv https://hangman-game-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=hangman-game
