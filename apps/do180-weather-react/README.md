@@ -90,7 +90,9 @@ Sin el uso de image o imagestream:
 Usando imagestream con la versión del compilador:
 ```
   oc new-app -S nodejs
-  oc new-app --name=weather-react httpd~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-weather-react/app/src -l app=weather-react
+  oc new-app --image-stream=nodejs:20-ubi9-minimal --name=weather-react https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-weather-react/app/src -l app=weather-react
+  oc patch deployment weather-react --type='json' -p '[{"op": "replace", "path": "/spec/template/spec/containers/0/ports/0/containerPort", "value": 3000}]'
+  oc patch service weather-react --type='json' -p '[{"op": "replace", "path": "/spec/ports/0/targetPort", "value": 3000}]'
   oc create route edge --service=weather-react     # crea ruta segura del tipo edge
   curl -vvv https://weather-react-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=weather-react

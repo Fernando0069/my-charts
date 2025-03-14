@@ -27,9 +27,6 @@ spec:
             - name: {{ .Values.ports.http.name }}
               containerPort: {{ .Values.ports.http.containerPort }}
               protocol: {{ .Values.ports.http.protocol }}
-            - name: {{ .Values.ports.https.name }}
-              containerPort: {{ .Values.ports.https.containerPort }}
-              protocol: {{ .Values.ports.https.protocol }}
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File

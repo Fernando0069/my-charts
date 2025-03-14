@@ -28,6 +28,8 @@ List applications:
         DO180-Super-Mario-HTML5
         DO180-Lord-of-the-Rings
         DO180-Lilo-and-Stitch
+        DO180-Hangman-Game
+        DO180-Weather-React
 ```
 
 # Repository
