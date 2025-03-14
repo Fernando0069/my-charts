@@ -1,4 +1,3 @@
-
 var board = [[-1,-1,-1,-1,-1],
          [-1,-1,-1,-1,-1],
          [2,2,1,1,-1],
@@ -55,6 +54,3 @@ var fullRowArray = getFullRows(board);
 if(fullRowArray.length > 0){
     dropFullRows(fullRowArray, board);
 }
-
-
-
