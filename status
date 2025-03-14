@@ -28,12 +28,15 @@ Training:
 
 # Working
 ```
+  W - DO180-Lilo-and-Stitch - pendiente de pruebas
+  W - DO180-Weather-React - pendiente de pruebas
+  
   W - 
-  W - do180-lilo-and-stitch - pendiente de pruebas
-  P - do180-weather-app
+
+  P - do180-weather-app - Cambiar nombre y poner la tecnologia donde las XXXXX
   P - do180-pacman
   P - do180-Hangman-Game
-  P - do180-React-Weather-App
+  
   
   W - Web-Status - Añadir la nueva aplicación.
 

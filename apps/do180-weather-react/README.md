@@ -47,9 +47,9 @@ En la carpeta "helm" está los archivos para la creación de la aplicación medi
 
 Creamos de manera automática una imágen la cual lleva el contenido del directorio "src".
 
-Como la aplicación es JavaScript puro (no Node.js), OpenShift no sabe cómo ejecutarla automáticamente porque "oc new-app" está diseñado para aplicaciones tipo servidor como Node.js, Python, Java, etc.
+                        Como la aplicación es JavaScript puro (no Node.js), OpenShift no sabe cómo ejecutarla automáticamente porque "oc new-app" está diseñado para aplicaciones tipo servidor como Node.js, Python, Java, etc.
 
-Dado que OpenShift espera un entorno para ejecutar código, pero JavaScript puro (HTML/CSS/JS) no necesita un servidor backend, se necesita una estrategia diferente.
+                        Dado que OpenShift espera un entorno para ejecutar código, pero JavaScript puro (HTML/CSS/JS) no necesita un servidor backend, se necesita una estrategia diferente.
 
 Para crear la aplicación "weather-react" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre con los mismos archivos.
 
@@ -80,6 +80,14 @@ Los objetos que se crean son los siguientes:
 
 
 ## cli
+
+Sin el uso de image o imagestream:
+```
+  oc new-app --name=weather-react https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-weather-react/app/src -l app=weather-react
+  oc create route edge --service=weather-react     # crea ruta segura del tipo edge
+  curl -vvv https://weather-react-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc delete all -l app=weather-react
+```
 
 Usando imagestream con la versión del compilador:
 ```

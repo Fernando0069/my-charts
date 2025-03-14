@@ -2,13 +2,13 @@
 # This is a YAML-formatted file.
 
 namespace: fernando0069-dev
-name: lilo-and-stitch
+name: pacman
 labels:
   enviroment: pro
   layer: training
   training: DO180
 replicaCount: 1
-image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/lilo-and-stitch:latest
+image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/pacman:latest
 imagePullPolicy: Always
 ports:
   http:
@@ -16,14 +16,9 @@ ports:
     containerPort: 8080
     protocol: TCP
     servicePort: 8080
-  https:
-    name: https
-    containerPort: 8443
-    protocol: TCP
-    servicePort: 8443
 git:
   uri: 'https://github.com/Fernando0069/my-charts.git'
   ref: main
-  contextDir: apps/do180-lilo-and-stitch/app/src
+  contextDir: apps/do180-pacman/app/src
 isfrom:
   name: 'httpd:2.4-ubi8'

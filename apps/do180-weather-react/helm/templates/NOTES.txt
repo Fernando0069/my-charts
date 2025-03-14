@@ -1,4 +1,4 @@
-INFO: El chart "DO180-Lilo-and-Stitch" despliega una aplicación en JavaScript.
+INFO: El chart "DO180-Weather-React" despliega una aplicación.
 INFO: Despliega los siguiente objetos:
         - Imagestream.
         - BuildConfig.
