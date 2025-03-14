@@ -31,9 +31,9 @@ Training:
   W - DO180-Lilo-and-Stitch - pendiente de pruebas
   W - DO180-Weather-React - pendiente de pruebas
   W - DO180-Pacman - pendiente de pruebas
+  W - DO180-Hangman-Game - pendiente de pruebas
   
   P - do180-weather-app - Cambiar nombre y poner la tecnologia donde las XXXXX
-  P - DO180-Hangman-Game
   
   W - Web-Status - Añadir la nueva aplicación.
 
@@ -59,7 +59,7 @@ Training:
 
 # URL
 ```
-  varios juegos a desplegar - https://gamejs.org/
+  varios juegos - https://gamejs.org/
   mas juegos - https://piqnt.com/
   https://oauth-openshift.apps.rm2.thpm.p1.openshiftapps.com/oauth/authorize?client_id=console&redirect_uri=https%3A%2F%2Fconsole-openshift-console.apps.rm2.thpm.p1.openshiftapps.com%2Fauth%2Fcallback&response_type=code&scope=user%3Afull&state=94dd8c862f279057fdc4b769584898e3
   https://github.com/RedHatTraining?q=do3&type=all&language=&sort=
