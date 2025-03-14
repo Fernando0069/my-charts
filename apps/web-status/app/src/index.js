@@ -22,7 +22,7 @@ const applications = [
 	{ label: 'Training', course: 'DO180', name: 'ToDo-NodeJS' },
 	{ label: 'Training', course: 'DO180', name: 'Alges-Escapade' },
 	{ label: 'Training', course: 'DO180', name: 'Retro-Games', games: ['Asteroids', 'Lunar Lander', 'Snake', 'Space Invaders'] },
-	{ label: 'Training', course: 'DO180', name: 'AntiPacMan' },
+	{ label: 'Training', course: 'DO180', name: 'AntiPacman' },
 	{ label: 'Training', course: 'DO180', name: 'O' },
 	{ label: 'Training', course: 'DO180', name: 'Tic-Tac-Toe' },
 	{ label: 'Training', course: 'DO180', name: 'Tetris-JS' },
