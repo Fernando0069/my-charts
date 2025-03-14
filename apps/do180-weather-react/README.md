@@ -91,7 +91,7 @@ Sin el uso de image o imagestream:
 
 Usando imagestream con la versión del compilador:
 ```
-  oc new-app -S httpd
+  oc new-app -S nodejs
   oc new-app --name=weather-react httpd~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-weather-react/app/src -l app=weather-react
   oc create route edge --service=weather-react     # crea ruta segura del tipo edge
   curl -vvv https://weather-react-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/

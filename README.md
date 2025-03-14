@@ -27,6 +27,7 @@ List applications:
         DO180-Tetris-JS
         DO180-Super-Mario-HTML5
         DO180-Lord-of-the-Rings
+        DO180-Lilo-and-Stitch
 ```
 
 # Repository
