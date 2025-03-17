@@ -2,7 +2,7 @@
 
 Se ha creado un repositorio con todas las aplicaciones preparadas para instalar y ser usadas.
 
-# List applications 
+## List applications 
 ```
 List applications: 
     Tools:
@@ -87,3 +87,6 @@ my-charts/                      # Directorio global para almacenar el código de
 │── global-configs/        # Configuraciones generales de todas las apps (si aplica)
 └── README.md              # Documentación del repositorio
 ```
+
+# License
+His project is licensed under the GNU Affero General Public License v3 (AGPL-3.0). For more details, see the [LICENSE](LICENSE) file.

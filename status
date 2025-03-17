@@ -1,11 +1,13 @@
 # Apps Status
 ```
 Tools:
+  OK - 1.0.0    - Web-Status
   OK - 10.19.4  - CyberChef
   OK - 1.0.0    - ReverseShellGenerator
   OK - 6.14.2   - Web-Spectral
   KO - 1.0.0    - IT-Tools
-  OK - 1.0.0    - Web-Status
+  KO - 0.0.3    - Domain Locker
+
 
 Training:
   DO180:
@@ -37,7 +39,8 @@ Training:
   W - Web-Status - Añadir la nueva aplicación.
 
   P - do180-the-gems - Contiene errores, hay que volver a cargarlo
-  P - IT-Tools (https://github.com/CorentinTh/it-tools)
+  P - IT-Tools - https://github.com/CorentinTh/it-tools
+  P - Domain Locker - https://github.com/Lissy93/domain-locker
 ```
 
 # Pending
