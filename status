@@ -28,17 +28,16 @@ Training:
     OK - 1.0.0 - DO180-Lord-of-the-Rings
     OK - 1.0.0 - DO180-Lilo-and-Stitch
     OK - 1.0.0 - DO180-Hangman-Game
-    KO - 1.0.0 - DO180-Weather-React
+    OK - 1.0.0 - DO180-Weather-React
 ```
 
 # Working
 ```
-  W - DO180-Weather-React - falla en la parte de helm que no se ve nada en la ruta - investigar
   W - DO180-Pacman - falla porque falta una DB en formato mongo que no está creada - investigar
-
+  P - DO180-the-gems - Contiene errores, hay que volver a cargarlo.
+  
   W - Web-Status - Añadir la nueva aplicación.
 
-  P - do180-the-gems - Contiene errores, hay que volver a cargarlo
   P - IT-Tools - https://github.com/CorentinTh/it-tools
   P - Domain Locker - https://github.com/Lissy93/domain-locker
 ```
@@ -69,6 +68,9 @@ Training:
   https://github.com/redhat-cop/namespace-configuration-operator/tree/master
   https://hub.docker.com/r/fernando0069/web-spectral
   https://github.com/fernando-guardia/
+  dibujos e iconos de github - https://github.com/Lissy93/Lissy93/blob/master/TECH-STACK.md
+  más dibujos e iconos de github - https://github.com/Lissy93/Lissy93
+
 ```
 
 # DOCs:

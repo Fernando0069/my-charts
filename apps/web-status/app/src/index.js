@@ -8,11 +8,12 @@ const PROTOCOL = "https://";
 // Datos de las aplicaciones
 const applications = [
 	{ label: 'Tools', name: 'Google', statusUrl: 'https://www.google.com', url: 'https://www.google.com' },
+	{ label: 'Tools', name: 'Web-Status' },
 	{ label: 'Tools', name: 'CyberChef' },
 	{ label: 'Tools', name: 'ReverseShellGenerator' },
 	{ label: 'Tools', name: 'Web-Spectral' },
 	{ label: 'Tools', name: 'IT-Tools' },
-	{ label: 'Tools', name: 'Web-Status' },
+	{ label: 'Tools', name: 'Domain-Locker' },
 	{ label: 'Training', course: 'DO180', name: 'Openshift-HelloWorld', ports: [8080, 8888] },
 	{ label: 'Training', course: 'DO180', name: 'PHP-HelloWorld' },
 	{ label: 'Training', course: 'DO180', name: 'NodeJS-HelloWorld' },
@@ -31,7 +32,8 @@ const applications = [
 	{ label: 'Training', course: 'DO180', name: 'Lilo-and-Stitch' },
 	{ label: 'Training', course: 'DO180', name: 'Hangman-Game' },
 	{ label: 'Training', course: 'DO180', name: 'Weather-React' },
-	{ label: 'Training', course: 'DO180', name: 'Pacman' }
+	{ label: 'Training', course: 'DO180', name: 'Pacman' },
+	{ label: 'Training', course: 'DO180', name: 'The-Gems' }
 ];
 console.log("Aplicaciones configuradas (1):", applications);
 
