@@ -5,7 +5,8 @@ namespace: fernando0069-dev
 name: pacman-rust
 labels:
   enviroment: pro
-  layer: tools
+  layer: training
+  training: DO180
 replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/pacman-rust:latest
 imagePullPolicy: Always
