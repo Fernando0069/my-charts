@@ -5,9 +5,10 @@ FROM rust:latest AS builder
 WORKDIR /usr/src/app
 
 # Copia todos los archivos
-#COPY ./Cargo.toml /usr/src/app/Cargo.toml
+#COPY ./src/Cargo.toml /usr/src/app/Cargo.toml
 #COPY ./src/main.rs /usr/src/app/main.rs
 COPY . .
+RUN pwd && ls -lR
 
 # Compila en modo release
 RUN cargo build --release
