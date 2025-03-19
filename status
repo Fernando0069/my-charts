@@ -33,7 +33,7 @@ Training:
 
 # Working
 ```
-  W - DO180-Pacman - falla porque falta una DB en formato mongo que no está creada - investigar
+  W - DO180-Pacman - falla porque falta una DB en formato mongo que no está creada - investigar - montarlo a mano, ver error, intentar montar el MongoDB y conectarlo, ya sean en dos pods o en un pod con dos contenedores.
   P - DO180-the-gems - Contiene errores, hay que volver a cargarlo.
   
   W - Web-Status - Añadir la nueva aplicación.

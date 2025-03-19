@@ -129,3 +129,12 @@ Los objetos que se crean son los siguientes:
   4.- Service.
   5.- Route.
 ```
+
+
+
+
+
+
+
+
+s2i build . openshift/nodejs-mongo-example pacman
