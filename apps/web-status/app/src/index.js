@@ -32,7 +32,8 @@ const applications = [
 	{ label: 'Training', course: 'DO180', name: 'Lilo-and-Stitch' },
 	{ label: 'Training', course: 'DO180', name: 'Hangman-Game' },
 	{ label: 'Training', course: 'DO180', name: 'Weather-React' },
-	{ label: 'Training', course: 'DO180', name: 'Pacman' },
+	{ label: 'Training', course: 'DO180', name: 'Pacman-Rust' },
+	{ label: 'Training', course: 'DO180', name: 'Pacman-NodeJS' },
 	{ label: 'Training', course: 'DO180', name: 'The-Gems' }
 ];
 console.log("Aplicaciones configuradas (1):", applications);
