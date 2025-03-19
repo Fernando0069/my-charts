@@ -36,7 +36,7 @@ Los objetos que se crean son los siguientes:
 
 ## cli
 
-Creamos de manera automática una imágen la cual lleva el contenido del directorio "files".
+Creamos de manera automática una imágen la cual lleva el contenido del directorio "src".
 
 Como la aplicación es JavaScript puro (no Node.js), OpenShift no sabe cómo ejecutarla automáticamente porque "oc new-app" está diseñado para aplicaciones tipo servidor como Node.js, Python, Java, etc.
 
