@@ -104,6 +104,7 @@ Los objetos que se crean son los siguientes:
 
 ## cli
 
+### Sin DB
 Sin el uso de image o imagestream:
 ```
   oc new-app --name=pacman https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman/app/src -l app=pacman
@@ -131,7 +132,7 @@ Los objetos que se crean son los siguientes:
 ```
 
 
-
+### Con DB
 
 
 

@@ -6,19 +6,19 @@ var _db;
 
 function Database() {
     this.connect = function(app, callback) {
-            MongoClient.connect(config.database.url,
-                                config.database.options,
-                                function (err, db) {
-                                    if (err) {
-                                        console.log(err);
-                                        console.log(config.database.url);
-                                        console.log(config.database.options);
-                                    } else {
-                                        _db = db;
-                                        app.locals.db = db;
-                                    }
-                                    callback(err);
-                                });
+        MongoClient.connect(config.database.url,
+            config.database.options,
+            function (err, db) {
+                if (err) {
+                    console.log(err);
+                    console.log(config.database.url);
+                    console.log(config.database.options);
+                } else {
+                    _db = db;
+                    app.locals.db = db;
+                }
+                callback(err);
+            });
     }
 
     this.getDb = function(app, callback) {
