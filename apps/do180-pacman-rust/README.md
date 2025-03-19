@@ -79,3 +79,57 @@ Los objetos que se crean son los siguientes:
   4.- Service.
   5.- Route.
 ```
+
+
+
+
+
+docker.io/library/rust
+
+
+
+
+
+Usando imagestream con la versión del compilador:
+```
+  oc new-app -S rust
+  oc new-app --image-stream=rust:latest --name=pacman-rust httpd~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/src -l app=pacman-rust
+
+
+
+    oc new-app --image=docker.io/library/rust --name=pacman-rust httpd~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/src -l app=pacman-rust
+
+
+
+  oc new-app docker.io/library/rust:latest~httpd~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/src -l app=pacman-rust
+
+
+
+  oc expose service/nodejs-helloworld
+  curl -vvv https://nodejs-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc delete all -l app=nodejs-helloworld
+```
+  
+Los objetos que se crean son los siguientes:
+```
+  1.- Imagestream.
+  2.- BuildConfig.
+  3.- Deployment.
+  4.- Service.
+  5.- Route.
+```
+
+
+
+
+
+
+
+
+
+
+
+oc new-build --name=pacman-rust https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/ --strategy=docker
+  oc new-build --name=pacman-rust https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/ --strategy=docker --binary
+oc start-build pacman-rust --from-dir=. --follow
+
