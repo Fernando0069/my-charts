@@ -11,7 +11,6 @@ metadata:
 spec:
   failedBuildsHistoryLimit: 5
   successfulBuildsHistoryLimit: 5
-  nodeSelector: null
   output:
     to:
       kind: ImageStreamTag
@@ -32,8 +31,8 @@ spec:
   triggers:
     - type: GitHub
       github:
-        secret: 7ySggNExRksRWITmpP2R
+        secret: 7ySggNEzRksRWITmpP2R
     - type: Generic
       generic:
-        secret: XgDK2wM_pNDdsQQolO7u
+        secret: XgDK2wM_pZDdsQQolO7u
     - type: ConfigChange
