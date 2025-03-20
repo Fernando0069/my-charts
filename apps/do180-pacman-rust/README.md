@@ -101,7 +101,13 @@ Usando imagestream con la versión del compilador:
 
 
 
-  oc new-app docker.io/library/rust:latest~httpd~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/src -l app=pacman-rust
+  oc new-app docker.io/library/rust:latest~https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/src -l app=pacman-rust
+
+
+  oc new-app --name=pacman-rust https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/ -l app=pacman-rust
+
+oc new-app --name=pacman-rust https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/ --strategy=docker -l app=pacman-rust
+  
 
 
 

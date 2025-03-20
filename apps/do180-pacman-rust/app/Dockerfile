@@ -20,7 +20,7 @@ FROM alpine:latest
 # Copia el binario compilado desde la imagen de compilación
 COPY --from=builder /usr/src/app/target/release/pacman-rust /usr/local/bin/pacman-rust
 
-# Expone el puerto (si la app usa HTTP)
+# Expone el puerto
 EXPOSE 8080
 
 # Ejecuta la aplicación
