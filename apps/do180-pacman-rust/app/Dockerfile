@@ -17,6 +17,8 @@ RUN rm -rf Dockerfile
 # Compila en modo release
 RUN cargo build --release
 
+RUN ls -l /usr/src/app/target/release/pacman-rust
+
 
 # Imagen base mínima y final
 FROM alpine:latest
