@@ -21,7 +21,7 @@ RUN ls -l /usr/src/app/target/release/pacman-rust
 
 
 # Imagen base mínima y final
-FROM alpine:latest
+FROM debian:latest
 
 # Copia el binario compilado desde la imagen de compilación
 COPY --from=builder /usr/src/app/target/release/pacman-rust /usr/local/bin/pacman-rust
