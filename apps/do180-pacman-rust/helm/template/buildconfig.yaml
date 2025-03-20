@@ -8,6 +8,8 @@ metadata:
     app.kubernetes.io/component: {{ .Values.name }}
     enviroment: {{ .Values.labels.enviroment }}
     layer: {{ .Values.labels.layer }}
+  annotations:
+    uri-official: {{ .Values.annotations.uriofficial }}
 spec:
   failedBuildsHistoryLimit: 5
   successfulBuildsHistoryLimit: 5

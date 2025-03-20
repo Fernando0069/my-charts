@@ -7,6 +7,8 @@ labels:
   enviroment: pro
   layer: training
   training: DO180
+annotations:
+  uriofficial: https://github.com/platzhersh/pacman-canvas-rust.git
 replicaCount: 1
 image: image-registry.openshift-image-registry.svc:5000/fernando0069-dev/pacman-rust:latest
 imagePullPolicy: Always
