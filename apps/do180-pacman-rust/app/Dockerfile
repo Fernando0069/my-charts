@@ -15,13 +15,11 @@ COPY . .
 RUN rm -rf Dockerfile
 
 # Compila en modo release
-RUN cargo build --release
-
-RUN ls -l /usr/src/app/target/release/pacman-rust
+RUN cargo build --release --target x86_64-unknown-linux-musl
 
 
 # Imagen base mínima y final
-FROM debian:latest
+FROM alpine:latest
 
 # Copia el binario compilado desde la imagen de compilación
 COPY --from=builder /usr/src/app/target/release/pacman-rust /usr/local/bin/pacman-rust
