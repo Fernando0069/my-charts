@@ -111,7 +111,7 @@ oc new-app --name=pacman-rust https://github.com/Fernando0069/my-charts.git --co
 
 
 
-
+  oc new-app --name=pacman-rust https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-rust/app/ -l app=pacman-rust
   curl -vvv https://pacman-rust-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=pacman-rust
 ```
