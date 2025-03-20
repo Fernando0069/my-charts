@@ -111,9 +111,9 @@ oc new-app --name=pacman-rust https://github.com/Fernando0069/my-charts.git --co
 
 
 
-  oc expose service/nodejs-helloworld
-  curl -vvv https://nodejs-helloworld-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
-  oc delete all -l app=nodejs-helloworld
+
+  curl -vvv https://pacman-rust-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
+  oc delete all -l app=pacman-rust
 ```
   
 Los objetos que se crean son los siguientes:

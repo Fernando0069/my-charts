@@ -1,13 +1,17 @@
 # Imagen base para compilar
 FROM rust:latest AS builder
 
+# Instala paquetes necesarios
+RUN apt-get update && apt-get install -y \
+    libasound2-dev \
+    pkg-config
+
 # Crea el directorio de la app
 WORKDIR /usr/src/app
 
 # Copia todos los archivos
-#COPY ./src/Cargo.toml /usr/src/app/Cargo.toml
-#COPY ./src/main.rs /usr/src/app/main.rs
 COPY . .
+RUN rm -rf Dockerfile
 RUN pwd && ls -lR
 
 # Compila en modo release
