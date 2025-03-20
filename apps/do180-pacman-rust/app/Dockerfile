@@ -2,10 +2,7 @@
 FROM rust:latest AS builder
 
 # Instala paquetes necesarios
-RUN apt-get update && apt-get install -y \
-    libasound2-dev \
-    libudev-dev \
-    pkg-config
+RUN apt-get update && apt-get install -y musl-tools pkg-config libasound2-dev libudev-dev && rm -rf /var/lib/apt/lists/*
 
 # Crea el directorio de la app
 WORKDIR /usr/src/app
@@ -23,7 +20,6 @@ FROM alpine:latest
 
 # Copia el binario compilado desde la imagen de compilación
 COPY --from=builder /usr/src/app/target/release/pacman-rust /usr/local/bin/pacman-rust
-RUN ls -l /usr/local/bin/pacman-rust
 
 # Expone el puerto
 EXPOSE 8080
