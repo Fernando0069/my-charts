@@ -7,7 +7,6 @@ Creamos de manera automática una imágen la cual lleva el contenido del directo
 
 Para crear la aplicación "pacman-nodejs" del curso DO180 de Red Hat podemos hacerlo de dos maneras diferentes pero siempre con los mismos archivos.
 
-
 ## helm
 
 Para crear la aplicación "DO180-Pacman-NodeJS" debemos ejecutar los siguiente comandos:
