@@ -1,8 +1,8 @@
 # Imagen base para compilar con Debian
-FROM rust:bookworm AS builder  
+FROM rust:slim-bookworm AS builder  
 
 # Actualiza e instala paquetes necesarios
-RUN apt-get update && apt-get install -y musl-tools pkg-config libasound2-dev libudev-dev build-essential && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y pkg-config libasound2-dev libudev-dev build-essential && rm -rf /var/lib/apt/lists/*
 
 # Crea el directorio de la app
 WORKDIR /usr/src/app
@@ -14,20 +14,26 @@ COPY . .
 RUN rm -rf Dockerfile
 
 # Descarga las dependencias sin compilar
-RUN cargo fetch --target x86_64-unknown-linux-musl
+RUN cargo fetch
 
 # Compila en modo release
-RUN cargo build --release --target x86_64-unknown-linux-musl
+RUN cargo build --release
+
+# Reduce el tamaño del binario en la imagen builder
+RUN strip /usr/src/app/target/release/pacman-rust
 
 
 # Imagen base mínima y final
-FROM alpine:latest
+FROM debian:bookworm-slim
 
 # Actualiza e instala paquetes necesarios
-RUN apk update && apk add --no-cache alsa-lib eudev 
+RUN apt-get update && apt-get install -y libasound2 libudev1 && rm -rf /var/lib/apt/lists/*
 
 # Copia el binario compilado desde la imagen de compilación
-COPY --from=builder /usr/src/app/target/x86_64-unknown-linux-musl/release/pacman-rust /usr/local/bin/pacman-rust
+COPY --from=builder /usr/src/app/target/release/pacman-rust /usr/local/bin/pacman-rust
+
+# Usuario no privilegiado
+USER 20000
 
 # Expone el puerto
 EXPOSE 8080
