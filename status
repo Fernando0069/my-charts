@@ -29,12 +29,11 @@ Training:
     OK - 1.0.0 - DO180-Lilo-and-Stitch
     OK - 1.0.0 - DO180-Hangman-Game
     OK - 1.0.0 - DO180-Weather-React
-    KO - 1.0.0 - DO180-Pacman-NodeJS
+    OK - 1.0.0 - DO180-Pacman-NodeJS
 ```
 
 # Working
 ```
-  W - DO180-Pacman-NodeJS - App functional (no DB available) but install OK. -----> probar todo a ver si funciona aunque muestre error en la DB
   W - DO180-Pacman-NodeJS-MongoDB - Copiar "DO180-Pacman-NodeJS" y añadirle la DB necesaria.
     errores:
       varias imagenes no se ven, vidas, fantasmas, etc. --> en "instrucciones" y en "info"
