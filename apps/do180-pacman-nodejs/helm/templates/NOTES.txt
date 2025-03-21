@@ -1,4 +1,4 @@
-INFO: El chart "DO180-Pacman" despliega una aplicación.
+INFO: El chart "DO180-Pacman-NodeJS" despliega una aplicación.
 INFO: Despliega los siguiente objetos:
         - Imagestream.
         - BuildConfig.

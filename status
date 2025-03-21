@@ -33,8 +33,8 @@ Training:
 
 # Working
 ```
-  W - DO180-Pacman-NodeJS - App functional (no DB available) but install OK.
-  W - DO180-Pacman-NodeJS-MongoDB - falla porque falta una DB en formato mongo que no está creada - investigar - montarlo a mano, ver error, intentar montar el MongoDB y conectarlo, ya sean en dos pods o en un pod con dos contenedores.
+  W - DO180-Pacman-NodeJS - App functional (no DB available) but install OK. -----> probar todo a ver si funciona aunque muestre error en la DB
+  W - DO180-Pacman-NodeJS-MongoDB - Copiar "DO180-Pacman-NodeJS" y añadirle la DB necesaria.
 
 
   P - DO180-The-Gems - Contiene errores, hay que volver a cargarlo.
