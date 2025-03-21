@@ -3,9 +3,9 @@ entries:
   CyberChef:
   - apiVersion: v2
     appVersion: 10.19.4
-    created: "2025-03-19T12:28:58.814149232Z"
+    created: "2025-03-21T13:15:45.835226227Z"
     description: A Helm chart for Kubernetes
-    digest: 39927a130c0d2079142b4e7a5a34428470f9cc1734d2e944332d8077bf1f3bec
+    digest: 25b772a9489f6965c3604255c9c0990a83bce7ebe662b32cc535604d138a15b2
     name: CyberChef
     type: application
     urls:
@@ -14,9 +14,9 @@ entries:
   DO180-Alges-Escapade:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.814526761Z"
+    created: "2025-03-21T13:15:45.83555364Z"
     description: A Helm chart for Kubernetes
-    digest: c8872f9f2958c9f0afb67c95c20c8ae3520231b0e04107f3bc43ad578f29de87
+    digest: 0f0d39bf001339b66402383bed6da3a1d68454de3ba33185b1e80e7d7e13f9d2
     name: DO180-Alges-Escapade
     type: application
     urls:
@@ -25,9 +25,9 @@ entries:
   DO180-AntiPacMan:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.81495152Z"
+    created: "2025-03-21T13:15:45.835840739Z"
     description: A Helm chart for Kubernetes
-    digest: 608eba2baf72bd739392e8d571bb0c365bb3090f6e06f8c72f8c7784ea4a9b0b
+    digest: 0ba8c9d6385ae4172e68110860bccc9087b5acdbdf20efa82cf05aeb4b815f26
     name: DO180-AntiPacMan
     type: application
     urls:
@@ -36,9 +36,9 @@ entries:
   DO180-Hangman-Game:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.815338761Z"
+    created: "2025-03-21T13:15:45.836124294Z"
     description: A Helm chart for Kubernetes
-    digest: cd1f657cd86f7e8fb9fe270b2d377c9122ba219e12b313e7f8ac013f607e504c
+    digest: d9f7fb760e327d8655dc2802cf6546d331fae1bb90b5441b0f207f950f37e6d0
     name: DO180-Hangman-Game
     type: application
     urls:
@@ -47,9 +47,9 @@ entries:
   DO180-Lilo-and-Stitch:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.815685559Z"
+    created: "2025-03-21T13:15:45.836411758Z"
     description: A Helm chart for Kubernetes
-    digest: 92338acd94732261ae1dedddf79df4526dd955305d92cb083211ef4a38b6be77
+    digest: 9761f7c3f755766903d77f6a9b9c15ed9202e0cbc84c6b10ed9d92819a59a61c
     name: DO180-Lilo-and-Stitch
     type: application
     urls:
@@ -58,9 +58,9 @@ entries:
   DO180-Lord-of-the-Rings:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.816015114Z"
+    created: "2025-03-21T13:15:45.836701702Z"
     description: A Helm chart for Kubernetes
-    digest: 2a2f2ef5a24d6a91721e9ddbd8a0a97076aec36c08dd6afed1deddb2c27a001d
+    digest: 8752f3da7e91642eae659495b69681cbcc4c1891df2f5b9d8a14017b851ae949
     name: DO180-Lord-of-the-Rings
     type: application
     urls:
@@ -69,7 +69,7 @@ entries:
   DO180-Mario-HTML5:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.816366532Z"
+    created: "2025-03-21T13:15:45.837003665Z"
     description: A Helm chart for Kubernetes
     digest: 2ffa137827929d5dd8a513fed26f1bc207bbec236c5b1d4d030433de10e6c5ac
     name: DO180-Mario-HTML5
@@ -80,9 +80,9 @@ entries:
   DO180-NodeJS-App:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.816726842Z"
+    created: "2025-03-21T13:15:45.837312612Z"
     description: A Helm chart for Kubernetes
-    digest: 5531694b77dd3790bd23027e430c3f38660bfcd13b5405871a535dc543b200ea
+    digest: 6f67db88e7663fe0b5748e8682830a44b984da8e7f21ecffc8c0831c8ac96958
     name: DO180-NodeJS-App
     type: application
     urls:
@@ -91,9 +91,9 @@ entries:
   DO180-NodeJS-HelloWorld:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.817071438Z"
+    created: "2025-03-21T13:15:45.837635696Z"
     description: A Helm chart for Kubernetes
-    digest: f219b35cd9da46d8c5db3c50a16faef4ad980dd8e9067d145b6060f2eac268d2
+    digest: 5e80339ad56efbf44a4f375588a6886554aea8ea8f892d2faad047ab953911cb
     name: DO180-NodeJS-HelloWorld
     type: application
     urls:
@@ -102,9 +102,9 @@ entries:
   DO180-O:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.817376567Z"
+    created: "2025-03-21T13:15:45.837916948Z"
     description: A Helm chart for Kubernetes
-    digest: 2cb63e62f6f4050ebcf64ec12308c1ad28560b235df4567cdaad9e8d48266a32
+    digest: b632f82e41d943360ff3ecfb7df51a3658528823f0541c5563892820188002a6
     name: DO180-O
     type: application
     urls:
@@ -113,9 +113,9 @@ entries:
   DO180-Openshift-HelloWorld:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.817651325Z"
+    created: "2025-03-21T13:15:45.838222295Z"
     description: A Helm chart for Kubernetes
-    digest: 30833b44a7b66bc9272cdd7c310cba6dcc1a7121f3570b921dffed4b3f3aa002
+    digest: 08b98157339b3077bb4a49776a19853c747b5a473f83b6416af0b2fe1c1b4661
     name: DO180-Openshift-HelloWorld
     type: application
     urls:
@@ -124,9 +124,9 @@ entries:
   DO180-PHP-HelloWorld:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.81804911Z"
+    created: "2025-03-21T13:15:45.838552884Z"
     description: A Helm chart for Kubernetes
-    digest: c27cdf7ab376f411367d0136810e504edc6f7bc2f8cef1dfc36c048adf961911
+    digest: bfae6537b153ab09074ff302e7d3b109e61fb18ef34efc41962a1cdcafad9694
     name: DO180-PHP-HelloWorld
     type: application
     urls:
@@ -135,9 +135,9 @@ entries:
   DO180-PHP-Temperature:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.818429848Z"
+    created: "2025-03-21T13:15:45.838887349Z"
     description: A Helm chart for Kubernetes
-    digest: 7e38e882c50f0913e07f22b7c9195ba2a553402987b18cc027ec2f755cc80b4d
+    digest: db61a8c91f0ca463906b11c69be1cecce0ec89c7108fc06a45df22cebe709324
     name: DO180-PHP-Temperature
     type: application
     urls:
@@ -146,7 +146,7 @@ entries:
   DO180-Pacman:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.818711012Z"
+    created: "2025-03-21T13:15:45.839145558Z"
     description: A Helm chart for Kubernetes
     digest: 0e421de010290cc7c0982ad0045e8e0d7a2243c579b9262b099de41125c5d38a
     name: DO180-Pacman
@@ -154,10 +154,21 @@ entries:
     urls:
     - charts/DO180-Pacman-0.1.0.tgz
     version: 0.1.0
+  DO180-Pacman-NodeJS:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-03-21T13:15:45.839417281Z"
+    description: A Helm chart for Kubernetes
+    digest: 9ba0886c01018f38058d0416dcae67941dcacb8a1b924b9ac974da6543382282
+    name: DO180-Pacman-NodeJS
+    type: application
+    urls:
+    - charts/DO180-Pacman-NodeJS-0.1.0.tgz
+    version: 0.1.0
   DO180-Pacman-Rust:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.819045682Z"
+    created: "2025-03-21T13:15:45.839663268Z"
     description: A Helm chart for Kubernetes
     digest: bd860dba71140a6006f742c57255edc10eec28bc28c9cd9c7277666998f8a899
     name: DO180-Pacman-Rust
@@ -168,9 +179,9 @@ entries:
   DO180-Retro-Games:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.819711675Z"
+    created: "2025-03-21T13:15:45.840041105Z"
     description: A Helm chart for Kubernetes
-    digest: 440ecc197ff2d8ea2995eed59b3c4317beab7953be0bd3c93c2ca95ef77f710a
+    digest: f4bf997fff3e7664681eac3a23499f3e50ca092c41ec98507f23508dedf1cf0b
     name: DO180-Retro-Games
     type: application
     urls:
@@ -179,9 +190,9 @@ entries:
   DO180-Super-Mario-HTML5:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.820597078Z"
+    created: "2025-03-21T13:15:45.840308765Z"
     description: A Helm chart for Kubernetes
-    digest: 6add7f218f47e8cf39616bfc8248e694552b7ee6a5b532361764d4a8bd42fbe5
+    digest: 15457d41d7cd7ee4b6fab9d92ee7bb48ab1ebd4c54e866b306f9539ac01a356c
     name: DO180-Super-Mario-HTML5
     type: application
     urls:
@@ -190,9 +201,9 @@ entries:
   DO180-Tetris-JS:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.820967519Z"
+    created: "2025-03-21T13:15:45.840997835Z"
     description: A Helm chart for Kubernetes
-    digest: 8a87d8bc95e7f7c4ad9263d01f6f728c66a6248d756ccb4fb43d1b0932a90566
+    digest: 3a5c3eecab6314751cf95c186980aa168588a970b0c540b12ac8e7bc9922cc3e
     name: DO180-Tetris-JS
     type: application
     urls:
@@ -201,9 +212,9 @@ entries:
   DO180-Tic-Tac-Toe:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.821284084Z"
+    created: "2025-03-21T13:15:45.841576909Z"
     description: A Helm chart for Kubernetes
-    digest: a80d63053953f0dd893f02e92fed6421b73537bb7e30fde3077b7d9060a1cd45
+    digest: 86c8abe51f99c22ab7334bdfb2af9aa189d9d493f03c84d186d8771ac4de36f0
     name: DO180-Tic-Tac-Toe
     type: application
     urls:
@@ -212,9 +223,9 @@ entries:
   DO180-ToDo-HTML5:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.821622935Z"
+    created: "2025-03-21T13:15:45.841898042Z"
     description: A Helm chart for Kubernetes
-    digest: 25f71d147263411171e3585ba99c4122c21007ad9ce3b68e4dd3537d6d2f4db3
+    digest: 8459440a04d3bc45d040075330d7bf12eb5e1102e572a8f9c88813a9f0ccbe9f
     name: DO180-ToDo-HTML5
     type: application
     urls:
@@ -223,9 +234,9 @@ entries:
   DO180-ToDo-NodeJS:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.821947327Z"
+    created: "2025-03-21T13:15:45.842173996Z"
     description: A Helm chart for Kubernetes
-    digest: c2cd91a6b401aedf3c40c82082c0a6ce7fa24c6dd6cebf406520f63c8c98d18e
+    digest: 9600adb6c139689d0ec290425008d454ae49c336a17a6a5ed64f57d4b0c1e5b1
     name: DO180-ToDo-NodeJS
     type: application
     urls:
@@ -234,9 +245,9 @@ entries:
   DO180-Weather-React:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.822235711Z"
+    created: "2025-03-21T13:15:45.842462893Z"
     description: A Helm chart for Kubernetes
-    digest: 09c0bf3e575e16bb19fc819177adf4dc3df49773cd485cd38fd20c2cdffd0d1b
+    digest: d49695a46c079fbd7285d976fc3315ee29029a8666b0fdcba54ba1a8aeb45701
     name: DO180-Weather-React
     type: application
     urls:
@@ -245,9 +256,9 @@ entries:
   ReverseShellGenerator:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.822624089Z"
+    created: "2025-03-21T13:15:45.842779875Z"
     description: A Helm chart for Kubernetes
-    digest: ed407f1a6ce82bfb63d6a90c572c1b059eb863aafb6fc93d4672f0cba15b2f8b
+    digest: 1ae1d807f10c1c01e7d204d9b36c109457d887e04dbe04333a986c8ef0f88b11
     name: ReverseShellGenerator
     type: application
     urls:
@@ -256,9 +267,9 @@ entries:
   Web-Spectral:
   - apiVersion: v2
     appVersion: 6.14.2
-    created: "2025-03-19T12:28:58.822894831Z"
+    created: "2025-03-21T13:15:45.842998867Z"
     description: A Helm chart for Kubernetes
-    digest: 4696596d0a1b3ccd3a8481a33a3b86d777035bad99fd9a98051f058b5b03755f
+    digest: 28a24258ba41c54438b3e3491065f78aab15828c2da9be19b44b3a1a7b30b2f5
     name: Web-Spectral
     type: application
     urls:
@@ -267,12 +278,12 @@ entries:
   Web-Status:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-03-19T12:28:58.823197839Z"
+    created: "2025-03-21T13:15:45.843250953Z"
     description: A Helm chart for Kubernetes
-    digest: 1f0059c11b4474e2cd6e959fd6fe6dc285d26f8b9685d0eecc69201378428e81
+    digest: 5b8d10a0ec9e963f9df8a5f1feb639ab48daaf7e37677fb53b100ac1660a1c8f
     name: Web-Status
     type: application
     urls:
     - charts/Web-Status-0.1.0.tgz
     version: 0.1.0
-generated: "2025-03-19T12:28:58.813552013Z"
+generated: "2025-03-21T13:15:45.834499958Z"
