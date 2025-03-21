@@ -11,14 +11,14 @@ Para crear la aplicación "pacman-nodejs" del curso DO180 de Red Hat podemos hac
 
 Para crear la aplicación "DO180-Pacman-NodeJS" debemos ejecutar los siguiente comandos:
 ```
-  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                  # Creación del repositorio donde vamos a descargar la aplicación.
-  2.- helm install pacman-nodejs apps/DO180-Pacman-NodeJS                                                         # Instalar la aplicación "DO180-Pacman-NodeJS" con el nombre "pacman-nodejs".
+  1.- helm repo add apps https://fernando0069.github.io/my-charts/                                         # Creación del repositorio donde vamos a descargar la aplicación.
+  2.- helm install pacman-nodejs apps/DO180-Pacman-NodeJS                                                  # Instalar la aplicación "DO180-Pacman-NodeJS" con el nombre "pacman-nodejs".
   3.- curl -vvv https://pacman-nodejs-fernando0069-dev.apps.rm2.thpm.p1.openshiftapps.com                  # Verificar la URL. 
 ```
 
 Para eliminar la aplicación "DO180-Pacman-NodeJS" debemos ejecutar los siguiente comandos:
 ```
-  1.- helm uninstall pacman-nodejs                          # Desinstalar la aplicación con el nombre "pacman-nodejs" ("DO180-Pacman-NodeJS").
+  1.- helm uninstall pacman-nodejs                   # Desinstalar la aplicación con el nombre "pacman-nodejs" ("DO180-Pacman-NodeJS").
   2.- helm repo remove apps                          # Eliminación del repositorio de aplicaciones.
 ```
 
