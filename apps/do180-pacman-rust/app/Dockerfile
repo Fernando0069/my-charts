@@ -27,7 +27,7 @@ RUN strip /usr/src/app/target/release/pacman-rust
 FROM debian:bookworm-slim
 
 # Actualiza e instala paquetes necesarios
-RUN apt-get update && apt-get install -y libasound2 libudev1 && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libasound2 libudev1 alsa-utils && rm -rf /var/lib/apt/lists/*
 
 # Copia el binario compilado desde la imagen de compilación
 COPY --from=builder /usr/src/app/target/release/pacman-rust /usr/local/bin/pacman-rust
