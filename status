@@ -37,7 +37,7 @@ Training:
   W - DO180-Pacman-NodeJS-MongoDB - Copiar "DO180-Pacman-NodeJS" y añadirle la DB necesaria.
 
 
-  P - DO180-The-Gems - Contiene errores, hay que volver a cargarlo.
+  P - DO180-The-Gems-NodeJS - Pendiente de pruebas y ajustar el helm.
   
   W - Web-Status - Añadir la nueva aplicación.
 
