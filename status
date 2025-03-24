@@ -29,76 +29,15 @@ Training:
     OK - 1.0.0 - DO180-Lilo-and-Stitch
     OK - 1.0.0 - DO180-Hangman-Game
     OK - 1.0.0 - DO180-Weather-React
-    OK - 1.0.0 - DO180-Pacman-NodeJS
 ```
 
 # Working
 ```
+  W - DO180-Pacman-NodeJS - App functional (no DB available) but install OK. -----> todo preparado para hacer las pruebas de todo tipo cli y helm, a ver si funciona aunque muestre error en la DB
   W - DO180-Pacman-NodeJS-MongoDB - Copiar "DO180-Pacman-NodeJS" y añadirle la DB necesaria.
-    errores:
-      varias imagenes no se ven, vidas, fantasmas, etc. --> en "instrucciones" y en "info"
-      error de DB
-      npm deprecated:
-        STEP 1/9: FROM image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:bc866cae0a2bb8c9a7508ddc6bdb67b7c503b672b9f74aa8c30b0e2532bc52b7
-        STEP 2/9: LABEL "io.openshift.build.image"="image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:bc866cae0a2bb8c9a7508ddc6bdb67b7c503b672b9f74aa8c30b0e2532bc52b7"       "io.openshift.build.commit.author"="Fernando <fernando0069@gmail.com>"       "io.openshift.build.commit.date"="Fri Mar 21 19:42:09 2025 +0100"       "io.openshift.build.commit.id"="2936c2387290e1aee1b9f6daaf152bc49bfdf100"       "io.openshift.build.commit.ref"="main"       "io.openshift.build.commit.message"="update file"       "io.openshift.build.source-location"="https://github.com/Fernando0069/my-charts.git"       "io.openshift.build.source-context-dir"="apps/do180-pacman-nodejs/app/src"
-        STEP 3/9: ENV OPENSHIFT_BUILD_NAME="pacman-nodejs-1"     OPENSHIFT_BUILD_NAMESPACE="fernando0069-dev"     OPENSHIFT_BUILD_SOURCE="https://github.com/Fernando0069/my-charts.git"     OPENSHIFT_BUILD_COMMIT="2936c2387290e1aee1b9f6daaf152bc49bfdf100"
-        STEP 4/9: USER root
-        STEP 5/9: COPY upload/src /tmp/src
-        STEP 6/9: RUN chown -R 1001:0 /tmp/src
-        STEP 7/9: USER 1001
-        STEP 8/9: RUN /usr/libexec/s2i/assemble
-        ---> Installing application source ...
-        ---> Installing all dependencies
-        npm warn deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated                            **************
-        npm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated                            **************
-        npm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated                            **************
-        npm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated                            **************
-        npm warn deprecated constantinople@3.0.2: Please update to at least constantinople 3.1.1                            **************
-        npm warn deprecated transformers@2.1.0: Deprecated, use jstransformer                            **************
-        npm warn deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug instead of jade                            **************
-        npm warn deprecated bson@1.0.9: Fixed a critical issue with BSON serialization documented in CVE-2019-2391, see https://bit.ly/2KcpXdo for more details                            **************
-
-        added 323 packages, and audited 324 packages in 15s
-
-        18 packages are looking for funding
-          run `npm fund` for details
-
-        22 vulnerabilities (1 low, 5 moderate, 10 high, 6 critical)
-
-        To address issues that do not require attention, run:
-          npm audit fix
-
-        To address all issues (including breaking changes), run:
-          npm audit fix --force
-
-        Run `npm audit` for details.
-        npm notice
-        npm notice New major version of npm available! 10.8.2 -> 11.2.0                            **************
-        npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.2.0                            **************
-        npm notice To update run: npm install -g npm@11.2.0
-        npm notice
-        ---> Building in production mode
-        ---> Pruning the development dependencies
-
-        up to date, audited 131 packages in 1s
-
-        15 packages are looking for funding
-          run `npm fund` for details
-
-        8 vulnerabilities (1 low, 1 high, 6 critical)
-
-        To address all issues (including breaking changes), run:
-          npm audit fix --force
-
-        Run `npm audit` for details.
-        mountpoint: undefined: No such file or directory
-        ---> Cleaning the undefined/npm-*
-        /opt/app-root/src/.npm is not a mountpoint
-        ---> Cleaning the npm cache /opt/app-root/src/.npm
-        STEP 9/9: CMD /usr/libexec/s2i/run
 
 
-  P - DO180-The-Gems-NodeJS - Pendiente de pruebas y ajustar el helm.
+  P - DO180-The-Gems - Contiene errores, hay que volver a cargarlo.
   
   W - Web-Status - Añadir la nueva aplicación.
 
