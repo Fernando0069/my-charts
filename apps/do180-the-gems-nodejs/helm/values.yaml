@@ -13,7 +13,7 @@ imagePullPolicy: Always
 ports:
   http:
     name: http
-    containerPort: 3000
+    containerPort: 8080
     protocol: TCP
     servicePort: 8080
 git:
