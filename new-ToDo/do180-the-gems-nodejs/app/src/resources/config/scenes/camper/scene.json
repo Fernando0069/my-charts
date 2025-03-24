@@ -1,9 +1,0 @@
-{
-  "name" : "",
-	"tilemap" : "resources/config/scenes/camper/tilemap.json",
-	"imagesRootDir" : "resources/",
-  "images" : {
-		"grass1" : "grass1.png",
-		"grass2" : "grass2.png"
-  }
-}
