@@ -34,14 +34,54 @@ Los objetos que se crean son los siguientes:
 
 ## cli
 
-### Sin DB
 Sin el uso de image o imagestream:
 ```
-  oc new-app --name=pacman-nodejs-mongodb https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-nodejs-mongodb/app/src -l app=pacman-nodejs-mongodb
-  oc create route edge --service=pacman-nodejs-mongodb     # crea ruta segura del tipo edge
+  vi mongodb-pvc.yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: mongodb-pvc
+      namespace: fernando0069-dev
+      labels:
+        app: pacman-nodejs-mongodb
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      volumeMode: Filesystem
+      resources:
+        requests:
+          storage: 1Gi
+  oc apply -f mongodb-pvc.yaml
+  oc new-app mongodb/mongodb-enterprise-server --name=pacman-mongodb -e MONGODB_INITDB_ROOT_USERNAME=pacman-db -e MONGODB_INITDB_ROOT_PASSWORD=P4cM4n-DB -l app=pacman-nodejs-mongodb
+  oc set volume deployment/pacman-mongodb --remove --name=pacman-mongodb-volume-2
+  oc set volume deployment/pacman-mongodb --add --name=pacman-mongodb-volume-2 --claim-name=mongodb-pvc --mount-path=/data/db
+  vi secret-nodejs.yaml
+    kind: Secret
+    apiVersion: v1
+    metadata:
+      name: conect
+      namespace: fernando0069-dev
+      labels:
+        app: pacman-nodejs-mongodb
+    data:
+      MONGO_SERVICE_HOST=cGFjbWFuLW1vbmdvZGI=
+      MONGO_DATABASE=cGFjbWFuLWRi
+      MONGO_AUTH_USER=cGFjbWFuLWRi
+      MONGO_AUTH_PWD=UDRjTTRuLURC
+      MONGO_PORT=MjcwMTc=
+    type: Opaque
+  oc apply -f secret-nodejs.yaml
+  oc new-app --name=pacman-nodejs https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-nodejs-mongodb/app/src -l app=pacman-nodejs-mongodb
+  oc set env deployment/pacman-nodejs --from=secret/conect
+  oc create route edge pacman-nodejs-mongodb --service=pacman-nodejs
   curl -vvv https://pacman-nodejs-mongodb-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=pacman-nodejs-mongodb
 ```
+
+
+  
+  
+  
 
 Usando imagestream con la versión del compilador:
 ```

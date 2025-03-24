@@ -6,16 +6,17 @@ var _db;
 
 function Database() {
     this.connect = function(app, callback) {
-        MongoClient.connect(config.database.url,
-            config.database.options,
-            function (err, db) {
+        MongoClient.connect(config.database.url, config.database.options, function (err, db) {
                 if (err) {
-                    console.log(err);
-                    console.log(config.database.url);
-                    console.log(config.database.options);
+                    console.log('Error al conectar a MongoDB:', err);
+                    console.log('URL:', config.database.url);
+                    console.log('Options File:', config.database.options);
+                    callback(err);
                 } else {
                     _db = db;
                     app.locals.db = db;
+                    console.log('Conexión a MongoDB establecida correctamente');
+                    callback(null);
                 }
                 callback(err);
             });

@@ -11,31 +11,30 @@ Tools:
 
 Training:
   DO180:
-    OK - 1.0.0 - DO180-Openshift-HelloWorld
-    OK - 1.0.0 - DO180-PHP-HelloWorld
-    OK - 1.0.0 - DO180-NodeJS-HelloWorld
-    OK - 1.0.0 - DO180-PHP-Temperature
-    OK - 1.0.0 - DO180-NodeJS-App
+    OK - 1.0.0 - DO180-Openshift-HelloWorld.
+    OK - 1.0.0 - DO180-PHP-HelloWorld.
+    OK - 1.0.0 - DO180-NodeJS-HelloWorld.
+    OK - 1.0.0 - DO180-PHP-Temperature.
+    OK - 1.0.0 - DO180-NodeJS-App.
     OK - 1.0.0 - DO180-ToDo-HTML5 - App not functional (no DB available) but install OK.
     OK - 1.0.0 - DO180-ToDo-NodeJS - App not functional (no DB available) but install OK.
-    OK - 1.0.0 - DO180-Alges-Escapade
-    OK - 1.0.0 - DO180-Retro-Games
-    OK - 1.0.0 - DO180-AntiPacMan
-    OK - 1.0.0 - DO180-O
-    OK - 1.0.0 - DO180-Tic-Tac-Toe
-    OK - 1.0.0 - DO180-Tetris-JS
-    OK - 1.0.0 - DO180-Super-Mario-HTML5
-    OK - 1.0.0 - DO180-Lord-of-the-Rings
-    OK - 1.0.0 - DO180-Lilo-and-Stitch
-    OK - 1.0.0 - DO180-Hangman-Game
-    OK - 1.0.0 - DO180-Weather-React
+    OK - 1.0.0 - DO180-Alges-Escapade.
+    OK - 1.0.0 - DO180-Retro-Games.
+    OK - 1.0.0 - DO180-AntiPacMan.
+    OK - 1.0.0 - DO180-O.
+    OK - 1.0.0 - DO180-Tic-Tac-Toe.
+    OK - 1.0.0 - DO180-Tetris-JS.
+    OK - 1.0.0 - DO180-Super-Mario-HTML5.
+    OK - 1.0.0 - DO180-Lord-of-the-Rings.
+    OK - 1.0.0 - DO180-Lilo-and-Stitch.
+    OK - 1.0.0 - DO180-Hangman-Game.
+    OK - 1.0.0 - DO180-Weather-React.
+    OK - 1.0.0 - DO180-Pacman-NodeJS - App functional (no DB available) but install OK.
 ```
 
 # Working
 ```
-  W - DO180-Pacman-NodeJS - App functional (no DB available) but install OK. -----> todo preparado para hacer las pruebas de todo tipo cli y helm, a ver si funciona aunque muestre error en la DB
   W - DO180-Pacman-NodeJS-MongoDB - Copiar "DO180-Pacman-NodeJS" y añadirle la DB necesaria.
-
 
   P - DO180-The-Gems - Vuelve a tener errores por el limite al moverlo a la carpeta adecuada, pro lo tanto realizar las modificaciones y el movimiento poco a poco para no superar el límite. Hacerlo desde casa para evitar problemas de limites y adecuarlo antes de subirlo y subirlo a la carpeta de apps
                        Contiene errores, hay que volver a cargarlo.
