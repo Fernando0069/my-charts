@@ -30,6 +30,7 @@ List applications:
         DO180-Lilo-and-Stitch
         DO180-Hangman-Game
         DO180-Weather-React
+        DO180-Pacman-NodeJS
 ```
 
 # Repository

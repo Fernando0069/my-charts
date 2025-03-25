@@ -35,6 +35,11 @@ Training:
 # Working
 ```
   W - DO180-Pacman-NodeJS-MongoDB - Copiar "DO180-Pacman-NodeJS" y añadirle la DB necesaria.
+      Primero la DB 
+      Segundo la APP 
+      Probar arrancar MongoDB manual.
+      Conectar la APP con el MongoDB de manera manual.
+      Exportar configuración para usarla en Helm.
 
   P - DO180-The-Gems - Vuelve a tener errores por el limite al moverlo a la carpeta adecuada, pro lo tanto realizar las modificaciones y el movimiento poco a poco para no superar el límite. Hacerlo desde casa para evitar problemas de limites y adecuarlo antes de subirlo y subirlo a la carpeta de apps
                        Contiene errores, hay que volver a cargarlo.
