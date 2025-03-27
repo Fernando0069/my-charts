@@ -65,17 +65,19 @@ Sin el uso de image o imagestream:
       pwd: "P4cM4n-DB",
       roles: [{ role: "readWrite", db: "pacman-db" }]
     })
+    // Verificar
     db.getUsers()
+    
     // Crear colección con documento de ejemplo
-    db.scores.insertOne({
+    db.highscores.insertOne({
       player: "JugadorPrueba",
       score: 150,
       timestamp: new Date()
     });
     // Crear índice para optimizar consultas de ranking
-    db.scores.createIndex({ score: -1 });
+    db.highscores.createIndex({ score: -1 });
     // Verificar
-    db.scores.find().sort({ score: -1 }).pretty();
+    db.highscores.find().sort({ score: -1 }).pretty();
     exit
     mongosh -u pacman-db -p P4cM4n-DB --authenticationDatabase pacman-db
   vi secret-nodejs.yaml
