@@ -52,27 +52,50 @@ Sin el uso de image o imagestream:
         requests:
           storage: 1Gi
   oc apply -f mongodb-pvc.yaml
-  oc new-app mongodb/mongodb-enterprise-server --name=pacman-mongodb -e MONGODB_INITDB_ROOT_USERNAME=pacman-db -e MONGODB_INITDB_ROOT_PASSWORD=P4cM4n-DB -l app=pacman-nodejs-mongodb
+  CREAR SECRET PARA LOS CREDENCIALES DE ADMIN DEL MONGODB
+  oc new-app mongodb/mongodb-enterprise-server --name=pacman-mongodb -e MONGODB_INITDB_ROOT_USERNAME=admin -e MONGODB_INITDB_ROOT_PASSWORD=Admin123 -l app=pacman-nodejs-mongodb
   oc set volume deployment/pacman-mongodb --remove --name=pacman-mongodb-volume-2
   oc set volume deployment/pacman-mongodb --add --name=pacman-mongodb-volume-2 --claim-name=mongodb-pvc --mount-path=/data/db
+  oc rsh deployment/pacman-mongodb
+    mongosh -u admin -p Admin123 --authenticationDatabase admin
+    use pacman-db
+    # Creacion del usuario.
+    db.createUser({
+      user: "pacman-db",
+      pwd: "P4cM4n-DB",
+      roles: [{ role: "readWrite", db: "pacman-db" }]
+    })
+    db.getUsers()
+    // Crear colección con documento de ejemplo
+    db.scores.insertOne({
+      player: "JugadorPrueba",
+      score: 150,
+      timestamp: new Date()
+    });
+    // Crear índice para optimizar consultas de ranking
+    db.scores.createIndex({ score: -1 });
+    // Verificar
+    db.scores.find().sort({ score: -1 }).pretty();
+    exit
+    mongosh -u pacman-db -p P4cM4n-DB --authenticationDatabase pacman-db
   vi secret-nodejs.yaml
     kind: Secret
     apiVersion: v1
     metadata:
-      name: conect
+      name: connect
       namespace: fernando0069-dev
       labels:
         app: pacman-nodejs-mongodb
     data:
-      MONGO_SERVICE_HOST=cGFjbWFuLW1vbmdvZGI=
-      MONGO_DATABASE=cGFjbWFuLWRi
-      MONGO_AUTH_USER=cGFjbWFuLWRi
-      MONGO_AUTH_PWD=UDRjTTRuLURC
-      MONGO_PORT=MjcwMTc=
+      MONGO_SERVICE_HOST: cGFjbWFuLW1vbmdvZGI=
+      MONGO_DATABASE: cGFjbWFuLWRi
+      MONGO_AUTH_USER: cGFjbWFuLWRi
+      MONGO_AUTH_PWD: UDRjTTRuLURC
+      MONGO_PORT: MjcwMTc=
     type: Opaque
   oc apply -f secret-nodejs.yaml
   oc new-app --name=pacman-nodejs https://github.com/Fernando0069/my-charts.git --context-dir=apps/do180-pacman-nodejs-mongodb/app/src -l app=pacman-nodejs-mongodb
-  oc set env deployment/pacman-nodejs --from=secret/conect
+  oc set env deployment/pacman-nodejs --from=secret/connect
   oc create route edge pacman-nodejs-mongodb --service=pacman-nodejs
   curl -vvv https://pacman-nodejs-mongodb-fernando0069-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/
   oc delete all -l app=pacman-nodejs-mongodb
@@ -99,4 +122,82 @@ Los objetos que se crean son los siguientes:
   3.- Deployment.
   4.- Service.
   5.- Route.
+```
+
+
+
+
+
+# ARQUITECTURA DE LA APLCIACION 
+```
+.
+├── app.js
+├── bin
+│   └── server.js
+├── lib
+│   ├── config.js
+│   └── database.js
+├── package.json
+├── public
+│   ├── cache.manifest
+│   ├── data
+│   │   └── map.json
+│   ├── fonts
+│   │   ├── PressStart2Play.eot
+│   │   ├── PressStart2Play.ttf
+│   │   └── PressStart2Play.woff
+│   ├── img
+│   │   ├── audio-icon-mute.png
+│   │   ├── audio-icon.png
+│   │   ├── bg-pattern-black.png
+│   │   ├── blinky.svg
+│   │   ├── clyde.svg
+│   │   ├── dazzled.svg
+│   │   ├── dazzled2.svg
+│   │   ├── dead.svg
+│   │   ├── heart.png
+│   │   ├── icon-106x106.png
+│   │   ├── icon-128.png
+│   │   ├── icon-128_old.png
+│   │   ├── icon-130x130.png
+│   │   ├── icon-150x130.png
+│   │   ├── icon-200x200.png
+│   │   ├── icon-300x300.png
+│   │   ├── icon-32x32.png
+│   │   ├── icon-512x512.png
+│   │   ├── inky.svg
+│   │   ├── instructions
+│   │   │   ├── instructions_chase.png
+│   │   │   ├── instructions_powerpill.png
+│   │   │   └── instructions_scatter.png
+│   │   ├── pacman-icon.svg
+│   │   ├── pinky.svg
+│   │   └── platzh1rsch-logo.png
+│   ├── index.html
+│   ├── js
+│   │   ├── jquery-1.10.2.min.js
+│   │   └── jquery.hammer.min.js
+│   ├── mp3
+│   │   ├── die.mp3
+│   │   ├── eatghost.mp3
+│   │   ├── powerpill.mp3
+│   │   ├── theme.mp3
+│   │   └── waka.mp3
+│   ├── pacman-canvas.css
+│   ├── pacman-canvas.js
+│   ├── style.css
+│   └── wav
+│       ├── die.wav
+│       ├── eatghost.wav
+│       ├── powerpill.wav
+│       ├── theme.wav
+│       └── waka.wav
+├── routes
+│   ├── highscores.js
+│   ├── location.js
+│   └── user.js
+└── views
+    ├── error.jade
+    ├── index.jade
+    └── layout.jade
 ```

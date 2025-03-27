@@ -1,16 +1,18 @@
-var service_host = 'localhost'
-var auth_details = ''
-var mongo_database = 'pacman'
-var mongo_port = '27017'
+var service_host = ''
+var mongo_database = ''
+var mongo_port = ''
 var use_ssl = false
 var validate_ssl = true
+var auth_details = ''
 var connection_details = ''
 
+/*
 console.log("MONGO_SERVICE_HOST:", process.env.MONGO_SERVICE_HOST);
 console.log("MONGO_DATABASE:", process.env.MONGO_DATABASE);
 console.log("MONGO_PORT:", process.env.MONGO_PORT);
 console.log("MONGO_AUTH_USER:", process.env.MONGO_AUTH_USER);
 console.log("MONGO_AUTH_PWD:", process.env.MONGO_AUTH_PWD);
+*/
 
 if(process.env.MONGO_SERVICE_HOST) {
     service_host = process.env.MONGO_SERVICE_HOST
