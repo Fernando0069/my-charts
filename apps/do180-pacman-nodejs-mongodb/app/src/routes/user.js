@@ -109,8 +109,7 @@ router.get('/stats', function(req, res, next) {
             return next(err);
         }
 
-        // Find all elements where the score field exists to avoid
-        // undefined values
+        // Find all elements where the score field exists to avoid undefined values
         var col = db.collection('userstats');
         col.find({ score: {$exists: true}}).sort([['_id', 1]]).toArray(function(err, docs) {
             var result = [];
@@ -120,14 +119,14 @@ router.get('/stats', function(req, res, next) {
 
             docs.forEach(function(item, index, array) {
                 result.push({
-                                cloud: item['cloud'],
-                                zone: item['zone'],
-                                host: item['host'],
-                                score: item['score'],
-                                level: item['level'],
-                                lives: item['lives'],
-                                et: item['elapsedTime'],
-                                txncount: item['updateCounter']
+                    cloud: item['cloud'],
+                    zone: item['zone'],
+                    host: item['host'],
+                    score: item['score'],
+                    level: item['level'],
+                    lives: item['lives'],
+                    et: item['elapsedTime'],
+                    txncount: item['updateCounter']
                 });
             });
 

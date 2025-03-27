@@ -43,7 +43,7 @@ if(process.env.MONGO_VALIDATE_SSL) {
 if(process.env.MONGO_AUTH_USER && process.env.MONGO_AUTH_PWD) {
     auth_details = `${process.env.MONGO_AUTH_USER}:${process.env.MONGO_AUTH_PWD}@`
 }
-
+/*
 var hosts = service_host.split(',')
 
 for (let i=0; i<hosts.length;i++) {
@@ -51,6 +51,9 @@ for (let i=0; i<hosts.length;i++) {
 }
 
 connection_details = connection_details.replace(/,\s*$/, "");
+*/
+
+connection_details = `${service_host}:${mongo_port}`
 
 var database = {
     url: `mongodb://${auth_details}${connection_details}/${mongo_database}`,
@@ -58,7 +61,7 @@ var database = {
         readPreference: 'secondaryPreferred'
     }
 };
-
+/*
 if(process.env.MONGO_REPLICA_SET) {
     database.options.replicaSet = process.env.MONGO_REPLICA_SET
 }
@@ -67,5 +70,5 @@ if(use_ssl) {
     database.options.ssl = use_ssl
     database.options.sslValidate = validate_ssl
 }
-
+*/
 exports.database = database;
